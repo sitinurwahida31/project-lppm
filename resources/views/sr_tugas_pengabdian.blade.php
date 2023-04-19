@@ -72,7 +72,7 @@
          @include('layout.header_admin')
 
         <div class="bg-white h-9 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
-            <span class="text-green-700 font-bold pl-5 text-sm sm:flex ">DATA SURAT PENGESAHAN PENGABDIAN</span>
+            <span class="text-green-700 font-bold pl-5 text-sm sm:flex ">DATA SURAT TUGAS PENGABDIAN</span>
         </div>
 
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
