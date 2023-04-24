@@ -2,7 +2,7 @@
     <div class="flex justify-between w-full bg-green-900 pt-2 pl-10 pr-10">
         <div class="mb-6 md:mb-0 py-4">
           <a href="" class="flex items-center pl-8">
-              <img src="img/logo.png" class="h-9 mr-3 sm:h-9" alt="logo uncp">
+              <img src="/img/logo.png" class="h-9 mr-3 sm:h-9" alt="logo uncp">
               <span class="self-center font-extrabold text-sm text-white">LPPM UNCP</span>
           </a>
         </div>

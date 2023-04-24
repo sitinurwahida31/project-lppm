@@ -6,7 +6,7 @@
             <!-- Header -->
             <div class="grid justify-items-center">
                 <div class="w-[40%]">
-                    <img class=" pb-2 logo-uncp" src="img/logo.png" alt="Logo Universitas Cokroaminoto Palopo">
+                    <img class=" pb-2 logo-uncp" src="/img/logo.png" alt="Logo Universitas Cokroaminoto Palopo">
                 </div>
                 <p class="font-semibold text-green-700 text-lg text-center">LPPM UNCP</p>
             </div>
@@ -26,7 +26,7 @@
                         <!-- ICON ALAT -->
                     <li>
                     <li>
-                        <a href="/user" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
+                        <a href="/datauser" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                               </svg>
@@ -34,7 +34,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/data_surat" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
+                        <a href="/datasurat" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard2-data-fill" viewBox="0 0 16 16">
                                 <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
                                 <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585c.055.156.085.325.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5c0-.175.03-.344.085-.5ZM10 7a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7Zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1Zm4-3a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z"/>
@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a button id="dropdownButtonpenelitian" data-dropdown-toggle="dropdown" class="flex items-center gap-x-4 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
+                        <a button id="dropdownButtonpenelitian" data-dropdown-toggle="dropdownpenelitian" class="flex items-center gap-x-4 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
                                 <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>
@@ -57,7 +57,7 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
                                           </svg>
-                                          <a href="/tugas-penelitian" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Tugas</a>
+                                          <a href="/surattugas/penelitian" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Tugas</a>
                                         </div>
                                         </li>
                                     <li>
@@ -65,7 +65,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
                                               </svg>
-                                            <a href="/pengesahan-penelitian" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Pengesahan</a>
+                                            <a href="/suratpengesahan/penelitian" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Pengesahan</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -73,21 +73,21 @@
                         </a>
                     </li>
                     <li>
-                        <a button id="dropdownButtonpengabdian" data-dropdown-toggle="dropdown" class="flex items-center gap-x-2.5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
+                        <a button id="dropdownButtonpengabdian" data-dropdown-toggle="dropdownPengabdian" class="flex items-center gap-x-2.5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
                                 <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>
                             <p class="font-medium text-xs">Pengabdian</p>
                             <svg class="w-4 h-4 ml-2 flex-row flex" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
                             <!-- Dropdown menu -->
-                            <div id="dropdown" class="px-4 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-55 dark:bg-gray-700">
+                            <div id="dropdownPengabdian" class="px-4 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-55 dark:bg-gray-700">
                                 <ul class="py-2 text-sm text-amber-400 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                                     <li>
                                         <div class="items-center gap-x-4 hidden sm:flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
                                               </svg>
-                                              <a href="/pengabdian1" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Tugas</a>
+                                              <a href="/surattugas/pengabdian" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Tugas</a>
                                         </div>
                                         </li>
                                     <li>
@@ -95,7 +95,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
                                             </svg>
-                                            <a href="/pengabdian2" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Pengesahan</a>
+                                            <a href="/suratpengesahan/pengabdian" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Pengesahan</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -145,7 +145,7 @@
             <ul class="flex flex-col ">
                 <!-- ICON DAN TEXT LOG OUT -->
                 <li>
-                    <a href="" class="flex items-center gap-x-4 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400 onclick= return confirm('Anda yakin ingin keluar?')">
+                    <a href="/" class="flex items-center gap-x-4 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400 onclick= return confirm('Anda yakin ingin keluar?')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                             <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
