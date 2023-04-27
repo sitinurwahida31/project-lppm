@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralViewController;
 use App\Http\Controllers\SuratPenelitianController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/signin', [GeneralViewController::class, 'signin'])->name('signin');
+Route::post('/signupstore', [UserController::class, 'store'])->name('signupstore');
 Route::get('/', [GeneralViewController::class, 'landing'])->name('landing');
+Route::post('/autenticate', [LoginController::class, 'authenticate'])->name('autenticate');
+Route::post('/logout', [LoginController::class, 'logout']);
 
 // === ROUTE ADMIN ===
 Route::get('/dashboard', [GeneralViewController::class, 'dashboard'])->name('dashboard');

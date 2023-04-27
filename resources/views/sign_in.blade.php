@@ -141,13 +141,13 @@ form.sign-in-form {
 }
 
 .social-icon:hover {
-  color: #E4CE00;
-  border-color: #E4CE00;
+  color: #166534;
+  border-color: #166534;
 }
 
 .btn {
   width: 150px;
-  background-color: #E4CE00;
+  background-color: #166534;
   border: none;
   outline: none;
   height: 49px;
@@ -161,7 +161,7 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #C0AD01;
+  background-color: #009e3f;
 }
 .panels-container {
   position: absolute;
@@ -181,7 +181,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #E4CE00 0%, #E4CE00 100%);
+  background-image: linear-gradient(-45deg, #166534 0%, #166534 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -457,21 +457,22 @@ form.sign-in-form {
                 @enderror
             {{-- iconts --}}
                 <input type="submit" value="Login" class="btn solid" />
-                    <p class="social-text">Or Sign in with social platforms</p>
-                        <div class="social-media">
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a href="#" class="social-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
+
+                {{-- <p class="social-text">Or Sign in with social platforms</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div> --}}
           </form>
           <!--END-->
 

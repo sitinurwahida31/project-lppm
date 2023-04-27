@@ -8,11 +8,15 @@ class GeneralViewController extends Controller
 {
     public function signin()
     {
+        return view('generalview.signin');
+    }
+    public function signup()
+    {
         return view('sign_in');
     }
     public function landing()
     {
-        return view('.layoutdosen.landing');
+        return view('layoutdosen.landing');
     }
 
     // == FUNCTION UNTUK VIEW ADMIN ==

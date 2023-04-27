@@ -214,3 +214,14 @@ a{
 .container.sign-up-mode .left-panel{
     pointer-events: all;
 }
+
+.invalid-feedback {
+    color: rgb(247, 27, 27) !important;
+    border-color: rgb(247, 27, 27) !important;
+}
+.message-error {
+    color: rgb(247, 27, 27);
+    font-style: italic;
+    font-size: 12px;
+    text-align: left !important;
+}
