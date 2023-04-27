@@ -20,7 +20,7 @@ class SuratPenelitianController extends Controller
      */
     public function index()
     {
-        $datas = DB::table('pnlt_surat_penelitian')->get();
+        $datas = DB::table('tb_surat')->get();
         // dd($datas);
         return view('layoutdosen.arsip_dosen_penelitian', [
             'datas' => $datas,
@@ -46,7 +46,25 @@ class SuratPenelitianController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            '' => 'require',
+            'jangka_waktu' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_selesai' => 'required',
+            'sumber_dana' => 'required',
+            'mitra' => 'required',
+            'biaya_penelitian' => 'required',
+            'terbilang' => 'required',
+            'jarak_lokasi_mitra' => 'required',
+            'produk' => 'required',
+            'publikasi_ilmiah' => 'required',
+
+            //validate ketua tim
+            'nama_ketua' => 'required',
+            'nomor_induk_ketua' => 'required',
+            'prodi_ketua' => 'required',
+            'jabatan_fungsi' => 'required',
+            'email' => 'required',
+            'telepon' => 'required',
+
         ]);
 
         // == CREATE DATA IN SURAT PENELITIAN DETAIL==

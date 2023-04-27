@@ -112,19 +112,19 @@
                     </div>
                     <div>
                         <label for="nomor_surat" class="block mb-1 text-xs font-medium fxsont-medium text-gray-900 dark:text-white">Nomer Surat</label>
-                        <input type="text" id="nomor_surat" name="nomor_surat" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nomor Surat" >
+                        <input type="text" id="nomor_surat" name="nomor_surat" value="{{ old('nomor_surat')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nomor Surat" >
                     </div>
                 </div>
                 {{-- row 2 --}}
                 <div class="mb-4">
                     <label for="judul_penelitian" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Judul Penelitian</label>
-                    <textarea id="judul_penelitian" name="judul_penelitian" rows="4" class="block pl-3 pt-2 pb-2 p-1 w-full h-16 text-xs text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Judul Penelitian"></textarea>
+                    <textarea id="judul_penelitian" name="judul_penelitian" value="{{ old('judul_penelitian')}}" rows="4" class="block pl-3 pt-2 pb-2 p-1 w-full h-16 text-xs text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Judul Penelitian"></textarea>
                 </div>
                 {{-- row 3 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-3">
                     <div>
                         <label for="jangka_waktu" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jangka Waktu Penelitian</label>
-                        <input type="text" id="jangka_waktu" name="jangka_waktu" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jangka Waktu Penelitian" >
+                        <input type="text" id="jangka_waktu" name="jangka_waktu" value="{{ old('jangka_waktu')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jangka Waktu Penelitian" >
                     </div>
                     <div>
                         <label for="tanggal_mulai" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Tanggal Mulai</label>
@@ -153,11 +153,11 @@
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                     <div>
                         <label for="jarak_lokasi_mitra" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jarak PT ke lokasi Mitra</label>
-                        <input type="text" id="jarak_lokasi_mitra" name="jarak_lokasi_mitra" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jarak PT Ke Lokasi" >
+                        <input type="text" id="jarak_lokasi_mitra" name="jarak_lokasi_mitra" value="{{ old('jarak_lokasi_mitra')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jarak PT Ke Lokasi" >
                     </div>
                     <div>
                         <label for="mitra" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Mitra</label>
-                        <input type="text" id="mitra" name="mitra" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan Mitra" >
+                        <input type="text" id="mitra" name="mitra" value="{{ old('mitra')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan Mitra" >
                     </div>
                 </div>
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
@@ -177,11 +177,11 @@
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                     <div>
                         <label for="biaya_penelitian" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Biaya Penelitian</label>
-                        <input type="text" id="biaya_penelitian" name="biaya_penelitian" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Biaya Penelitian" >
+                        <input type="text" id="biaya_penelitian" name="biaya_penelitian" value="{{ old('biaya_penelitian')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Biaya Penelitian" >
                     </div>
                     <div>
                         <label for="terbilang" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Terbilang</label>
-                        <input type="text" id="terbilang" name="terbilang" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tiga Juta Rupiah" >
+                        <input type="text" id="terbilang" name="terbilang" value="{{ old('terbilang')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tiga Juta Rupiah" >
                     </div>
                 </div>
             </div>
@@ -195,11 +195,11 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <label for="nama_ketua" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Ketua Tim</label>
-                        <input type="text" id="nama_ketua" name="nama_ketua" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Ketua" >
+                        <input type="text" id="nama_ketua" name="nama_ketua" value="{{ old('nama_ketua')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Ketua" >
                     </div>
                     <div>
                         <label for="nomor_induk_ketua" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID</label>
-                        <input type="text" id="nomor_induk_ketua" name="nomor_induk_ketua" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <input type="text" id="nomor_induk_ketua" name="nomor_induk_ketua" value="{{ old('nomor_induk_ketua')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                     </div>
                     <div>
                         <label for="prodi_ketua" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Program Studi</label>
@@ -222,11 +222,11 @@
                     </div>
                     <div>
                         <label for="email" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Alamat Surel (Email)</label>
-                        <input type="text" id="email" name="email" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" >
+                        <input type="text" id="email" name="email" value="{{ old('email')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" >
                     </div>
                     <div>
                         <label for="telepon" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nomer Handphone (HP)</label>
-                        <input type="text" id="telepon" name="telepon" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="HP" >
+                        <input type="text" id="telepon" name="telepon" value="{{ old('telepon')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="HP" >
                     </div>
                 </div>
             </div>
@@ -240,54 +240,54 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2 ">
                     <div>
                         <label for="nama_anggota1" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 1</label>
-                        <input type="text" id="nama_anggota1" name="nama_anggota1" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_anggota1" value="{{ old('nama_anggota1')}}" name="nama_anggota1" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
                         <label for="nomor_induk_anggota1" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 1</label>
-                        <input type="text" id="nomor_induk_anggota1" name="nomor_induk_anggota1" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <input type="text" id="nomor_induk_anggota1" name="nomor_induk_anggota1" value="{{ old('nomor_induk_anggota1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                     </div>
                     <div>
                         <label for="nama_anggota2" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 2</label>
-                        <input type="text" id="nama_anggota2" name="nama_anggota2" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_anggota2" name="nama_anggota2" value="{{ old('nama_anggota2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
                         <label for="nomor_induk_anggota2" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 2</label>
-                        <input type="text" id="nomor_induk_anggota2" name="nomor_induk_anggota2" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <input type="text" id="nomor_induk_anggota2" name="nomor_induk_anggota2" value="{{ old('nomor_induk_anggota2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                     </div>
                     <div>
                         <label for="nama_anggota3" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 3</label>
-                        <input type="text" id="nama_anggota3" name="nama_anggota3" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_anggota3" name="nama_anggota3" value="{{ old('nama_anggota3')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
                         <label for="nomor_induk_anggota3" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 3</label>
-                        <input type="text" id="nomor_induk_anggota3" name="nomor_induk_anggota3" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <input type="text" id="nomor_induk_anggota3" name="nomor_induk_anggota3" value="{{ old('nomor_induk_anggota3')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                     </div>
                     <div>
                         <label for="nama_anggota4" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 4</label>
-                        <input type="text" id="nama_anggota4" name="nama_anggota4" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_anggota4" name="nama_anggota4" value="{{ old('nama_anggota4')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
                         <label for="nomor_induk_anggota4" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 4</label>
-                        <input type="text" id="nomor_induk_anggota4" name="nomor_induk_anggota4" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <input type="text" id="nomor_induk_anggota4" name="nomor_induk_anggota4" value="{{ old('nomor_induk_anggota4')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                     </div>    
                 </div>
                 
                 <div class="grid gap-6 mb-6 md:grid-cols-2 mt-4">
                     <div>
                         <label for="nama_mahasiswa1" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Mahasiswa 1</label>
-                        <input type="text" id="nama_mahasiswa1" name="nama_mahasiswa1" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_mahasiswa1" name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
                         <label for="nim_mahasiswa1" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIM Mahasiswa 1</label>
-                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
+                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
                     </div>
                     <div>
                         <label for="nama_mahasiswa2" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Mahasiswa 2</label>
-                        <input type="text" id="nama_mahasiswa2" name="nama_mahasiswa2" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_mahasiswa2" name="nama_mahasiswa2" value="{{ old('nama_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
                         <label for="nim_mahasiswa2" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIM Mahasiswa 2</label>
-                        <input type="text" id="nim_mahasiswa2" name="nim_mahasiswa2" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
+                        <input type="text" id="nim_mahasiswa2" name="nim_mahasiswa2" value="{{ old('nim_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
                     </div>
                 </div>
             </div>
