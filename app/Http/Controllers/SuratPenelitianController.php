@@ -49,15 +49,34 @@ class SuratPenelitianController extends Controller
             'jangka_waktu' => 'required',
             'tanggal_mulai' => 'required',
             'tanggal_selesai' => 'required',
-            'sumber_dana' => 'required',
-        ]);
+            'sumberdana' => 'required',
+            'mitra' => 'required',
+            'biaya_penelitian' => 'required',
+            'terbilang' => 'required',
+            'jarak_lokasi_mitra' => 'required',
+            'produk' => 'required',
+            'publikasi_ilmiah' => 'required',
 
+            'nama_ketua' => 'required',
+            'nomor_induk_ketua' => 'required',
+            'prodi_ketua' => 'required',
+            'jabatan_fungsional' => 'required',
+            'email' => 'required',
+            'telepon' => 'required',
+
+            'judul_penelitian' => 'required',
+            'semester' => 'required',
+            'nomor_surat' => 'required',
+            'nama_anggota1' => 'required',
+            'nomor_induk_anggota1' => 'required',
+        ]);
+        
         // == CREATE DATA IN SURAT PENELITIAN DETAIL==
         $requestDetailSuratPenelitian = [
             'jangka_waktu' => $request->jangka_waktu,
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_selesai' => $request->tanggal_selesai,
-            'sumber_dana' => $request->sumber_dana,
+            'sumber_dana' => $request->sumberdana,
             'mitra' => $request->mitra,
             'biaya_penelitian' => $request->biaya_penelitian,
             'terbilang' => $request->terbilang,
@@ -66,7 +85,6 @@ class SuratPenelitianController extends Controller
             'publikasi_ilmiah' => $request->publikasi_ilmiah,
             'user_create' => 1
         ];
-
         $detailSurat = SuratDetail::create($requestDetailSuratPenelitian);
 
         // == CREATE DATA IN KETUA TIM==
@@ -74,7 +92,7 @@ class SuratPenelitianController extends Controller
             'nama' => $request->nama_ketua,
             'nomor_induk' => $request->nomor_induk_ketua,
             'prodi' => $request->prodi_ketua,
-            'jabatan_fungsi' => $request->jabatan_fungsi,
+            'jabatan_fungsional' => $request->jabatan_fungsional,
             'email' => $request->email,
             'telepon' => $request->telepon,
             'user_create' => 1
@@ -90,6 +108,7 @@ class SuratPenelitianController extends Controller
             'id_ketua' => $ketuaTim->id,
             'user_create' => 1
         ];
+
         $suratPenelitian = Surat::create($requestSuratPenelitian);
 
         if($request->nama_anggota1 && $request->nomor_induk_anggota1){
