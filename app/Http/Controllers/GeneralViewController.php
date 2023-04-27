@@ -51,14 +51,6 @@ class GeneralViewController extends Controller
     {
         return view('layoutdosen.fitur_menu_penelitian');
     }
-    public function penelitianInputPenelitian()
-    {
-        return view('layoutdosen.form_input_penelitian');
-    }
-    public function penelitianArsipDosen()
-    {
-        return view('layoutdosen.arsip_dosen_penelitian');
-    }
     public function suratTugasPenelitianFormat()
     {
         return view('layoutdosen.format_sr-tugas_penelitian');

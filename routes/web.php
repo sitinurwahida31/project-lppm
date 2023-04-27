@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GeneralViewController;
+use App\Http\Controllers\SuratPenelitianController;
 
 Route::get('/signin', [GeneralViewController::class, 'signin'])->name('signin');
 Route::get('/', [GeneralViewController::class, 'landing'])->name('landing');
@@ -18,8 +19,9 @@ Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratP
 // === ROUTE DOSEN ==
 // == PENELITIAN ==
 Route::get('/penelitian', [GeneralViewController::class, 'penelitian']);
-Route::get('/penelitian/inputpenelitian', [GeneralViewController::class, 'penelitianInputPenelitian']);
-Route::get('/penelitian/arsipdosen', [GeneralViewController::class, 'penelitianArsipDosen']);
+Route::get('/penelitian/arsipdosen', [SuratPenelitianController::class, 'index']);
+Route::get('/penelitian/inputpenelitian', [SuratPenelitianController::class, 'create']);
+Route::post('/storesuratpenelitian', [SuratPenelitianController::class, 'store']);
 Route::get('/surattugas/penelitian/format', [GeneralViewController::class, 'suratTugasPenelitianFormat']);
 Route::get('/suratpengesahan/penelitian/format', [GeneralViewController::class, 'suratPengesahanPenelitianFormat']);
 
