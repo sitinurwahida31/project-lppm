@@ -1,11 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GeneralViewController;
 use App\Http\Controllers\SuratPenelitianController;
+use App\Http\Controllers\SuratPengabdianController;
 
 Route::get('/signin', [GeneralViewController::class, 'signin'])->name('signin');
+Route::post('/signupstore', [UserController::class, 'store'])->name('signupstore');
 Route::get('/', [GeneralViewController::class, 'landing'])->name('landing');
+Route::post('/autenticate', [LoginController::class, 'authenticate'])->name('autenticate');
+Route::post('/logout', [LoginController::class, 'logout']);
 
 // === ROUTE ADMIN ===
 Route::get('/dashboard', [GeneralViewController::class, 'dashboard'])->name('dashboard');
@@ -28,6 +34,7 @@ Route::get('/suratpengesahan/penelitian/format', [GeneralViewController::class, 
 // == PENGABDIAN ==
 Route::get('/pengabdian', [GeneralViewController::class, 'pengabdian']);
 Route::get('/pengabdian/inputpengabdian', [GeneralViewController::class, 'pengabdianInputPengabdian']);
-Route::get('/pengabdian/arsipdosen', [GeneralViewController::class, 'pengabdianArsipDosen']);
+Route::get('/pengabdian/arsipdosen', [SuratPengabdianController::class, 'index']);
 Route::get('/surattugas/pengabdian/format', [GeneralViewController::class, 'suratTugasPengabdianFormat']);
+Route::post('/storesuratpengabdian', [SuratPengabdianController::class, 'store']);
 Route::get('/suratpengesahan/pengabdian/format', [GeneralViewController::class, 'suratPengesahanPengabdianFormat']);
