@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SuratDetail;
 use Illuminate\Http\Request;
 
-class SuratPenelitianDetailController extends Controller
+class SuratPengabdianController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class SuratPenelitianDetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SuratDetail  $SuratDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SuratDetail $SuratDetail)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class SuratPenelitianDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SuratDetail  $SuratDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SuratDetail $SuratDetail)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class SuratPenelitianDetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SuratDetail  $SuratDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SuratDetail $SuratDetail)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class SuratPenelitianDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SuratDetail  $SuratDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SuratDetail $SuratDetail)
+    public function destroy($id)
     {
         //
     }

@@ -61,7 +61,7 @@ class SuratPenelitianController extends Controller
             'nama_ketua' => 'required',
             'nomor_induk_ketua' => 'required',
             'prodi_ketua' => 'required',
-            'jabatan_fungsi' => 'required',
+            'jabatan_fungsional' => 'required',
             'email' => 'required',
             'telepon' => 'required',
 
@@ -89,7 +89,7 @@ class SuratPenelitianController extends Controller
             'nama' => $request->nama_ketua,
             'nomor_induk' => $request->nomor_induk_ketua,
             'prodi' => $request->prodi_ketua,
-            'jabatan_fungsi' => $request->jabatan_fungsi,
+            'jabatan_fungsional' => $request->jabatan_fungsional,
             'email' => $request->email,
             'telepon' => $request->telepon,
             'user_create' => 1
@@ -103,6 +103,8 @@ class SuratPenelitianController extends Controller
             'semester' => $request->semester,
             'id_detail_surat' => $detailSurat->id,
             'id_ketua' => $ketuaTim->id,
+            'jenis_surat' => 'penelitian',
+            'status' => 'terbuat',
             'user_create' => 1
         ];
         $suratPenelitian = Surat::create($requestSuratPenelitian);

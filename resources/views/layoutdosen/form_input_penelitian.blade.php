@@ -111,14 +111,14 @@
                         </select>
                     </div>
                     <div>
-                        <label for="nomor_surat" class="block mb-1 text-xs font-medium fxsont-medium text-gray-900 dark:text-white">Nomer Surat</label>
+                        <label for="nomor_surat" class="block mb-1 text-xs font-medium fxsont-medium text-gray-900 dark:text-white">Nomor Surat</label>
                         <input type="text" id="nomor_surat" name="nomor_surat" value="{{ old('nomor_surat')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nomor Surat" >
                     </div>
                 </div>
                 {{-- row 2 --}}
                 <div class="mb-4">
                     <label for="judul_penelitian" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Judul Penelitian</label>
-                    <textarea id="judul_penelitian" name="judul_penelitian" value="{{ old('judul_penelitian')}}" rows="4" class="block pl-3 pt-2 pb-2 p-1 w-full h-16 text-xs text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Judul Penelitian"></textarea>
+                    <textarea id="judul_penelitian" name="judul_penelitian" rows="4" value="{{ old('judul_penelitian')}}" class="block pl-3 pt-2 pb-2 p-1 w-full h-16 text-xs text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Judul Penelitian"></textarea>
                 </div>
                 {{-- row 3 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-3">
