@@ -27,6 +27,24 @@ class SuratPenelitianController extends Controller
             'datas' => $datas,
         ]);
     }
+    public function indexadmin()
+    {
+        $datas = DB::table('tb_surat')
+        ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
+        ->join('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
+        ->where('jenis_surat', 'penelitian') 
+        ->select(
+            'nomor_surat',
+            'judul_surat',
+            'mitra',
+            'nama as nama_ketua',
+            'nomor_induk as nidn'
+        ) ->get();
+        // dd($datas);
+        return view('sr_tugas_penelitian', [
+            'datas' => $datas,
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.

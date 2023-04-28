@@ -24,13 +24,7 @@ class GeneralViewController extends Controller
     public function dashboard()
     {
         return view('dashboard');
-    }
-    public function datauser()
-    {
-        return view('user');
-    }
-
-    
+    }    
     public function suratTugasPenelitian()
     {
         return view('sr_tugas_penelitian');
