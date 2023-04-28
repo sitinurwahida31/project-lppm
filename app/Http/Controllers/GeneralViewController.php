@@ -74,10 +74,7 @@ class GeneralViewController extends Controller
     {
         return view('.layoutdosen.form_input_pengabdian');
     }
-    public function pengabdianArsipDosen()
-    {
-        return view('.layoutdosen.arsip_dosen_pengabdian');
-    }
+    
     public function suratTugasPengabdianFormat()
     {
         return view('layoutdosen.format_sr-tugas_pengabdian');

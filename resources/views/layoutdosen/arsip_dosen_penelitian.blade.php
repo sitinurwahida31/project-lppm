@@ -112,7 +112,7 @@
                     @foreach ($datas as $data)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="px-6 py-2 font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $data->judul_penelitian }}
+                                {{ $data->judul_surat }}
                             </th>
                             <td class="px-6 py-2">
                                 {{ $data->nomor_surat }}

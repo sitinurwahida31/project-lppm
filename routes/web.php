@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GeneralViewController;
-use App\Http\Controllers\SuratPenelitianController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GeneralViewController;
+use App\Http\Controllers\SuratPenelitianController;
+use App\Http\Controllers\SuratPengabdianController;
 
 Route::get('/signin', [GeneralViewController::class, 'signin'])->name('signin');
 Route::post('/signupstore', [UserController::class, 'store'])->name('signupstore');
