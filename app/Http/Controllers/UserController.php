@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,7 +15,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $datas = DB::table('user')->get();
+        
+        // dd($datas);
+        return view('user', [
+            'datas' => $datas,
+        ]);
     }
 
     /**
@@ -48,6 +54,7 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => $request->password,
             'level' => 'dosen',
+            'confirm_password' => $request->confirm_password,
         ];
         $datas['password'] = bcrypt($datas['password']);
         // dd($datas);

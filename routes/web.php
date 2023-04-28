@@ -21,6 +21,7 @@ Route::get('/surattugas/penelitian', [GeneralViewController::class, 'suratTugasP
 Route::get('/suratpengesahan/penelitian', [GeneralViewController::class, 'suratPengesahanPenelitian']);
 Route::get('/surattugas/pengabdian', [GeneralViewController::class, 'suratTugasPengabdian']);
 Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratPengesahanPengabdian']);
+Route::get('/datauser', [UserController::class, 'index']);
 
 // === ROUTE DOSEN ==
 // == PENELITIAN ==

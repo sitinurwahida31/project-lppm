@@ -110,33 +110,33 @@
                 </thead>
                 <tbody>
                     @foreach ($datas as $data)
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-2 font-normal text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $data->judul_surat }}
-                        </th>
-                        <td class="px-6 py-2">
-                            {{ $data->nomor_surat }}
-                        </td>
-                        <td class="px-6 py-2">
-                            {{ $data->semester }}                                
-                        </td>
-                        <td class="px-6 py-2 flex justify-center">
-                            <a href="/surattugas/pengabdian/format" class="font-medium text-gray-800 dark:text-gray-500 hover:underline m-0.5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                                </svg>
-                            </a>
-                            <a href="/suratpengesahan/pengabdian/format" class="font-medium text-blue-500 dark:text-gray-500 hover:underline m-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
-                                    <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
-                                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
-                                </svg>
-                            </a>
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-2 font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $data->judul_surat }}
+                            </th>
+                            <td class="px-6 py-2">
+                                {{ $data->nomor_surat }}
+                            </td>
+                            <td class="px-6 py-2">
+                                {{ $data->semester }}                                
+                            </td>
+                            <td class="px-6 py-2 flex justify-center">
+                                <a href="/surattugas/pengabdian/format" class="font-medium text-gray-800 dark:text-gray-500 hover:underline m-0.5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                    </svg>
+                                </a>
+                                <a href="/suratpengesahan/pengabdian/format" class="font-medium text-blue-500 dark:text-gray-500 hover:underline m-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+                                        <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
+                                        <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                                    </svg>
+                                </a>
 
-                        </td>
-                    </tr>                                           
-                @endforeach                    
+                            </td>
+                        </tr>                                           
+                    @endforeach                    
                 </tbody>
             </table>
         </div>
