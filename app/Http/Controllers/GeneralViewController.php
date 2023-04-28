@@ -25,10 +25,6 @@ class GeneralViewController extends Controller
     {
         return view('dashboard');
     }
-    public function datauser()
-    {
-        return view('user');
-    }
     public function datasurat()
     {
         return view('data_surat');
