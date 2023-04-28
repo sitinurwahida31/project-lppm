@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GeneralViewController extends Controller
 {
@@ -81,8 +82,5 @@ class GeneralViewController extends Controller
     {
         return view('layoutdosen.format_sr-tugas_pengabdian');
     }
-    public function suratPengesahanPengabdianFormat()
-    {
-        return view('layoutdosen.format_sr-pengesahan_pengabdian');
-    }
+  
 }

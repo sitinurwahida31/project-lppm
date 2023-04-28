@@ -21,7 +21,7 @@ class SuratPenelitianController extends Controller
     public function index()
     {
         $datas = DB::table('tb_surat')->get();
-        // dd($datas);
+        dd($datas);
         return view('layoutdosen.arsip_dosen_penelitian', [
             'datas' => $datas,
         ]);

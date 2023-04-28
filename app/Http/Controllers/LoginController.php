@@ -19,7 +19,7 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'username' => 'required',
             'password' => 'required',
         ]);
@@ -31,7 +31,12 @@ class LoginController extends Controller
         // return dd($credential);
         if (Auth::attempt($credential)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+
+            if (Auth::user()->level == 'admin') {
+                return redirect()->intended('/dashboard');
+            } elseif (Auth::user()->level == 'dosen') {
+                return redirect()->intended('/');
+            }
         }
         return back()->with('loginError', 'Login failed!');
     }
