@@ -29,10 +29,8 @@ class GeneralViewController extends Controller
     {
         return view('user');
     }
-    public function datasurat()
-    {
-        return view('data_surat');
-    }
+
+    
     public function suratTugasPenelitian()
     {
         return view('sr_tugas_penelitian');

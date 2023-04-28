@@ -171,7 +171,7 @@
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                 <div>
                     <label for="sumberdana" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Sumber Dana</label>
-                    <select id="sumberdana" name="sumberdana" class="border-gray-300  @error('sumberdana') border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select id="sumberdana" name="sumberdana" class="@error('sumberdana') border-red-400 @enderror border-gray-300 block w-full p-1 mb-1 text-xs text-gray-900 border rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected value="">Pilih Sumber Dana</option>
                         <option value="MD">Mandiri</option>
                         <option value="DR">DRPTM</option>
