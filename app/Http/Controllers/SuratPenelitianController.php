@@ -18,16 +18,26 @@ class SuratPenelitianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $datas = DB::table('tb_surat')
-        ->where('jenis_surat', 'penelitian')->get();
+        ->where('jenis_surat', 'penelitian');
+        
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('judul_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('semester', 'LIKE', '%' . $s . '%');
+            });
+        }
         // dd($datas);
         return view('layoutdosen.arsip_dosen_penelitian', [
-            'datas' => $datas,
+            'datas' => $datas->paginate(10),
         ]);
     }
-    public function indexadmin()
+    public function indexAdmin(Request $request)
     {
         $datas = DB::table('tb_surat')
         ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
@@ -39,10 +49,21 @@ class SuratPenelitianController extends Controller
             'mitra',
             'nama as nama_ketua',
             'nomor_induk as nidn'
-        ) ->get();
+        );
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('judul_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('mitra', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nama', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_induk', 'LIKE', '%' . $s . '%');
+            });
+        }
         // dd($datas);
         return view('sr_tugas_penelitian', [
-            'datas' => $datas,
+            'datas' => $datas->paginate(10),
         ]);
     }
 
@@ -81,7 +102,7 @@ class SuratPenelitianController extends Controller
             'prodi_ketua' => 'required',
             'jabatan_fungsional' => 'required',
             'email' => 'required',
-            'telepon' => 'required',
+            'telepon' => 'required|numeric',
 
             'judul_penelitian' => 'required',
             'semester' => 'required',

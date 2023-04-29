@@ -103,7 +103,7 @@
                     <div>
                         <label for="semester" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Semester</label>
                         <select id="semester" name="semester" class="@error('nomor_surat')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected value="">Pilih Semester</option>
+                        <option selected value=""></option>
                         <option value="20221">20221</option>
                         <option value="20222">20222</option>
                         <option value="20231">20231</option>
@@ -172,7 +172,7 @@
                 <div>
                     <label for="sumberdana" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Sumber Dana</label>
                     <select id="sumberdana" name="sumberdana" class="@error('sumberdana') border-red-400 @enderror border-gray-300 block w-full p-1 mb-1 text-xs text-gray-900 border rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected value="">Pilih Sumber Dana</option>
+                        <option selected value=""></option>
                         <option value="MD">Mandiri</option>
                         <option value="DR">DRPTM</option>
                         <option value="IU">Internal UNCP</option>
@@ -218,7 +218,7 @@
                     <div>
                         <label for="prodi_ketua" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Program Studi</label>
                         <select id="prodi_ketua" name="prodi_ketua" class="@error('prodi_ketua')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Pilih Program Studi</option>
+                            <option selected value=""></option>
                             <option value="Informatika">Informatika</option>
                             <option value="Matematika">Matematika</option>
                         </select>
@@ -227,7 +227,7 @@
                     <div>
                         <label for="jabatan_fungsional" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jabatan Fungsional</label>
                         <select id="jabatan_fungsional" name="jabatan_fungsional" class="@error('jabatan_fungsional')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Pilih Jabatan Fungsional</option>
+                            <option selected value=""></option>
                             <option value="GB">Guru Besar</option>
                             <option value="LK">Lektor Kepala</option>
                             <option value="LT">Lektor</option>
@@ -322,7 +322,7 @@
                     <div>
                         <label for="produk" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Produk</label>
                         <select id="produk" name="produk" class="@error('produk')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Pilih Jenis Produk</option>
+                            <option selected value=""></option>
                             <option value="Produk">Produk</option>
                             <option value="Prototype">Prototype</option>
                             <option value="Desain">Desain</option>
@@ -335,7 +335,7 @@
                     <div>
                         <label for="publikasi_ilmiah" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Publikasi Ilmiah</label>
                         <select id="publikasi_ilmiah" name="publikasi_ilmiah" class="@error('publikasi_ilmiah')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Pilih Publikasi Ilmiah</option>
+                            <option selected value=""></option>
                             <option value="JI">Jurnal Nasional ISSN</option>
                             <option value="JT">Jurnal Nasional Terakreditasi</option>
                             <option value="JB">Jurnal Internasional Bereputasi</option>

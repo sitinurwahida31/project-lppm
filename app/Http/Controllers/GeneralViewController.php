@@ -33,10 +33,6 @@ class GeneralViewController extends Controller
     {
         return view('sr_pengesahan_penelitian');
     }
-    public function suratTugasPengabdian()
-    {
-        return view('sr_tugas_pengabdian');
-    }
     public function suratPengesahanPengabdian()
     {
         return view('sr_pengesahan_pengabdian');

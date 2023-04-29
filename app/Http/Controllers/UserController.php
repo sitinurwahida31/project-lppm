@@ -70,7 +70,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $datas = DB::table('user')->where('id', $id)->get();
+        dd($datas);
     }
 
     /**

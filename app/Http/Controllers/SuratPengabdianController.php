@@ -17,13 +17,53 @@ class SuratPengabdianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $datas = DB::table('tb_surat')
-        ->where('jenis_surat', 'pengabdian')->get();
+        ->where('jenis_surat', 'pengabdian');
+        
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('judul_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('semester', 'LIKE', '%' . $s . '%');
+            });
+        }
         // dd($datas);
         return view('layoutdosen.arsip_dosen_pengabdian', [
-            'datas' => $datas,
+            'datas' => $datas->paginate(10),
+        ]);
+    }
+
+    public function indexAdmin(Request $request)
+    {
+        $datas = DB::table('tb_surat')
+        ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
+        ->join('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
+        ->where('jenis_surat', 'pengabdian') 
+        ->select(
+            'nomor_surat',
+            'judul_surat',
+            'mitra',
+            'nama as nama_ketua',
+            'nomor_induk as nidn'
+        );
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('judul_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('mitra', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nama', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_induk', 'LIKE', '%' . $s . '%');
+            });
+        }
+        // dd($datas);
+        return view('sr_tugas_pengabdian', [
+            'datas' => $datas->paginate(10),
         ]);
     }
 
