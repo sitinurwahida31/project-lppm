@@ -17,7 +17,8 @@ class DataSuratController extends Controller
     public function index()
     {
         $stakeholder = DB::table('tb_stakeholder')->get();
-        $prodi = DB::table('tb_prodi')->get();
+        $prodi = DB::table('tb_prodi')
+        ->orderBy('created_at', 'asc')->get();
         // dd($stakeholder);
         return view('datasurat.data_surat', compact('stakeholder', 'prodi'));
     }

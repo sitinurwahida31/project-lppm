@@ -14,7 +14,7 @@ Route::get('/', [GeneralViewController::class, 'landing'])->name('landing');
 Route::post('/autenticate', [LoginController::class, 'authenticate'])->name('autenticate');
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::group(['middleware' => ['auth', 'level:dosen,admin']], function () {
+Route::group(['middleware' => ['auth', 'level:admin']], function () {
     // === ROUTE ADMIN ===
     Route::get('/dashboard', [GeneralViewController::class, 'dashboard'])->name('dashboard');
     Route::get('/datauser', [UserController::class, 'index'])->name('datauser');
@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth', 'level:dosen,admin']], function () {
     Route::get('/pengabdian', [GeneralViewController::class, 'pengabdian']);
     Route::get('/pengabdian/inputpengabdian', [GeneralViewController::class, 'pengabdianInputPengabdian']);
     Route::get('/pengabdian/arsipdosen', [GeneralViewController::class, 'pengabdianArsipDosen']);
+    Route::post('/storesuratpengabdian', [SuratPengabdianController::class, 'store']);
     Route::get('/surattugas/pengabdian/format', [GeneralViewController::class, 'suratTugasPengabdianFormat']);
     Route::get('/suratpengesahan/pengabdian/format', [GeneralViewController::class, 'suratPengesahanPengabdianFormat']);
 });

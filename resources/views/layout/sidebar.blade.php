@@ -42,7 +42,29 @@
                             <p class="font-medium text-xs">Data Surat</p>
                         </a>
                     </li>
+
+
                     <li>
+                        <a href="/surattugas/penelitian" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
+                                <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            </svg>
+                            <p class="font-medium text-xs">Penelitian</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/surattugas/pengabdian" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
+                                <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            <p class="font-medium text-xs">Pengabdian B</p>
+                        </a>
+                    </li>
+
+
+                    {{-- <li>
                         <a button id="dropdownButtonpenelitian" data-dropdown-toggle="dropdownpenelitian" class="flex items-center gap-x-4 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
                                 <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
@@ -59,7 +81,7 @@
                                           </svg>
                                           <a href="/surattugas/penelitian" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white font-normal text-xs">Surat Tugas</a>
                                         </div>
-                                        </li>
+                                    </li>
                                     <li>
                                         <div class="items-center gap-x-4 hidden sm:flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
@@ -71,7 +93,8 @@
                                 </ul>
                             </div>
                         </a>
-                    </li>
+                    </li> --}}
+
                     <li>
                         <a button id="dropdownButtonpengabdian" data-dropdown-toggle="dropdownPengabdian" class="flex items-center gap-x-2.5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">

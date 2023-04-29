@@ -59,6 +59,7 @@ class UserController extends Controller
         $datas['password'] = bcrypt($datas['password']);
         // dd($datas);
         User::create($datas);
+        
         return redirect()->back()->with('success', 'Register Successfull!');
     }
 
