@@ -3,6 +3,8 @@
 
     <div class="items-center gap-x-4 justify-end hidden sm:flex ">
         <img class="w-6" src="/img/icons/default_profile.svg" alt="Profile Image">
-        <p class="text-dark-green font-medium text-xs text-white">Admin</p>
+        <p class="text-dark-green font-medium text-xs text-white">
+            {{ auth()->user()->username }}
+        </p>
     </div>
 </div>

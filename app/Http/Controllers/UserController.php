@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $datas = DB::table('user')->get();
+        $datas = DB::table('user')->paginate(5);
         
         // dd($datas);
         return view('user', [
@@ -71,7 +71,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $datas = DB::table('user')->where('id', $id)->get();
+        dd($datas);
     }
 
     /**

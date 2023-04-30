@@ -76,12 +76,12 @@
         </div>
 
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
-            <div class="items-center gap-x-4 hidden sm:flex w-full">
+            <div class="items-center gap-x-4 hidden sm:flex w-full flex md:justify-between">
                 {{-- Button tambah --}}
                 <button type="button" class=" shadow-md px-6 py-1.5 text-xs font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500">Tambah Data</button>
 
                 {{-- fitur search --}}
-                <div class="w-[82%]">
+                <div class="w-[35%]">
                     <form class="flex items-center justify-end">
                         <label for="simple-search" class="sr-only">Search</label>
                         <div class="relative w-full">
@@ -145,7 +145,13 @@
                                 {{ $data->level }}
                             </td>
                             <td class="px-6 py-2 flex justify-center">
-                                <a href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline">
+                                 <a href="/datauser/detail/{{ $data->id }}" class="font-medium text-gray-800 dark:text-gray-500 hover:underline m-[2px]">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline m-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                     </svg>
@@ -158,21 +164,8 @@
             </div>
 
             {{-- pagination --}}
-            <div class="mt-5 flex justify-end">
-            <nav aria-label="Page navigation example">
-                <ul class="inline-flex -space-x-px">
-                <li>
-                    <a href="#" class="px-2 py-1 ml-0 leading-tight text-gray-700 bg-slate-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 hover:text-gray-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xs">Previous</a>
-                </li>
-                <li>
-                    <a href="#" class="px-2 py-1 leading-tight text-gray-700 bg-slate-100 border border-gray-300 hover:bg-gray-200 hover:text-gray-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xs">1</a>
-                </li>
-                <li>
-                    <a href="#" class="px-2 py-1 leading-tight text-gray-600 bg-slate-100 border border-gray-300 rounded-r-lg hover:bg-gray-200 hover:text-gray-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white text-xs">Next</a>
-                </li>
-                </ul>
-            </nav>
-            </div>
+            <div class="mt-5">{{ $datas->links() }}</div>
+        </div>
     </div>
 
 

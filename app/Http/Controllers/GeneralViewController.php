@@ -33,10 +33,6 @@ class GeneralViewController extends Controller
     {
         return view('sr_pengesahan_penelitian');
     }
-    public function suratTugasPengabdian()
-    {
-        return view('sr_tugas_pengabdian');
-    }
     public function suratPengesahanPengabdian()
     {
         return view('sr_pengesahan_pengabdian');
@@ -56,6 +52,7 @@ class GeneralViewController extends Controller
     {
         return view('layoutdosen.format_sr-pengesahan_penelitian');
     }
+    
 
     // == PENGABIDAN ==
     public function pengabdian()
@@ -66,10 +63,9 @@ class GeneralViewController extends Controller
     {
         return view('.layoutdosen.form_input_pengabdian');
     }
-    
-    public function suratTugasPengabdianFormat()
+    public function suratPengesahanPengabdianFormat()
     {
-        return view('layoutdosen.format_sr-tugas_pengabdian');
+        return view('layoutdosen.format_sr-pengesahan_pengabdian');
     }
-  
+
 }

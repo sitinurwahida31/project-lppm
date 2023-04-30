@@ -9,6 +9,7 @@ use App\Models\SuratDetail;
 use App\Models\KetuaTim;
 use App\Models\AnggotaTim;
 use App\Models\AnggotaMahasiswa;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SuratPenelitianController extends Controller
@@ -18,16 +19,28 @@ class SuratPenelitianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $datas = DB::table('tb_surat')
-        ->where('jenis_surat', 'penelitian')->get();
+        ->where('jenis_surat', 'penelitian')
+        ->where('user_create', Auth::user()->id);
+
+        
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('judul_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('semester', 'LIKE', '%' . $s . '%');
+            });
+        }
         // dd($datas);
         return view('layoutdosen.arsip_dosen_penelitian', [
-            'datas' => $datas,
+            'datas' => $datas->paginate(10),
         ]);
     }
-    public function indexadmin()
+    public function indexAdmin(Request $request)
     {
         $datas = DB::table('tb_surat')
         ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
@@ -39,10 +52,21 @@ class SuratPenelitianController extends Controller
             'mitra',
             'nama as nama_ketua',
             'nomor_induk as nidn'
-        ) ->get();
+        );
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('judul_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('mitra', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nama', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_induk', 'LIKE', '%' . $s . '%');
+            });
+        }
         // dd($datas);
         return view('sr_tugas_penelitian', [
-            'datas' => $datas,
+            'datas' => $datas->paginate(10),
         ]);
     }
 
@@ -81,7 +105,7 @@ class SuratPenelitianController extends Controller
             'prodi_ketua' => 'required',
             'jabatan_fungsional' => 'required',
             'email' => 'required',
-            'telepon' => 'required',
+            'telepon' => 'required|numeric',
 
             'judul_penelitian' => 'required',
             'semester' => 'required',
@@ -102,7 +126,7 @@ class SuratPenelitianController extends Controller
             'jarak_lokasi_mitra' => $request->jarak_lokasi_mitra,
             'produk' => $request->produk,
             'publikasi_ilmiah' => $request->publikasi_ilmiah,
-            'user_create' => 1
+            'user_create' => Auth::user()->id 
         ];
         $detailSurat = SuratDetail::create($requestDetailSuratPenelitian);
 
@@ -114,7 +138,7 @@ class SuratPenelitianController extends Controller
             'jabatan_fungsional' => $request->jabatan_fungsional,
             'email' => $request->email,
             'telepon' => $request->telepon,
-            'user_create' => 1
+            'user_create' => Auth::user()->id
         ];
         $ketuaTim = KetuaTim::create($requestKetuaTim);
 
@@ -127,7 +151,7 @@ class SuratPenelitianController extends Controller
             'id_ketua' => $ketuaTim->id,
             'jenis_surat' => 'penelitian',
             'status' => 'terbuat',
-            'user_create' => 1
+            'user_create' => Auth::user()->id
         ];
 
         $suratPenelitian = Surat::create($requestSuratPenelitian);
@@ -137,7 +161,7 @@ class SuratPenelitianController extends Controller
                 'nama' => $request->nama_anggota1,
                 'id_surat' => $suratPenelitian->id,
                 'nomor_induk' => $request->nomor_induk_anggota1,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         if($request->nama_anggota2 && $request->nomor_induk_anggota2){
@@ -145,7 +169,7 @@ class SuratPenelitianController extends Controller
                 'nama' => $request->nama_anggota2,
                 'id_surat' => $suratPenelitian->id,
                 'nomor_induk' => $request->nomor_induk_anggota2,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         if($request->nama_anggota3 && $request->nomor_induk_anggota3){
@@ -153,7 +177,7 @@ class SuratPenelitianController extends Controller
                 'nama' => $request->nama_anggota3,
                 'id_surat' => $suratPenelitian->id,
                 'nomor_induk' => $request->nomor_induk_anggota3,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         if($request->nama_anggota4 && $request->nomor_induk_anggota4){
@@ -161,7 +185,7 @@ class SuratPenelitianController extends Controller
                 'nama' => $request->nama_anggota4,
                 'id_surat' => $suratPenelitian->id,
                 'nomor_induk' => $request->nomor_induk_anggota4,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         
@@ -170,7 +194,7 @@ class SuratPenelitianController extends Controller
                 'nama' => $request->nama_mahasiswa1,
                 'id_surat_penelitian' => $suratPenelitian->id,
                 'nim' => $request->nim_mahasiswa1,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         if($request->nama_mahasiswa2 && $request->nim_mahasiswa2){
@@ -178,7 +202,7 @@ class SuratPenelitianController extends Controller
                 'nama' => $request->nama_mahasiswa2,
                 'id_surat_penelitian' => $suratPenelitian->id,
                 'nim' => $request->nim_mahasiswa2,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
 
@@ -187,6 +211,7 @@ class SuratPenelitianController extends Controller
         //     'detailSurat' => $detailSurat,
         //     'ketuaTim' => $ketuaTim,
         // ]);
+        // dd('berhasil');
         return redirect('/penelitian/inputpenelitian');
     }
 
@@ -234,4 +259,6 @@ class SuratPenelitianController extends Controller
     {
         //
     }
+
+    
 }

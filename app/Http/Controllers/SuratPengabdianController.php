@@ -9,6 +9,7 @@ use App\Models\SuratDetail;
 use Illuminate\Http\Request;
 use App\Models\AnggotaMahasiswa;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class SuratPengabdianController extends Controller
 {
@@ -17,13 +18,55 @@ class SuratPengabdianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $datas = DB::table('tb_surat')
-        ->where('jenis_surat', 'pengabdian')->get();
+        ->where('jenis_surat', 'pengabdian')
+        ->where('user_create', Auth::user()->id);
+        
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('judul_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('semester', 'LIKE', '%' . $s . '%');
+            });
+        }
         // dd($datas);
         return view('layoutdosen.arsip_dosen_pengabdian', [
-            'datas' => $datas,
+            'datas' => $datas->paginate(10),
+        ]);
+    }
+
+    public function indexAdmin(Request $request)
+    {
+        
+        $datas = DB::table('tb_surat')
+        ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
+        ->join('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
+        ->where('jenis_surat', 'pengabdian') 
+        ->select(
+            'nomor_surat',
+            'judul_surat',
+            'mitra',
+            'nama as nama_ketua',
+            'nomor_induk as nidn'
+        );
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('judul_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_surat', 'LIKE', '%' . $s . '%')
+                    ->orWhere('mitra', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nama', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_induk', 'LIKE', '%' . $s . '%');
+            });
+        }
+        // dd($datas);
+        return view('sr_tugas_pengabdian', [
+            'datas' => $datas->paginate(10),
         ]);
     }
 
@@ -83,7 +126,7 @@ class SuratPengabdianController extends Controller
             'jarak_lokasi_mitra' => $request->jarak_lokasi_mitra,
             'produk' => $request->produk,
             'publikasi_ilmiah' => $request->publikasi_ilmiah,
-            'user_create' => 1
+            'user_create' => Auth::user()->id
         ];
         $detailSurat = SuratDetail::create($requestDetailSuratpengabdian);
 
@@ -95,7 +138,7 @@ class SuratPengabdianController extends Controller
             'jabatan_fungsional' => $request->jabatan_fungsional,
             'email' => $request->email,
             'telepon' => $request->telepon,
-            'user_create' => 1
+            'user_create' => Auth::user()->id
         ];
         $ketuaTim = KetuaTim::create($requestKetuaTim);
 
@@ -108,7 +151,7 @@ class SuratPengabdianController extends Controller
             'id_ketua' => $ketuaTim->id,
             'jenis_surat' => 'pengabdian',
             'status' => 'terbuat',
-            'user_create' => 1
+            'user_create' => Auth::user()->id
         ];
 
         $suratpengabdian = Surat::create($requestSuratpengabdian);
@@ -118,7 +161,7 @@ class SuratPengabdianController extends Controller
                 'nama' => $request->nama_anggota1,
                 'id_surat' => $suratpengabdian->id,
                 'nomor_induk' => $request->nomor_induk_anggota1,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         if($request->nama_anggota2 && $request->nomor_induk_anggota2){
@@ -126,7 +169,7 @@ class SuratPengabdianController extends Controller
                 'nama' => $request->nama_anggota2,
                 'id_surat' => $suratpengabdian->id,
                 'nomor_induk' => $request->nomor_induk_anggota2,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         if($request->nama_anggota3 && $request->nomor_induk_anggota3){
@@ -134,7 +177,7 @@ class SuratPengabdianController extends Controller
                 'nama' => $request->nama_anggota3,
                 'id_surat' => $suratpengabdian->id,
                 'nomor_induk' => $request->nomor_induk_anggota3,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         if($request->nama_anggota4 && $request->nomor_induk_anggota4){
@@ -142,7 +185,7 @@ class SuratPengabdianController extends Controller
                 'nama' => $request->nama_anggota4,
                 'id_surat' => $suratpengabdian->id,
                 'nomor_induk' => $request->nomor_induk_anggota4,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         
@@ -151,7 +194,7 @@ class SuratPengabdianController extends Controller
                 'nama' => $request->nama_mahasiswa1,
                 'id_surat_pengabdian' => $suratpengabdian->id,
                 'nim' => $request->nim_mahasiswa1,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
         if($request->nama_mahasiswa2 && $request->nim_mahasiswa2){
@@ -159,7 +202,7 @@ class SuratPengabdianController extends Controller
                 'nama' => $request->nama_mahasiswa2,
                 'id_surat_pengabdian' => $suratpengabdian->id,
                 'nim' => $request->nim_mahasiswa2,
-                'user_create' => 1
+                'user_create' => Auth::user()->id
             ]);
         }
 
@@ -170,6 +213,57 @@ class SuratPengabdianController extends Controller
         // ]);
         return redirect('/pengabdian/inputpengabdian');
     }
+
+    public function suratTugasPengabdianFormat($id)
+    {
+        $ketualppm = DB::table('tb_stakeholder')
+        ->where('jabatan', 'Ketua LPPM')
+        ->select(
+            'nama as nama_lppm',
+            'nomor_induk as nidn_lppm',
+            'jabatan as jabatan_lppm'
+
+        )
+        ->first();
+
+        $surat = DB::table('tb_surat')
+        ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
+        ->join('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
+        ->where('tb_surat.id', $id)
+        ->select(
+            'nomor_surat',
+            'judul_surat',
+            'jangka_waktu',
+            'tanggal_mulai',
+            'tanggal_selesai',
+            'mitra',
+            'nama as nama_ketua',
+            'nomor_induk as nidn'
+        )
+        ->first();
+
+        // $idsurat = DB::table('')->where('id', $id)->first();
+        $anggota = Db::table('tb_anggota_tim')
+        ->where('id_surat', $id)
+        ->select(
+            'nama as nama_anggota',
+            'nomor_induk as nomor_induk_anggota',
+        )
+        ->get();
+
+        $countAnggota = count($anggota)+1;
+        // dd($countAnggota);   
+        return view('layoutdosen.format_sr-tugas_pengabdian', [
+            'surat' => $surat,
+            'ketualppm' => $ketualppm,
+            'anggota' => $anggota,
+            'countAnggota' => $countAnggota,
+        ]);
+    }
 }
+
+// return view('sr_tugas_pengabdian', [
+//     'datas' => $datas->paginate(10),
+// ]);
 
 

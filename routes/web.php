@@ -18,9 +18,10 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     // === ROUTE ADMIN ===
     Route::get('/dashboard', [GeneralViewController::class, 'dashboard'])->name('dashboard');
     Route::get('/datauser', [UserController::class, 'index'])->name('datauser');
-    Route::get('/surattugas/penelitian', [SuratPenelitianController::class, 'indexadmin']); //route data surat tugas penelitian
+    Route::get('/datauser/detail/{id}', [UserController::class, 'show']);
+    Route::get('/surattugas/penelitian', [SuratPenelitianController::class, 'indexAdmin']); //route data surat tugas penelitian
     Route::get('/suratpengesahan/penelitian', [GeneralViewController::class, 'suratPengesahanPenelitian']);
-    Route::get('/surattugas/pengabdian', [GeneralViewController::class, 'suratTugasPengabdian']);
+    Route::get('/surattugas/pengabdian', [SuratPengabdianController::class, 'indexAdmin']);
     Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratPengesahanPengabdian']);
 
     // == DATA SURAT
@@ -31,7 +32,7 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     Route::post('/storeprodi', [DataSuratController::class, 'storeProdi']);
     Route::get('/editprodi/{id}', [DataSuratController::class, 'showProdi']);
     Route::delete('/destroyprodi/{id}', [DataSuratController::class, 'destroyProdi']);
-    
+
     // Route::get('/datasurat', [GeneralViewController::class, 'datasurat'])->name('datasurat');
     // Route::get('/surattugas/penelitian', [SuratPenelitianController::class, 'indexadmin']); //route data surat tugas penelitian
     // // Route::get('/surattugas/penelitian', [GeneralViewController::class, 'suratTugasPenelitian']);
@@ -53,8 +54,8 @@ Route::group(['middleware' => ['auth', 'level:dosen,admin']], function () {
     // == PENGABDIAN ==
     Route::get('/pengabdian', [GeneralViewController::class, 'pengabdian']);
     Route::get('/pengabdian/inputpengabdian', [GeneralViewController::class, 'pengabdianInputPengabdian']);
-    Route::get('/pengabdian/arsipdosen', [GeneralViewController::class, 'pengabdianArsipDosen']);
+    Route::get('/pengabdian/arsipdosen', [SuratPengabdianController::class, 'index']);
     Route::post('/storesuratpengabdian', [SuratPengabdianController::class, 'store']);
-    Route::get('/surattugas/pengabdian/format', [GeneralViewController::class, 'suratTugasPengabdianFormat']);
-    Route::get('/suratpengesahan/pengabdian/format', [GeneralViewController::class, 'suratPengesahanPengabdianFormat']);
+    Route::get('/surattugas/pengabdian/format/{id}', [SuratPengabdianController::class, 'suratTugasPengabdianFormat']);
+    Route::get('/suratpengesahan/pengabdian/format/{id}', [SuratPengabdianController::class, 'suratPengesahanPengabdianFormat']);
 });

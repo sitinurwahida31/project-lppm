@@ -14,13 +14,25 @@ class DataSuratController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $stakeholder = DB::table('tb_stakeholder')->get();
-        $prodi = DB::table('tb_prodi')
-        ->orderBy('created_at', 'asc')->get();
+
+        $prodi = DB::table('tb_prodi');
+        $s = $request->search;
+        if ($s) {
+            $prodi =  $prodi->where(function ($query) use ($s) {
+                $query->where('nama_prodi', 'LIKE', '%' . $s . '%')
+                    ->orWhere('fakultas', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nomor_induk_kaprodi', 'LIKE', '%' . $s . '%')
+                    ->orWhere('ketua_prodi', 'LIKE', '%' . $s . '%');
+            });
+        }
         // dd($stakeholder);
-        return view('datasurat.data_surat', compact('stakeholder', 'prodi'));
+        return view('datasurat.data_surat', [
+            'stakeholder' => $stakeholder,
+            'prodi' => $prodi->paginate(10)
+        ]);
     }
 
     /**
