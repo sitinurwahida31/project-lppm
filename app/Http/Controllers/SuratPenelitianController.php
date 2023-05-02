@@ -200,7 +200,7 @@ class SuratPenelitianController extends Controller
         if($request->nama_mahasiswa1 && $request->nim_mahasiswa1){
             AnggotaMahasiswa::create([
                 'nama' => $request->nama_mahasiswa1,
-                'id_surat_penelitian' => $suratPenelitian->id,
+                'id_surat ' => $suratPenelitian->id,
                 'nim' => $request->nim_mahasiswa1,
                 'user_create' => Auth::user()->id
             ]);
@@ -208,7 +208,7 @@ class SuratPenelitianController extends Controller
         if($request->nama_mahasiswa2 && $request->nim_mahasiswa2){
             AnggotaMahasiswa::create([
                 'nama' => $request->nama_mahasiswa2,
-                'id_surat_penelitian' => $suratPenelitian->id,
+                'id_surat ' => $suratPenelitian->id,
                 'nim' => $request->nim_mahasiswa2,
                 'user_create' => Auth::user()->id
             ]);
