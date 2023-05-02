@@ -76,9 +76,9 @@
         </div>
 
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
-            <div class="items-center gap-x-4 hidden sm:flex w-full flex md:justify-between">
+            <div class="items-center gap-x-4 sm:flex w-full flex md:justify-between">
                 {{-- Button tambah --}}
-                <button type="button" class=" shadow-md px-6 py-1.5 text-xs font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500">Tambah Data</button>
+                {{-- <button type="button" class=" shadow-md px-6 py-1.5 text-xs font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500">Tambah Data</button> --}}
 
                 {{-- fitur search --}}
                 <div class="w-[35%]">
@@ -118,7 +118,9 @@
                             <th scope="col" class="px-6 py-2">
                                 Level
                             </th>
-
+                            {{-- <th scope="col" class="px-6 py-2">
+                                Status
+                            </th> --}}
                             <th scope="col" class="px-6 py-2">
                                 Action
                             </th>
@@ -140,15 +142,19 @@
                             <td class="px-6 py-2">
                                 {{ $data->confirm_password }}
                             </td>
-
                             <td class="px-6 py-2">
                                 {{ $data->level }}
                             </td>
                             <td class="px-6 py-2 flex justify-center">
-                                 <a href="/datauser/detail/{{ $data->id }}" class="font-medium text-gray-800 dark:text-gray-500 hover:underline m-[2px]">
+                                 {{-- <a href="/datauser/detail/{{ $data->id }}" class="font-medium text-blue-800 dark:text-blue-500 hover:underline m-[2px]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                         <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                                         <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                    </svg>
+                                </a> --}}
+                                <a href="/datauser/edit/{{ $data->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline m-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                     </svg>
                                 </a>
                                 <a href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline m-1">

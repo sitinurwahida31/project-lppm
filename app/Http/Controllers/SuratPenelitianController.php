@@ -24,7 +24,8 @@ class SuratPenelitianController extends Controller
     {
         $datas = DB::table('tb_surat')
         ->where('jenis_surat', 'penelitian')
-        ->where('user_create', Auth::user()->id);
+        ->where('user_create', Auth::user()->id)
+        ->orderBy('created_at', 'desc');
 
         
         $s = $request->search;
@@ -54,7 +55,8 @@ class SuratPenelitianController extends Controller
             'mitra',
             'nama as nama_ketua',
             'nomor_induk as nidn'
-        ); 
+        )
+        ->orderBy('tb_surat.created_at', 'desc'); 
         $s = $request->search;
 
         if ($s) {
@@ -79,7 +81,11 @@ class SuratPenelitianController extends Controller
      */
     public function create()
     {
-        return view('layoutdosen.form_input_penelitian');
+        $prodi = DB::table('tb_prodi')->select(
+            'id',
+            'nama_prodi',
+        )->get();
+        return view('layoutdosen.form_input_penelitian', compact('prodi'));
     }
 
     /**
@@ -96,7 +102,7 @@ class SuratPenelitianController extends Controller
             'tanggal_selesai' => 'required',
             'sumberdana' => 'required',
             'mitra' => 'required',
-            'biaya_penelitian' => 'required',
+            'biaya_penelitian' => 'required|numeric',
             'terbilang' => 'required',
             'jarak_lokasi_mitra' => 'required',
             'produk' => 'required',
@@ -331,8 +337,6 @@ class SuratPenelitianController extends Controller
 
     public function detailpenelitian($id) 
     {
-        // $data = Surat::where('id',$id)->first();
-
         $surat = Surat::where('tb_surat.id',$id)
         ->rightJoin('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
         ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
@@ -549,8 +553,5 @@ class SuratPenelitianController extends Controller
         return view('layoutdosen.format_sr-pengesahan_penelitian',
             compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
         );
-    }
-
-    
-    
+    }    
 }

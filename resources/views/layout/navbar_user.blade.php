@@ -19,7 +19,7 @@
                     <li>
                         <form action="/logout" method="post">
                             @csrf
-                            <button type="submit" class="block py-1 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Logout</button>
+                            <button type="submit" onclick="return confirm('Yakin Ingin Keluar?')" class="block py-1 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Logout</button>
                         </form>
                     </li>                    
                 @endauth
