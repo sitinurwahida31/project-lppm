@@ -47,6 +47,7 @@ class SuratPengabdianController extends Controller
         ->join('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
         ->where('jenis_surat', 'pengabdian') 
         ->select(
+            'tb_surat.id',
             'nomor_surat',
             'judul_surat',
             'mitra',
@@ -259,6 +260,12 @@ class SuratPengabdianController extends Controller
             'anggota' => $anggota,
             'countAnggota' => $countAnggota,
         ]);
+    }
+
+    public function detailpengabdian($id) 
+    {
+        $data = Surat::where('id',$id)->first();
+        return view('detail_pengabdian',['datas'=>$data]);
     }
 }
 

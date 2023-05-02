@@ -22,6 +22,9 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     Route::get('/surattugas/penelitian', [SuratPenelitianController::class, 'indexAdmin']); //route data surat tugas penelitian
     Route::get('/suratpengesahan/penelitian', [GeneralViewController::class, 'suratPengesahanPenelitian']);
     Route::get('/surattugas/pengabdian', [SuratPengabdianController::class, 'indexAdmin']);
+    Route::get('/surattugas/penelitian/detailsuratpenelitian/{id}', [SuratPenelitianController::class, 'detailpenelitian']);
+    Route::get('/editdetailpenelitian/{id}', [SuratPengabdianController::class, 'editAdmin']);
+    Route::get('/surattugas/pengabdian/detailsuratpengabdian/{id}', [SuratPengabdianController::class, 'detailpengabdian']);
     Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratPengesahanPengabdian']);
 
     // == DATA SURAT
