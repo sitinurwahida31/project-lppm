@@ -373,11 +373,11 @@ class SuratPengabdianController extends Controller
 
         return view('layoutdosen.format_sr-pengesahan_pengabdian', compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num'));
     }
-    public function detailpengabdian($id) 
-    {
-        $data = Surat::where('id',$id)->first();
-        return view('detail_pengabdian',['datas'=>$data]);
-    }
+    // public function detailpengabdian($id) 
+    // {
+    //     $data = Surat::where('id',$id)->first();
+    //     return view('detail_pengabdian',['datas'=>$data]);
+    // }
 }
 
 

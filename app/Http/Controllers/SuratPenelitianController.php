@@ -237,12 +237,20 @@ class SuratPenelitianController extends Controller
      */
     public function edit(Surat $Surat)
     {
-        //
+        
     }
 
-    public function editAdmin($id)
+    public function editAdmin(Request $request, $id)
     {
-        
+        // $data = $request->validate([
+        //     'fakultas' => 'required',
+        //     'nama_prodi' => 'required',
+        //     'ketua_prodi' => 'required',
+        //     'nomor_induk_kaprodi' => 'required',
+        // ]);
+        // $data = Surat::where('id', $id)->update($data);
+        // dd($request->all(), $data);
+        return view('edit_penelitian');
     }
 
     /**
@@ -341,7 +349,7 @@ class SuratPenelitianController extends Controller
             'id_ketua',
             'tb_surat.user_create',
             'tb_surat.created_at',
-            'nama as nama_ketua ',
+            'nama as nama_ketua',
             'nomor_induk',
             'prodi',
             'jabatan_fungsional',
@@ -359,7 +367,7 @@ class SuratPenelitianController extends Controller
             'tanggal_selesai',
             'sumber_dana',
             'mitra',
-            'biaya_penelitian',
+            'biaya_penelitian_pengabdian',
             'terbilang',
             'jarak_lokasi_mitra',
             'produk',
@@ -378,6 +386,14 @@ class SuratPenelitianController extends Controller
         ->select(
             'nama as nama_anggota',
             'nomor_induk as nomor_induk_anggota',
+        )
+        ->get();
+
+        $data_mahasiswa = Db::table('tb_anggota_mahasiswa')
+        ->where('id_surat', $id)
+        ->select(
+            'nama as nama_mahasiswa',
+            'nim',
         )
         ->get();
         
@@ -418,6 +434,7 @@ class SuratPenelitianController extends Controller
         //     'surat' => $surat,
         //     'anggota' => $anggota,
         //     'mahasiswa' => $mahasiswa,
+        //     'data_mahasiswa' => $data_mahasiswa,
         //     'ketualppm' => $ketualppm,
         //     'num' => $num,
         // ]);
@@ -425,6 +442,7 @@ class SuratPenelitianController extends Controller
             'surat' => $surat,
             'anggota' => $anggota,
             'mahasiswa' => $mahasiswa,
+            'data_mahasiswa' => $data_mahasiswa,
             'ketualppm' => $ketualppm,
             'num' => $num,
         ]);
@@ -532,5 +550,7 @@ class SuratPenelitianController extends Controller
             compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
         );
     }
+
+    
     
 }
