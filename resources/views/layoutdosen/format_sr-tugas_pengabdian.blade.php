@@ -103,7 +103,7 @@
             {{-- kop surat --}}
             <div class="flex items-center justify-center">
                 <div class="w-20 h-auto">
-                    <img class="h-auto w-auto rounded-lg" src="img/logo.png" alt="">
+                    <img class="h-auto w-auto rounded-lg" src="/img/logo.png" alt="">
                 </div>
                 <div class="w-auto h-auto text-center ml-8 p-1">
                     <p class="font-bold text-black text-lg tracking-wide">UNIVERSITAS COKROAMINOTO PALOPO</p>
@@ -117,7 +117,7 @@
             <div class="text-center">
                 <p class="font-bold text-black text-sm tracking-wide">SURAT TUGAS</p>
                 <hr class="border-[1px] border-opacity-100 border-black ml-[218px] mr-[218px]">
-                <p class="text-black text-xs font-normal tracking-wide">Nomor: 456/LPPM/UNCP/IX/2021</p>
+                <p class="text-black text-xs font-normal tracking-wide">Nomor: {{ $surat->nomor_surat }}</p>
             </div>
             <div class="pt-5 ">
                 <p class="text-xs text-black tracking-wide">Yang bertanda tangan di bawah ini:</p>
@@ -167,8 +167,9 @@
                     </div>
                     <div class="mr-7">
                         <p>(Ketua)</p>
-                        <p>(Anggota)</p>
-                        <p>(Anggota)</p>
+                        @foreach ($anggota as $item)
+                            <p>(Anggota)</p>                           
+                        @endforeach
                     </div>
                 </div>
                 {{-- perihal surat --}}
@@ -181,7 +182,7 @@
                 {{-- tanda tangan ketua lppm --}}
                 <div class="flex items-center justify-end text-xs text-black mt-7 tracking-wide">
                     <div>
-                        <p>Palopo, 6 Oktober 2021</p>
+                        <p>Palopo, {{ $surat->created_at }}</p>
                         <p class="font-bold mb-[70px] mt-3">Plt Ketua LPPM</p>
                         <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
                         <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
@@ -209,9 +210,12 @@
      </div>
       {{-- button download --}}
       <div class="ml-40 mr-40 mt-16 mb-28 flex justify-end">
-        <a href="\pengesahanpengabdian"><button type="button" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-            Download
-        </button></a>
+          <a href="/downloadsrttgspengabdiandosen/{{ $surat->id }}" target="_blank" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+              Download
+          </a>
+          {{-- <a href="/downloadsrttgspengabdiandosen/{{ $surat->id }}" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+              Download
+          </a> --}}
     </div>
     {{-- footer --}}
     @include('layout.footer')

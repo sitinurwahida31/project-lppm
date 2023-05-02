@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DataSuratController;
@@ -48,14 +49,22 @@ Route::group(['middleware' => ['auth', 'level:dosen,admin']], function () {
     Route::get('/penelitian/arsipdosen', [SuratPenelitianController::class, 'index']);
     Route::get('/penelitian/inputpenelitian', [SuratPenelitianController::class, 'create']);
     Route::post('/storesuratpenelitian', [SuratPenelitianController::class, 'store']);
-    Route::get('/surattugas/penelitian/format', [GeneralViewController::class, 'suratTugasPenelitianFormat']);
-    Route::get('/suratpengesahan/penelitian/format', [GeneralViewController::class, 'suratPengesahanPenelitianFormat']);
+    Route::get('/surattugas/penelitian/format/{id}', [SuratPenelitianController::class, 'suratTugasPenelitianFormat']);
+    Route::get('/suratpengesahan/penelitian/format/{id}', [SuratPenelitianController::class, 'suratPengesahanPenelitianFormat']);
     
     // == PENGABDIAN ==
     Route::get('/pengabdian', [GeneralViewController::class, 'pengabdian']);
-    Route::get('/pengabdian/inputpengabdian', [GeneralViewController::class, 'pengabdianInputPengabdian']);
+    Route::get('/pengabdian/inputpengabdian', [SuratPengabdianController::class, 'create']);
     Route::get('/pengabdian/arsipdosen', [SuratPengabdianController::class, 'index']);
     Route::post('/storesuratpengabdian', [SuratPengabdianController::class, 'store']);
     Route::get('/surattugas/pengabdian/format/{id}', [SuratPengabdianController::class, 'suratTugasPengabdianFormat']);
     Route::get('/suratpengesahan/pengabdian/format/{id}', [SuratPengabdianController::class, 'suratPengesahanPengabdianFormat']);
 });
+
+// == DOWNLOAD PDF ==
+Route::get('/downloadsrttgspengabdiandosen/{id}', [PDFController::class, 'sTugasDPenelitianPdf']);
+// Route::get('/downloadsrttgspenelitiandosen/{id}', [PDFController::class, 'sPengesahanDPenelitianPdf']);
+Route::get('/downloadsrttgspengabdiandosen/{id}', [PDFController::class, 'sTugasDPengabdianPdf']);
+Route::get('/downloadsrtpgshanpengabdiandosen/{id}', [PDFController::class, 'sPengesahanDPengabdianPdf']);
+
+

@@ -105,6 +105,7 @@
              <span class="pl-[202px]">Surat Pengesahan</span>
          </div>
      </div>
+
      {{-- format --}}
      <div class=" mt-20 ml-40 mr-40 mb-10 pb-40 drop-shadow-lg bg-white pt-5 items-center justify-center text-xs">
         <div class="ml-28 mr-20">
@@ -116,11 +117,11 @@
             {{-- judul --}}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0 mr-8">
                 <div class="w-full">
-                    <p>Judul Penelitian</p>
+                    <p>Judul penelitian</p>
                 </div>
                 <div class="w-full flex">
                     <span class="mr-1">:</span>
-                    <p>Pelatihan dan Pendamping Sistem Information Manajemen LPPM UNCP</p>
+                    <p>{{ $surat->judul_surat }}</p>
                 </div>
             </div>
             {{-- ketua tim --}}
@@ -133,7 +134,7 @@
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p>M.Rusli B., S.Pd., M.Pd</p>
+                        <p>{{ $surat->nama }}</p>
                     </div>
                     {{-- b --}}
                     <div class="w-full">
@@ -141,7 +142,7 @@
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p>0926018902</p>
+                        <p>{{ $surat->nomor_induk }}</p>
                     </div>
                     {{-- c --}}
                     <div class="w-full">
@@ -149,7 +150,7 @@
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p>Lektor</p>
+                        <p>{{ $surat->jabatan_fungsional }}</p>
                     </div>
                     {{-- d --}}
                     <div class="w-full">
@@ -157,7 +158,7 @@
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p>PGSD</p>
+                        <p>{{ $surat->prodi }}</p>
                     </div>
                     {{-- e --}}
                     <div class="w-full">
@@ -165,7 +166,7 @@
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p>085255875537</p>
+                        <p>{{ $surat->telepon }}</p>
                     </div>
                     {{-- F --}}
                     <div class="w-full ">
@@ -173,15 +174,15 @@
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p>mruslib@uncp.ac.id</p>
+                        <p>{{ $surat->email }}</p>
                     </div>
                 </div>
             </div>
             {{-- Anggota Pelaksana --}}
             <div class="text-xs">
                 Anggota Pelaksana
-                <div class="grid grid-cols-6 md:grid-cols-2 gap-0 pr-8">
-                    {{-- a --}}
+                {{-- <div class="grid grid-cols-6 md:grid-cols-2 gap-0 pr-8">                   
+
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">a.</span>Nama Anggota (1) / NIDN</p>
                     </div>
@@ -189,7 +190,7 @@
                         <span class="mr-1">:</span>
                         <p><span>Sukarti, S.Si., M.Si</span><span> / </span><span>0902098901</span></p>
                     </div>
-                    {{-- b --}}
+                    
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">b.</span>Nama Anggota (2) / NIDN</p>
                     </div>
@@ -197,7 +198,7 @@
                         <span class="mr-1">:</span>
                         <p><span>Besse Helmi Mustawinar, S.Pd., M.Si</span><span> / </span><span>0929049202</span></p>
                     </div>
-                    {{-- c --}}
+                    
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">c.</span>Nama Anggota (3) / NIDN</p>
                     </div>
@@ -205,7 +206,7 @@
                         <span class="mr-1">:</span>
                         <p>-...</p>
                     </div>
-                    {{-- d --}}
+                    
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">c.</span>Nama Anggota (4) / NIDN</p>
                     </div>
@@ -213,13 +214,33 @@
                         <span class="mr-1">:</span>
                         <p>-...</p>
                     </div>
-                    {{-- e --}}
+                    
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">e.</span>Jumlah Mahasiswa/Staf/Alumni</p>
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
                         <p><span>3</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
+                    </div>
+                </div> --}}
+                <div class="grid grid-cols-6 md:grid-cols-2 gap-0 pr-8">
+                    {{-- a --}}
+                    @foreach ($anggota as $item)
+                        <div class="w-full">
+                            <p ><span class="mr-2 pl-4">{{ chr(96+ $loop->iteration) }}. </span>Nama Anggota ({{ $loop->iteration }}) / NIDN</p>
+                        </div>
+                        <div class="w-full h-auto flex">
+                            <span class="mr-1">:</span>
+                            <p><span>{{ $item->nama_anggota }}</span><span> / </span><span>{{ $item->nomor_induk_anggota }}</span></p>
+                        </div>                        
+                    @endforeach
+
+                    <div class="w-full">
+                        <p ><span class="mr-2 pl-4">{{ $num }}.</span>Jumlah Mahasiswa/Staf/Alumni</p>
+                    </div>
+                    <div class="w-full h-auto flex">
+                        <span class="mr-1">:</span>
+                        <p><span>{{ $mahasiswa }}</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
                     </div>
                 </div>
             </div>
@@ -230,7 +251,7 @@
                 </div>
                 <div class="w-full flex">
                     <span class="mr-1">:</span>
-                    <p>Dosen Fakultas Sains UNCP</p>
+                    <p>{{ $surat->mitra }}</p>
                 </div>
             </div>
              {{-- Jarak Mitra --}}
@@ -240,17 +261,17 @@
                 </div>
                 <div class="w-full flex">
                     <span class="mr-1">:</span>
-                    <p>5 Km</p>
+                    <p>{{ $surat->jarak_lokasi_mitra }}</p>
                 </div>
             </div>
              {{-- Biaya --}}
              <div class="grid grid-cols-1 md:grid-cols-2 gap-0 mr-8">
                 <div class="w-full">
-                    <p>Biaya Pengabdian <span class="italic">(terbilang)</span></p>
+                    <p>Biaya penelitian <span class="italic">(terbilang)</span></p>
                 </div>
                 <div class="w-full flex">
                     <span class="mr-1">:</span>
-                    <p>Rp. <span>2.000.000,</span>- <span>(Dua Juta Rupiah)</span></p>
+                    <p>Rp. <span>{{ $surat->biaya_penelitian_pengabdian }},</span>- <span>({{ $surat->terbilang }})</span></p>
                 </div>
             </div>
             {{-- sumber dana --}}
@@ -260,7 +281,7 @@
                 </div>
                 <div class="w-full flex">
                     <span class="mr-1">:</span>
-                    <p>DRTPM/Hibah UNCP/Mandiri</p>
+                    <p>{{ $surat->sumber_dana }}</p>
                 </div>
             </div>
             {{-- Luaran Penelitian --}}
@@ -273,7 +294,7 @@
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p>Jenis Produk/Desain/Prototife</p>
+                        <p>{{ $surat->produk }}</p>
                     </div>
                     {{-- b --}}
                     <div class="w-full">
@@ -281,12 +302,12 @@
                     </div>
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p>Jurnal National Ber ISSN/Terakreditasi/Bereputasi</p>
+                        <p>{{ $surat->publikasi_ilmiah }}</p>
                     </div>
                 </div>
             </div>
             <div class="flex justify-end mt-7 mr-5">
-                <p>Palopo, 6 Oktober 2021</p>
+                <p>Palopo, {{ $surat->created_at }}</p>
             </div>
             {{-- Tanda Tangan --}}
             <div class="flex">
@@ -294,42 +315,42 @@
                 <div class=" text-xs text-black tracking-wide mr-[48%]">
                     <div>
                         <p>Mengetahui,</p>
-                        <p class="font-bold mb-[70px] mt-1 w-full">Dekan <SPAn>FKIP</SPAn></p>
-                        <P class="font-bold">Dr.Sehe, M.Pd.</P>
-                        <p>NIP. <span>196501011992031003</span></p>
+                        <p class="font-bold mb-[70px] mt-1 w-full">Dekan <SPAn>{{ $surat->nama_fakultas }}</SPAn></p>
+                        <P class="font-bold">{{ $surat->nama_dekan }}</P>
+                        <p>NIP. <span>{{ $surat->nomor_induk_dekan }}</span></p>
                     </div>
                 </div>
                 {{-- tanda tangan ketua Pelaksana --}}
                 <div class="text-xs text-black tracking-wide">
                     <div>
                         <p class="font-bold mb-[70px] mt-5">Plt Ketua LPPM</p>
-                        <P class="font-bold">M Rusli B., S.Pd., M.Pd.</P>
-                        <p>NIDN. <span>0926018902</span></p>
+                        <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
+                        <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
                     </div>
                 </div>
             </div>
-            <div class="flex item-center justify-center text-center mt-5">
-                {{-- Tanda tangan dekan --}}
+            {{-- <div class="flex item-center justify-center text-center mt-5">
+                Tanda tangan dekan
                 <div class=" text-xs text-black tracking-wide">
                     <div>
                         <p>Menyetujui</p>
-                        <p class="font-bold mb-[70px] mt-1 w-full">Plt Ketua LPPM</p>
-                        <P class="font-bold">M Rusli B., S.Pd., M.Pd.</P>
+                        <p class="font-bold mb-[70px] mt-1 w-full">Dekan ?</p>
+                        <P class="font-bold">Nama Ketua Dekan</P>
                         <p>NIDN. <span>0926018902</span></p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
      </div>
      {{-- button download --}}
      <div class="ml-40 mr-40 mt-16 mb-28 flex justify-end">
-        <button type="button" class="py-1 px-4 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-red-600 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+        <a href="/penelitian" class="py-1 px-4 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-red-600 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             Close
-        </button>
-        <a href="\pengesahanpenelitian"><button type="button" class="py-1 px-3 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+        </a>
+        <a href="/downloadsrtpgshanpenelitiandosen/{{ $surat->id }}" target="_blank" class="py-1 px-3 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             Download
-        </button></a>
+        </a>
     </div>
     {{-- footer --}}
     @include('layout.footer')

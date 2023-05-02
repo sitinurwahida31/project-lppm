@@ -44,14 +44,6 @@ class GeneralViewController extends Controller
     {
         return view('layoutdosen.fitur_menu_penelitian');
     }
-    public function suratTugasPenelitianFormat()
-    {
-        return view('layoutdosen.format_sr-tugas_penelitian');
-    }
-    public function suratPengesahanPenelitianFormat()
-    {
-        return view('layoutdosen.format_sr-pengesahan_penelitian');
-    }
     
 
     // == PENGABIDAN ==
@@ -59,10 +51,7 @@ class GeneralViewController extends Controller
     {
         return view('.layoutdosen.fitur_menu_pengabdian');
     }
-    public function pengabdianInputPengabdian()
-    {
-        return view('.layoutdosen.form_input_pengabdian');
-    }
+    
     public function suratPengesahanPengabdianFormat()
     {
         return view('layoutdosen.format_sr-pengesahan_pengabdian');

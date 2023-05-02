@@ -172,12 +172,12 @@
                 <div>
                     <label for="sumberdana" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Sumber Dana</label>
                     <select id="sumberdana" name="sumberdana" class="border-gray-300  @error('sumberdana') border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected value="">Pilih Sumber Dana</option>
-                        <option value="MD">Mandiri</option>
-                        <option value="DR">DRPTM</option>
-                        <option value="IU">Internal UNCP</option>
-                        <option value="PD">Pemerintah Daerah</option>
-                        <option value="LY">Lainnya</option>
+                        <option selected value=""></option>
+                        <option value="Mandiri">Mandiri</option>
+                        <option value="DRPTM">DRPTM</option>
+                        <option value="Internal UNCP">Internal UNCP</option>
+                        <option value="Pemerintah Daerah">Pemerintah Daerah</option>
+                        <option value="Lainnya">Lainnya</option>
                     </select>
                     <div class="text-red-500 text-sm italic">@error('sumberdana')*{{ $message }} @enderror</div>
                 </div>
@@ -218,21 +218,22 @@
                     <div>
                         <label for="prodi_ketua" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Program Studi</label>
                         <select id="prodi_ketua" name="prodi_ketua" class="@error('prodi_ketua')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Pilih Program Studi</option>
-                            <option value="Informatika">Informatika</option>
-                            <option value="Matematika">Matematika</option>
+                            <option selected value=""></option>
+                            @foreach ($prodi as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_prodi }}</option>                                
+                            @endforeach
                         </select>
                         <div class="text-red-500 text-sm italic">@error('prodi_ketua')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="jabatan_fungsional" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jabatan Fungsional</label>
                         <select id="jabatan_fungsional" name="jabatan_fungsional" class="@error('jabatan_fungsional')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Pilih Jabatan Fungsional</option>
-                            <option value="GB">Guru Besar</option>
-                            <option value="LK">Lektor Kepala</option>
-                            <option value="LT">Lektor</option>
-                            <option value="AH">Asistand Ahli</option>
-                            <option value="TP">Tenaga Pengajar</option>
+                            <option selected value=""></option>
+                            <option value="Guru Besar">Guru Besar</option>
+                            <option value="Lektor Kepala">Lektor Kepala</option>
+                            <option value="Lektor">Lektor</option>
+                            <option value="Asistand Ahli">Asistand Ahli</option>
+                            <option value="Tenaga Pengajar">Tenaga Pengajar</option>
                         </select>
                         <div class="text-red-500 text-sm italic">@error('jabatan_fungsional')*{{ $message }} @enderror</div>
                     </div>
@@ -322,7 +323,7 @@
                     <div>
                         <label for="produk" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Produk</label>
                         <select id="produk" name="produk" class="@error('produk')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Pilih Jenis Produk</option>
+                            <option selected value=""></option>
                             <option value="Produk">Produk</option>
                             <option value="Prototype">Prototype</option>
                             <option value="Desain">Desain</option>
@@ -335,11 +336,11 @@
                     <div>
                         <label for="publikasi_ilmiah" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Publikasi Ilmiah</label>
                         <select id="publikasi_ilmiah" name="publikasi_ilmiah" class="@error('publikasi_ilmiah')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value="">Pilih Publikasi Ilmiah</option>
-                            <option value="JI">Jurnal Nasional ISSN</option>
-                            <option value="JT">Jurnal Nasional Terakreditasi</option>
-                            <option value="JB">Jurnal Internasional Bereputasi</option>
-                            <option value="JA">Lainnya</option>
+                            <option selected value=""></option>
+                            <option value="Jurnal Nasional ISSN">Jurnal Nasional ISSN</option>
+                            <option value="Jurnal Nasional Terakreditasi">Jurnal Nasional Terakreditasi</option>
+                            <option value="Jurnal Internasional Bereputasi">Jurnal Internasional Bereputasi</option>
+                            <option value="Lainnya">Lainnya</option>
                         </select>
                         <div class="text-red-500 text-sm italic">@error('publikasi_ilmiah')*{{ $message }} @enderror</div>
                     </div>

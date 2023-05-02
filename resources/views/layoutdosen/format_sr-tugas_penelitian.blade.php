@@ -97,78 +97,85 @@
              <span class="pl-[202px]">Surat Pengesahan</span>
          </div>
      </div>
-     {{-- format --}}
-     <div class=" mt-20 ml-40 mr-40 mb-10 drop-shadow-lg bg-white pt-5 items-center justify-center">
-        <div class="ml-28 mr-28">
-            {{-- kop surat --}}
-            <div class="flex items-center justify-center">
-                <div class="w-20 h-auto">
-                    <img class="h-auto w-auto rounded-lg" src="img/logo.png" alt="">
-                </div>
-                <div class="w-auto h-auto text-center ml-8 p-1">
-                    <p class="font-bold text-black text-lg tracking-wide">UNIVERSITAS COKROAMINOTO PALOPO</p>
-                    <p class="font-bold text-black text-sm tracking-wide">LEMBAGA PENELITIAN DAN PENGABDIAN MASYARAKAT</p>
-                    <p class="font-medium text-black text-xs tracking-wide">Jl.Latamacelling No. 19 Kota Palopo 91921 - Sulawesi Selatan</p>
-                    <p class="font-medium text-black text-xs tracking-wide">Telp. (0471) 22111, fax. (0471) 325055. Website http://www.lppm.uncp.ac.id</p>
-                </div>
+
+    {{-- format --}}
+    <div class=" mt-20 ml-40 mr-40 mb-10 drop-shadow-lg bg-white pt-5 items-center justify-center">
+    <div class="ml-28 mr-28">
+        {{-- kop surat --}}
+        <div class="flex items-center justify-center">
+            <div class="w-20 h-auto">
+                <img class="h-auto w-auto rounded-lg" src="/img/logo.png" alt="">
             </div>
-            <hr class="border-[2px] border-opacity-100 border-black mt-1 mb-2">
-            {{-- Ket Surat --}}
-            <div class="text-center">
-                <p class="font-bold text-black text-sm tracking-wide">SURAT TUGAS</p>
-                <hr class="border-[1px] border-opacity-100 border-black ml-[218px] mr-[218px]">
-                <p class="text-black text-xs font-normal tracking-wide">Nomor: 456/LPPM/UNCP/IX/2021</p>
+            <div class="w-auto h-auto text-center ml-8 p-1">
+                <p class="font-bold text-black text-lg tracking-wide">UNIVERSITAS COKROAMINOTO PALOPO</p>
+                <p class="font-bold text-black text-sm tracking-wide">LEMBAGA PENELITIAN DAN PENGABDIAN MASYARAKAT</p>
+                <p class="font-medium text-black text-xs tracking-wide">Jl.Latamacelling No. 19 Kota Palopo 91921 - Sulawesi Selatan</p>
+                <p class="font-medium text-black text-xs tracking-wide">Telp. (0471) 22111, fax. (0471) 325055. Website http://www.lppm.uncp.ac.id</p>
             </div>
-            <div class="pt-5 ">
-                <p class="text-xs text-black tracking-wide">Yang bertanda tangan di bawah ini:</p>
+        </div>
+        <hr class="border-[2px] border-opacity-100 border-black mt-1 mb-2">
+        {{-- Ket Surat --}}
+        <div class="text-center">
+            <p class="font-bold text-black text-sm tracking-wide">SURAT TUGAS</p>
+            <hr class="border-[1px] border-opacity-100 border-black ml-[218px] mr-[218px]">
+            <p class="text-black text-xs font-normal tracking-wide">Nomor: {{ $surat->nomor_surat }}</p>
+        </div>
+        <div class="pt-5 ">
+            <p class="text-xs text-black tracking-wide">Yang bertanda tangan di bawah ini:</p>
+        </div>
+        {{-- info ketua --}}
+        <div class="ml-4 flex text-xs text-black mt-5 text-left tracking-wide">
+            <div class="">
+                <p>NIDN</p>
+                <p>Jabatan</p>
+                <p>Nama</p>
             </div>
-            {{-- info ketua --}}
-            <div class="ml-4 flex text-xs text-black mt-5 text-left tracking-wide">
-                <div class="">
-                    <p>NIDN</p>
-                    <p>Jabatan</p>
-                    <p>Nama</p>
-                </div>
-                <div class="ml-20 mr-1">
-                    <p>:</p>
-                    <p>:</p>
-                    <p>:</p>
-                </div>
-                <div>
-                    <a href=""><p>M Rusli B., S.P.d., M.P.d.</p></a>
-                    <a href=""><p>0926018902</p></a>
-                    <a href=""><p>Plt Ketua LPPM</p></a>
-                </div>
+            <div class="ml-20 mr-1">
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
             </div>
-            <div class="pt-5 tracking-wide">
-                <p class="text-xs">Menugaskan kepada saudara:</p>
+            <div>
+                <a href=""><p>{{ $ketualppm->nidn_lppm }}</p></a>
+                <a href=""><p>{{ $ketualppm->jabatan_lppm }}</p></a>
+                <a href=""><p>{{ $ketualppm->nama_lppm }}</p></a>
             </div>
-            {{-- Anggota --}}
+        </div>
+        <div class="pt-5 tracking-wide">
+            <p class="text-xs">Menugaskan kepada saudara:</p>
+        </div>
+        {{-- Anggota --}}
             <div class="ml-4 flex text-xs text-black mt-5 text-left font-normal tracking-wide">
                 <div class="mr-4">
-                    <a href=""><p>1.</p></a>
-                    <a href=""><p>2.</p></a>
-                    <a href=""><p>3.</p></a>
+                    <p>1</p>
+                    @php
+                        for ($x = 2; $x <= $countAnggota; $x++) {
+                            echo "<p>$x</p>";
+                        }
+                    @endphp
                 </div>
                 <div class="mr-14">
-                    <p>Alfian Makmur, S.Kom., M.Pd</p>
-                    <p>Alim Surya Saruman, S.Kom., M.Pd</p>
-                    <p>Fitrah Eka Susilawati, S.Kom., M.Kom</p>
+                    <p> {{ $surat->nama_ketua }} </p>
+                    @foreach ($anggota as $item)
+                        <p>{{ $item->nama_anggota }}</p>                            
+                    @endforeach
                 </div>
                 <div class="mr-14">
-                    <p>(09220118802)</p>
-                    <p>(09220118802)</p>
-                    <p>(09220118802)</p>
+                    <p>({{ $surat->nidn }})</p>
+                    @foreach ($anggota as $item)
+                        <p>({{ $item->nomor_induk_anggota }})</p>                            
+                    @endforeach
                 </div>
                 <div class="mr-7">
                     <p>(Ketua)</p>
-                    <p>(Anggota)</p>
-                    <p>(Anggota)</p>
+                    @foreach ($anggota as $item)
+                        <p>(Anggota)</p>                           
+                    @endforeach
                 </div>
             </div>
             {{-- perihal surat --}}
             <div class="text-justify text-xs text-black font-normal mt-5 tracking-wide">
-                <p>Untuk melakukan penelitian yang berjudul <span>"Pelatihan Pemanfaatan Internet Pada Dunia Pendidikan"</span> dengan jangka waktu penelitian <span>1 (Satu) Bulan</span>, mulai pada <span>18 oktober</span>-<span>19 november 2021</span>. Selanjutnya, Saudara melaporkan hasil penelitian ke ketua LPPM sebanyak 1 buah laporan. </p>
+                <p>Untuk melakukan penelitian yang berjudul <span>"{{ $surat->judul_surat }}"</span> dengan jangka waktu penelitian <span>{{ $surat->jangka_waktu }}</span>, mulai pada <span>{{ $surat->tanggal_mulai }}</span> sampai <span>{{ $surat->tanggal_selesai }}</span>. Selanjutnya, Saudara melaporkan hasil penelitian ke ketua LPPM sebanyak 1 buah laporan. </p>
             </div>
             <div class="text-left text-xs text-black font-normal mt-5 tracking-wide">
                 <p>Demikian Surat Tugas ini dibuat untuk dapat digunakan sebagaimana mestinya.</p>
@@ -176,39 +183,41 @@
             {{-- tanda tangan ketua lppm --}}
             <div class="flex items-center justify-end text-xs text-black mt-7 tracking-wide">
                 <div>
-                    <p>Palopo, 6 Oktober 2021</p>
+                    <p>Palopo, {{ $surat->created_at }}</p>
                     <p class="font-bold mb-[70px] mt-3">Plt Ketua LPPM</p>
-                    <P class="font-bold">M Rusli B., S.Pd., M.Pd</P>
-                    <p>NIDN. <span>0926018902</span></p>
+                    <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
+                    <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
                 </div>
             </div>
-            {{-- Tembusan --}}
-            <div class="text-xs text-black font-normal mt-7 tracking-wide">
-                <p>Tembusan disampaikan dengan hormat kepada:</p>
+        {{-- Tembusan --}}
+        <div class="text-xs text-black font-normal mt-7 tracking-wide">
+            <p>Tembusan disampaikan dengan hormat kepada:</p>
+        </div>
+        <div class="flex text-xs text-black mt-1 text-left font-normal tracking-wide">
+            <div class="mr-4">
+                <p>1.</p>
+                <p>2.</p>
+                <p>3.</p>
+                <p>4.</p>
             </div>
-            <div class="flex text-xs text-black mt-1 text-left font-normal tracking-wide">
-                <div class="mr-4">
-                    <p>1.</p>
-                    <p>2.</p>
-                    <p>3.</p>
-                    <p>4.</p>
-                </div>
-                <div class="mb-60">
-                    <p>Rektor</p>
-                    <p>Dekan</p>
-                    <p>Ketua Prodi</p>
-                    <p>Arsip</p>
-                </div>
+            <div class="mb-60">
+                <p>Rektor</p>
+                <p>Dekan</p>
+                <p>Ketua Prodi</p>
+                <p>Arsip</p>
             </div>
         </div>
-     </div>
-     {{-- button download --}}
-     <div class="ml-40 mr-40 mt-16 mb-28 flex justify-end">
-        <a href="\pengesahanpenelitian"><button type="button" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+    </div>
+    </div>
+    {{-- button download --}}
+    <div class="ml-40 mr-40 mt-16 mb-28 flex justify-end">
+        <a href="/downloadsrttgspenelitiandosen/{{ $surat->id }}" target="_blank" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             Download
-        </button></a>
+        </a>
     </div>
     {{-- footer --}}
     @include('layout.footer')
 </body>
 </html>
+
+
