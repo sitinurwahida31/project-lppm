@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Surat Tugas Pengabdian{{ $surat->nama_ketua }}{{ $surat->created_at }}</title>
+        <title>Surat Tugas Penelitian{{ $surat->nama_ketua }}{{ $surat->created_at }}</title>
         <link rel="shortcut icon" href="img/uncok.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -111,7 +111,7 @@
                         </div>
                         {{-- perihal surat --}}
                         <div class="text-justify text-base text-black font-normal mt-5 tracking-wide">
-                            <p>Untuk melakukan pengabdian yang berjudul <span>"{{ $surat->judul_surat }}"</span> dengan jangka waktu penelitian <span>{{ $surat->jangka_waktu }}</span>, mulai pada <span>{{ $surat->tanggal_mulai }}</span> sampai <span>{{ $surat->tanggal_selesai }}</span>. Selanjutnya, Saudara melaporkan hasil pengabdian ke ketua LPPM sebanyak 1 buah laporan. </p>
+                            <p>Untuk melakukan penelitian yang berjudul <span>"{{ $surat->judul_surat }}"</span> dengan jangka waktu penelitian <span>{{ $surat->jangka_waktu }}</span>, mulai pada <span>{{ $surat->tanggal_mulai }}</span> sampai <span>{{ $surat->tanggal_selesai }}</span>. Selanjutnya, Saudara melaporkan hasil penelitian ke ketua LPPM sebanyak 1 buah laporan. </p>
                         </div>
                         <div class="text-left text-base text-black font-normal mt-5 tracking-wide">
                             <p>Demikian Surat Tugas ini dibuat untuk dapat digunakan sebagaimana mestinya.</p>

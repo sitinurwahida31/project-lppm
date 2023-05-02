@@ -218,7 +218,7 @@ class SuratPengabdianController extends Controller
         //     'detailSurat' => $detailSurat,
         //     'ketuaTim' => $ketuaTim,
         // ]);
-        return redirect('/pengabdian/inputpengabdian');
+        return redirect('/surattugas/pengabdian/format/'.$suratpengabdian->id);
     }
 
     public function suratTugasPengabdianFormat($id)
@@ -380,4 +380,4 @@ class SuratPengabdianController extends Controller
     // }
 }
 
-
+ 

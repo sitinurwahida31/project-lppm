@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Surat Pengesahan Pengabdian {{ $surat->nama }} {{ $surat->created_at }}</title>
+    <title>Surat Pengesahan Penelitian {{ $surat->nama }} {{ $surat->created_at }}</title>
     <link rel="shortcut icon" href="img/uncok.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,7 +44,7 @@
             {{-- judul --}}
             <div class="grid grid-cols-2 gap-0 mr-8">
                 <div class="w-full">
-                    <p>Judul Pengabdian Kepada Masyarakat</p>
+                    <p>Judul Penelitian</p>
                 </div>
                 <div class="w-full flex">
                     <span class="mr-1">:</span>
@@ -151,7 +151,7 @@
              {{-- Biaya --}}
              <div class="grid grid-cols-2 gap-0 mr-8">
                 <div class="w-full">
-                    <p>Biaya Pengabdian <span class="italic">(terbilang)</span></p>
+                    <p>Biaya Penelitian <span class="italic">(terbilang)</span></p>
                 </div>
                 <div class="w-full flex">
                     <span class="mr-1">:</span>
@@ -170,7 +170,7 @@
             </div>
             {{-- Luaran Penelitian --}}
             <div class="text-base">
-                Luaran Pengabdian
+                Luaran Penelitian
                 <div class="grid grid-cols-2 gap-0 mr-8">
                     {{-- a --}}
                     <div class="w-full">
@@ -190,7 +190,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-end mt-7 mr-5">
+            <div class="flex justify-end mt-3 mr-5">
                 <p>Palopo, {{ $surat->created_at }}</p>
             </div>
             {{-- Tanda Tangan --}}

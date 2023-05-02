@@ -214,7 +214,7 @@ class SuratPenelitianController extends Controller
         //     'ketuaTim' => $ketuaTim,
         // ]);
         // dd('berhasil');
-        return redirect('/penelitian/inputpenelitian');
+        return redirect('/surattugas/penelitian/format/'.$suratPenelitian->id);
     }
 
     /**

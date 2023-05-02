@@ -65,8 +65,8 @@ Route::group(['middleware' => ['auth', 'level:dosen,admin']], function () {
 });
 
 // == DOWNLOAD PDF ==
-// Route::get('/downloadsrttgspengabdiandosen/{id}', [PDFController::class, 'sTugasDPenelitianPdf']);
-// Route::get('/downloadsrttgspenelitiandosen/{id}', [PDFController::class, 'sPengesahanDPenelitianPdf']);
+Route::get('/downloadsrttgspenelitiandosen/{id}', [PDFController::class, 'sTugasDPenelitianPdf']);
+Route::get('/downloadsrtpgshanpenelitiandosen/{id}', [PDFController::class, 'sPengesahanDPenelitianPdf']);
 Route::get('/downloadsrttgspengabdiandosen/{id}', [PDFController::class, 'sTugasDPengabdianPdf']);
 Route::get('/downloadsrtpgshanpengabdiandosen/{id}', [PDFController::class, 'sPengesahanDPengabdianPdf']);
 

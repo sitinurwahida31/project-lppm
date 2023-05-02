@@ -117,14 +117,14 @@
                                 {{ $data->semester }}                                
                             </td>
                             <td class="px-6 py-2 max-w-[240px] mx-auto flex justify-center">
-                                <a href="/surattugas/pengabdian/format/{{ $data->id }}" class="text-white flex gap-1 bg-green-600 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-normal rounded-md text-xs px-4 py-[6px] mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
+                                <a href="/downloadsrttgspengabdiandosen/{{ $data->id }}" target="_blank" class="text-white flex gap-1 bg-green-600 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-normal rounded-md text-xs px-4 py-[6px] mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
                                         <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
                                         <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
                                     </svg>
                                     Tugas
                                 </a>
-                                <a href="/suratpengesahan/pengabdian/format/{{ $data->id }}" class="text-white flex gap-1 bg-green-600 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-normal rounded-md text-xs px-4 py-[6px] mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
+                                <a href="/downloadsrtpgshanpengabdiandosen/{{ $data->id }}" target="_blank" class="text-white flex gap-1 bg-green-600 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-normal rounded-md text-xs px-4 py-[6px] mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
                                         <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
                                         <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
