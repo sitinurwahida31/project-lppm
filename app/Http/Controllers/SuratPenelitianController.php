@@ -359,7 +359,7 @@ class SuratPenelitianController extends Controller
             'tanggal_selesai',
             'sumber_dana',
             'mitra',
-            'biaya_penelitian',
+            'biaya_penelitian_pengabdian',
             'terbilang',
             'jarak_lokasi_mitra',
             'produk',
