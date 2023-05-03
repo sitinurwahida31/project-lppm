@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     Route::get('/editdetailpenelitian/{id}', [SuratPenelitianController::class, 'editAdmin']);
     Route::get('/surattugas/pengabdian/detailsuratpengabdian/{id}', [SuratPengabdianController::class, 'detailpengabdian']);
     Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratPengesahanPengabdian']);
+    Route::delete('/destroypenelitian/{id}', [SuratPenelitianController::class, 'destroyPenelitian']);
 
     // == DATA SURAT
     Route::get('/datasurat', [DataSuratController::class, 'index'])->name('datasurat');
@@ -36,6 +37,9 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     Route::post('/storeprodi', [DataSuratController::class, 'storeProdi']);
     Route::get('/editprodi/{id}', [DataSuratController::class, 'showProdi']);
     Route::delete('/destroyprodi/{id}', [DataSuratController::class, 'destroyProdi']);
+
+    // == DATA USER
+    Route::delete('/destroyuser/{id}', [UserController::class, 'destroyUser']);
 
     // Route::get('/datasurat', [GeneralViewController::class, 'datasurat'])->name('datasurat');
     // Route::get('/surattugas/penelitian', [SuratPenelitianController::class, 'indexadmin']); //route data surat tugas penelitian

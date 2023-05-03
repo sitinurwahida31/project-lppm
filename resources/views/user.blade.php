@@ -145,17 +145,28 @@
                                 {{ $data->level }}
                             </td>
                             <td class="px-6 py-2 flex justify-center">
-                                 <a href="/datauser/detail/{{ $data->id }}" class="font-medium text-gray-800 dark:text-gray-500 hover:underline m-[2px]">
+                                <a href="/datauser/detail/{{ $data->id }}" class="font-medium text-gray-800 dark:text-gray-500 hover:underline m-[2px]">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                         <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                                         <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                     </svg>
                                 </a>
-                                <a href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline m-1">
+                                {{-- <a href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline m-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                     </svg>
-                                </a>
+                                </a> --}}
+
+                                <form action="/destroyuser/{{ $data->id }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" onclick="return confirm('Yakin Hapus Data User?')" class="font-medium text-red-600 dark:gray-blue-500 hover:underline m-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                        </svg>
+                                    </button>
+                                </form>
+
                             </td>
                         </tr>
                         @endforeach
