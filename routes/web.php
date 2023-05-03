@@ -37,16 +37,6 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     Route::post('/storeprodi', [DataSuratController::class, 'storeProdi']);
     Route::get('/editprodi/{id}', [DataSuratController::class, 'showProdi']);
     Route::delete('/destroyprodi/{id}', [DataSuratController::class, 'destroyProdi']);
-
-    // == DATA USER
-    Route::delete('/destroyuser/{id}', [UserController::class, 'destroyUser']);
-
-    // Route::get('/datasurat', [GeneralViewController::class, 'datasurat'])->name('datasurat');
-    // Route::get('/surattugas/penelitian', [SuratPenelitianController::class, 'indexadmin']); //route data surat tugas penelitian
-    // // Route::get('/surattugas/penelitian', [GeneralViewController::class, 'suratTugasPenelitian']);
-    // Route::get('/suratpengesahan/penelitian', [GeneralViewController::class, 'suratPengesahanPenelitian']);
-    // Route::get('/surattugas/pengabdian', [GeneralViewController::class, 'suratTugasPengabdian']);
-    // Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratPengesahanPengabdian']);
 });
 
 // === ROUTE DOSEN ==

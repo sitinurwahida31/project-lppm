@@ -76,7 +76,7 @@
                     <div class="relative w-full">
                         <input type="text" id="simple-search" name="search" class="shadow-md bg-white border border-slate-200 text-gray-700 text-xs rounded-l-lg focus:ring-gray-300 focus:border-gray-300 block w-[100%] pl-2 p-1 py-1.5 dark:bg-gray-400 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-400 dark:focus:border-amber-400" placeholder="Search..">
                     </div>
-                    <button type="submit" class="shadocx x xcw-md flex justify-center p-1 ml-0 text-sm font-medium h-full w-14 text-gray-600 bg-slate-100 rounded-r-lg border border-gray-200 hover:bg-slate-200 focus:ring-2 focus:outline-none focus:ring-gray-200 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">
+                    <button type="submit" class="shadocx x xcv   dcx w-md flex justify-center p-1 ml-0 text-sm font-medium h-full w-14 text-gray-600 bg-slate-100 rounded-r-lg border border-gray-200 hover:bg-slate-200 focus:ring-2 focus:outline-none focus:ring-gray-200 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">
                         <svg class="w-5 h-5 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         <span class="sr-only">Search</span>
                     </button>                 
@@ -116,20 +116,21 @@
                             <td class="px-6 py-2">
                                 {{ $data->semester }}                                
                             </td>
-                            <td class="px-6 py-2 flex justify-center">
-                                <a href="/surattugas/penelitian/format" class="font-medium text-gray-800 dark:text-gray-500 hover:underline m-0.5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                                    </svg>
-                                </a>
-                                <a href="/suratpengesahan/penelitian/format" class="font-medium text-blue-500 dark:text-gray-500 hover:underline m-1">
+                             <td class="px-6 py-2 max-w-[240px] mx-auto flex justify-center">
+                                <a href="/downloadsrttgspenelitiandosen/{{ $data->id }}" target="_blank" class="text-white flex gap-1 bg-green-600 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-normal rounded-md text-xs px-4 py-[6px] mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
                                         <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
                                         <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
                                     </svg>
+                                    Tugas
                                 </a>
-
+                                <a href="/downloadsrtpgshanpenelitiandosen/{{ $data->id }}" target="_blank" class="text-white flex gap-1 bg-green-600 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-normal rounded-md text-xs px-4 py-[6px] mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+                                        <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
+                                        <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                                    </svg>
+                                    Pengesahan
+                                </a>
                             </td>
                         </tr>                                           
                     @endforeach

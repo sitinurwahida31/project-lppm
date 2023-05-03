@@ -24,9 +24,10 @@ class SuratPenelitianController extends Controller
     {
         $datas = DB::table('tb_surat')
         ->where('jenis_surat', 'penelitian')
-        ->where('user_create', Auth::user()->id);
+        ->where('user_create', Auth::user()->id)
+        ->orderBy('created_at', 'desc');
 
-        
+
         $s = $request->search;
 
         if ($s) {
@@ -37,7 +38,7 @@ class SuratPenelitianController extends Controller
             });
         }
         // dd($datas);
-        return view('layoutdosen.arsip_dosen_penelitian', [
+        return view('penelitian.arsip_dosen_penelitian', [
             'datas' => $datas->paginate(10),
         ]);
     }
@@ -46,7 +47,7 @@ class SuratPenelitianController extends Controller
         $datas = DB::table('tb_surat')
         ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
         ->join('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
-        ->where('jenis_surat', 'penelitian') 
+        ->where('jenis_surat', 'penelitian')
         ->select(
             'tb_surat.id',
             'nomor_surat',
@@ -54,7 +55,8 @@ class SuratPenelitianController extends Controller
             'mitra',
             'nama as nama_ketua',
             'nomor_induk as nidn'
-        ); 
+        )
+        ->orderBy('tb_surat.created_at', 'desc');
         $s = $request->search;
 
         if ($s) {
@@ -67,7 +69,7 @@ class SuratPenelitianController extends Controller
             });
         }
         // dd($datas->get());
-        return view('sr_tugas_penelitian', [
+        return view('penelitian.sr_tugas_penelitian', [
             'datas' => $datas->paginate(10),
         ]);
     }
@@ -79,7 +81,11 @@ class SuratPenelitianController extends Controller
      */
     public function create()
     {
-        return view('layoutdosen.form_input_penelitian');
+        $prodi = DB::table('tb_prodi')->select(
+            'id',
+            'nama_prodi',
+        )->get();
+        return view('penelitian.form_input_penelitian', compact('prodi'));
     }
 
     /**
@@ -96,7 +102,7 @@ class SuratPenelitianController extends Controller
             'tanggal_selesai' => 'required',
             'sumberdana' => 'required',
             'mitra' => 'required',
-            'biaya_penelitian' => 'required',
+            'biaya_penelitian' => 'required|numeric',
             'terbilang' => 'required',
             'jarak_lokasi_mitra' => 'required',
             'produk' => 'required',
@@ -115,7 +121,7 @@ class SuratPenelitianController extends Controller
             'nama_anggota1' => 'required',
             'nomor_induk_anggota1' => 'required',
         ]);
-        
+
         // == CREATE DATA IN SURAT PENELITIAN DETAIL==
         $requestDetailSuratPenelitian = [
             'jangka_waktu' => $request->jangka_waktu,
@@ -128,7 +134,7 @@ class SuratPenelitianController extends Controller
             'jarak_lokasi_mitra' => $request->jarak_lokasi_mitra,
             'produk' => $request->produk,
             'publikasi_ilmiah' => $request->publikasi_ilmiah,
-            'user_create' => Auth::user()->id 
+            'user_create' => Auth::user()->id
         ];
         $detailSurat = SuratDetail::create($requestDetailSuratPenelitian);
 
@@ -190,11 +196,11 @@ class SuratPenelitianController extends Controller
                 'user_create' => Auth::user()->id
             ]);
         }
-        
+
         if($request->nama_mahasiswa1 && $request->nim_mahasiswa1){
             AnggotaMahasiswa::create([
                 'nama' => $request->nama_mahasiswa1,
-                'id_surat_penelitian' => $suratPenelitian->id,
+                'id_surat' => $suratPenelitian->id,
                 'nim' => $request->nim_mahasiswa1,
                 'user_create' => Auth::user()->id
             ]);
@@ -202,7 +208,7 @@ class SuratPenelitianController extends Controller
         if($request->nama_mahasiswa2 && $request->nim_mahasiswa2){
             AnggotaMahasiswa::create([
                 'nama' => $request->nama_mahasiswa2,
-                'id_surat_penelitian' => $suratPenelitian->id,
+                'id_surat' => $suratPenelitian->id,
                 'nim' => $request->nim_mahasiswa2,
                 'user_create' => Auth::user()->id
             ]);
@@ -237,7 +243,7 @@ class SuratPenelitianController extends Controller
      */
     public function edit(Surat $Surat)
     {
-        
+
     }
 
     public function editAdmin(Request $request, $id)
@@ -250,7 +256,7 @@ class SuratPenelitianController extends Controller
         // ]);
         // $data = Surat::where('id', $id)->update($data);
         // dd($request->all(), $data);
-        return view('edit_penelitian');
+        return view('penelitian.edit_penelitian');
     }
 
     /**
@@ -265,14 +271,17 @@ class SuratPenelitianController extends Controller
         //
     }
 
-    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Surat  $Surat
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Surat $Surat)
+    {
+        //
+    }
 
-    // public function destroyProdi($id)
-    // {
-    //     ProgramStudi::where('id', $id)->delete();
-    //     return redirect('/datasurat');
-    // }
-    
     public function suratTugasPenelitianFormat($id)
     {
         $ketualppm = DB::table('tb_stakeholder')
@@ -302,12 +311,12 @@ class SuratPenelitianController extends Controller
             'nomor_induk as nidn'
         )
         ->first();
-	
+
         $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
         $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
         $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
         // 23 January 2022
-        
+
         $anggota = Db::table('tb_anggota_tim')
         ->where('id_surat', $id)
         ->select(
@@ -317,8 +326,8 @@ class SuratPenelitianController extends Controller
         ->get();
 
         $countAnggota = count($anggota)+1;
-        // dd($countAnggota, $surat, $ketualppm, $anggota); 
-        return view('layoutdosen.format_sr-tugas_penelitian', [
+        // dd($countAnggota, $surat, $ketualppm, $anggota);
+        return view('penelitian.format_sr-tugas_penelitian', [
             'surat' => $surat,
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
@@ -326,10 +335,8 @@ class SuratPenelitianController extends Controller
         ]);
     }
 
-    public function detailpenelitian($id) 
+    public function detailpenelitian($id)
     {
-        // $data = Surat::where('id',$id)->first();
-
         $surat = Surat::where('tb_surat.id',$id)
         ->rightJoin('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
         ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
@@ -370,8 +377,8 @@ class SuratPenelitianController extends Controller
             'produk',
             'publikasi_ilmiah',
         )
-        ->first(); 
-        // dd($surat); 
+        ->first();
+        // dd($surat);
         $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
         $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
         $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
@@ -393,7 +400,7 @@ class SuratPenelitianController extends Controller
             'nim',
         )
         ->get();
-        
+
         $mahasiswa = count(Db::table('tb_anggota_mahasiswa')
         ->where('id_surat', $id)
         ->get());
@@ -426,7 +433,7 @@ class SuratPenelitianController extends Controller
             case 4:
                 $num = 'e';
                 break;
-        }    
+        }
         // dd([
         //     'surat' => $surat,
         //     'anggota' => $anggota,
@@ -435,7 +442,7 @@ class SuratPenelitianController extends Controller
         //     'ketualppm' => $ketualppm,
         //     'num' => $num,
         // ]);
-        return view('detail_penelitian', [
+        return view('penelitian.detail_penelitian', [
             'surat' => $surat,
             'anggota' => $anggota,
             'mahasiswa' => $mahasiswa,
@@ -445,7 +452,7 @@ class SuratPenelitianController extends Controller
         ]);
     }
 
-    
+
     public function suratPengesahanPenelitianFormat($id)
     {
         $surat = DB::table('tb_surat')
@@ -490,7 +497,7 @@ class SuratPenelitianController extends Controller
             'produk',
             'publikasi_ilmiah',
         )
-        ->first();  
+        ->first();
         $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
         $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
         $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
@@ -504,7 +511,7 @@ class SuratPenelitianController extends Controller
             'nomor_induk as nomor_induk_anggota',
         )
         ->get();
-        
+
         $mahasiswa = count(Db::table('tb_anggota_mahasiswa')
         ->where('id_surat', $id)
         ->select(
@@ -543,7 +550,7 @@ class SuratPenelitianController extends Controller
                 break;
         }
         // dd($surat, $anggota, $mahasiswa, $ketualppm, $num) ;
-        return view('layoutdosen.format_sr-pengesahan_penelitian',
+        return view('penelitian.format_sr-pengesahan_penelitian',
             compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
         );
     }

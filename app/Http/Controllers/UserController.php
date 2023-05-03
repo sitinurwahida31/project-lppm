@@ -18,7 +18,7 @@ class UserController extends Controller
         $datas = DB::table('user')->paginate(5);
         
         // dd($datas);
-        return view('user', [
+        return view('generalview.user', [
             'datas' => $datas,
         ]);
     }

@@ -18,7 +18,15 @@ class DataSuratController extends Controller
     {
         $stakeholder = DB::table('tb_stakeholder')->get();
 
-        $prodi = DB::table('tb_prodi');
+        $prodi = DB::table('tb_prodi')
+        ->join('tb_fakultas', 'tb_fakultas.id', '=', 'tb_prodi.fakultas')
+        ->select(
+            'tb_prodi.id',
+            'nama_prodi',
+            'ketua_prodi',
+            'nomor_induk_kaprodi',
+            'nama_fakultas'
+        );
         $s = $request->search;
         if ($s) {
             $prodi =  $prodi->where(function ($query) use ($s) {
