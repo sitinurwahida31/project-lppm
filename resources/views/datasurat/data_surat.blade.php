@@ -72,13 +72,13 @@
          @include('layout.header_admin')
 
         <div class="bg-white h-9 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
-            <span class="text-green-700 font-bold pl-5 text-sm sm:flex ">DATA SURAT</span>
+            <span class="text-green-700 font-bold pl-5 text-base sm:flex ">DATA SURAT</span>
         </div>
 
-        {{-- card 1 --}}        
+        {{-- card 1 --}}
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
             <div class="items-center gap-x-4 flex w-full">
-               <span class="text-green-700 font-bold text-sm flex ">Stakeholder</span>
+               <span class="text-green-700 font-bold text-base flex ">Stakeholder</span>
             </div>
             {{-- <div class="items-center gap-x-4 mb-4 sm:flex w-full">
                 Button tambah
@@ -87,8 +87,8 @@
 
             {{-- Table --}}
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
-                <table class="w-full text-xs text-center text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-white bg-amber-400 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
+                    <thead class="text-sm text-white bg-amber-400 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-2">
                                 No
@@ -106,7 +106,7 @@
                     </thead>
                     <tbody>
                         @foreach ($stakeholder as $item)
-                            
+
                         @endforeach
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="px-6 py-2 font-normal text-gray-900 whitespace-nowrap dark:text-white ">
@@ -129,20 +129,20 @@
                                     </svg>
                                 </a>
                             </td> --}}
-                        </tr>                                                                                
+                        </tr>
                     </tbody>
                 </table>
             </div>
         {{-- </div>
 
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg"> --}}
-            
+
             <div class="items-center gap-x-4 mt-8 flex w-full">
-               <span class="text-green-700 font-bold mb-4 text-sm flex ">Data Prodi</span>
+               <span class="text-green-700 font-bold mb-4 text-base flex ">Data Prodi</span>
             </div>
             <div class="items-center gap-x-4 mb-4 sm:flex w-full  flex md:justify-between">
                 {{-- Button tambah --}}
-                <a href="/createprodi" class=" shadow-md px-6 py-1.5 text-xs font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500">Tambah Data</a>
+                <a href="/createprodi" class=" shadow-md px-6 py-1.5 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500">Tambah Data</a>
 
                 {{-- fitur search --}}
                 <div class="mt-4 md:mt-0 md:w-[35%] w-auto">
@@ -164,8 +164,8 @@
 
             {{-- Table --}}
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
-                <table class="w-full text-xs text-center text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-white bg-amber-400 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
+                    <thead class="text-sm text-white bg-amber-400 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-4 py-2">
                                 No
@@ -207,7 +207,7 @@
                                     {{ $item->nama_fakultas }}
                                 </td>
                                 <td class="px-6 py-2 flex justify-center">
-                                    <a href="/editprodi/{{ $item->id }}" class="font-medium text-green-700 dark:text-gray-500 hover:underline m-0.5">
+                                    <a href="/editprodi/{{ $item->id }}" class="font-medium p-1 text-white bg-green-600 dark:text-gray-500 hover:underline m-0.5">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                             <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                         </svg>
@@ -215,7 +215,7 @@
                                     <form action="/destroyprodi/{{ $item->id }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" onclick="return confirm('Yakin Hapus Program Studi?')" class="font-medium text-red-600 dark:gray-blue-500 hover:underline m-0.5">
+                                        <button type="submit" onclick="return confirm('Yakin Hapus Program Studi?')" class="font-medium p-1 text-white bg-red-600 dark:gray-blue-500 hover:underline m-0.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                             </svg>
@@ -223,12 +223,12 @@
                                     </form>
 
                                 </td>
-                            </tr>                                                                                
-                            
+                            </tr>
+
                         @endforeach
                     </tbody>
                 </table>
-                
+
             </div>
 
             {{-- pagination --}}

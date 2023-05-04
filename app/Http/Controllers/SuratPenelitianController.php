@@ -554,4 +554,24 @@ class SuratPenelitianController extends Controller
             compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
         );
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+    //  * @param  \App\Models\Surat  $Surat
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyPenelitian($id)
+    {
+        $referenceId = Surat::find($id)->first();
+        
+        Surat::find($id)->delete();
+        SuratDetail::where('id', $referenceId->id_detail_surat)->delete();
+        KetuaTim::where('id', $referenceId->id_ketua)->delete();
+        AnggotaTim::where('id_surat', $id)->delete();
+        AnggotaMahasiswa::where('id_surat', $id)->delete();
+        return redirect('/surattugas/penelitian');
+    }
+    
 }

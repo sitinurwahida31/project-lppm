@@ -8,7 +8,7 @@
                 <div class="w-[40%]">
                     <img class=" pb-2 logo-uncp" src="/img/logo.png" alt="Logo Universitas Cokroaminoto Palopo">
                 </div>
-                <p class="font-semibold text-green-700 text-lg text-center">LPPM UNCP</p>
+                <p class="font-semibold text-green-700 text-xl text-center">LPPM UNCP</p>
             </div>
 
             <hr class="border-[1px] border-opacity-50 border-slate-300 ">
@@ -18,48 +18,48 @@
                     <!-- ICON DASHBOARD -->
                     <li>
                         <a href="/dashboard" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                                 <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
                               </svg>
-                            <p class="font-medium text-xs">Dashboard</p>
+                            <p class="font-medium text-base">Dashboard</p>
                         </a>
                         <!-- ICON ALAT -->
                     <li>
                     <li>
                         <a href="/datauser" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                               </svg>
-                            <p class="font-medium text-xs">Kelola User</p>
+                            <p class="font-medium text-base">Kelola User</p>
                         </a>
                     </li>
                     <li>
                         <a href="/datasurat" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard2-data-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-clipboard2-data-fill" viewBox="0 0 16 16">
                                 <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
                                 <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585c.055.156.085.325.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5c0-.175.03-.344.085-.5ZM10 7a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7Zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1Zm4-3a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Z"/>
                             </svg>
-                            <p class="font-medium text-xs">Data Surat</p>
+                            <p class="font-medium text-base">Data Surat</p>
                         </a>
                     </li>
 
 
                     <li>
                         <a href="/surattugas/penelitian" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
                                 <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>
                             </svg>
-                            <p class="font-medium text-xs">Penelitian</p>
+                            <p class="font-medium text-base">Penelitian</p>
                         </a>
                     </li>
 
                     <li>
                         <a href="/surattugas/pengabdian" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
                                 <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>
-                            <p class="font-medium text-xs">Pengabdian</p>
+                            <p class="font-medium text-base">Pengabdian</p>
                         </a>
                     </li>
                 </ul>
@@ -74,11 +74,11 @@
                     <form action="/logout" method="post">
                         @csrf
                         <button type="submit" onclick="return confirm('Yakin Ingin Keluar?')" class="flex items-center gap-x-4 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400 onclick= return confirm('Anda yakin ingin keluar?')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                                 <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                             </svg>
-                            <p class="font-medium text-xs">Logout</p>
+                            <p class="font-medium text-base">Logout</p>
                         </button>
                     </form>
                 </li>

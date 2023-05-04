@@ -142,7 +142,7 @@
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                 <div>
                     <label for="small" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Sumber Dana</label>
-                    <select id="small" class="block w-full p-1 py-2 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 py-2 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <select id="small" class="block w-full p-1 py-2 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected>Choose a country</option>
                         <option value="MD">Mandiri</option>
                         <option value="DR">DRPTM</option>

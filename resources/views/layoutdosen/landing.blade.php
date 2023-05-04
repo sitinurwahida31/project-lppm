@@ -52,11 +52,11 @@
                             <div class="mt-3 ml-10 content mdx:my-12 md:max-w-xl mdx:h-40 mdx:mb-10 rounded-lg drop-shadow-md hover:drop-shadow-xl">
                                 {{-- title --}}
                                 <div class="row space-y-8">
-                                    <h1 class="text-lg font-inter md:text-3xl mdx:text-3xl fadein">
+                                    <h1 class="text-xl font-inter md:text-3xl mdx:text-3xl fadein">
                                         <span class="text-sm mdx:text-xl">Welcome...</span><br><span class="text-amber-400">Lembaga</span> Penelitian <br> <span
                                             class="text-[#000000]">  dan </span> <span class="text-[#000000]">Pengabdian </span> <br> <span class="text-[#000000]"> Kepada </span><span  class="text-amber-400">Masyarakat </span><br>
                                     </h1>
-                                    <p class="mt-10 rounded-md text-gray-500 font-semibold text-xl">
+                                    <p class="mt-10 rounded-md text-gray-500 font-semibold text-2xl">
                                         <span class="text-amber-400"> Universitas </span><span class="text-black">Cokroaminoto</span> <span class="text-amber-400">Palopo
                                         </span>
                                     </p>

@@ -75,10 +75,10 @@
             {{-- <span class="text-green-700 font-bold pl-5 text-sm sm:flex ">
                 PENELITIAN / DETAIL
             </span> --}}
-            <span class="text-green-700 font-bold pl-5 text-sm sm:flex">DETAIL DATA PENELITIAN</span>
+            <span class="text-green-700 font-bold pl-5 text-base sm:flex">DETAIL DATA PENELITIAN</span>
         </div>
 
-        <div class="m-6 bg-white w-auto h-auto pl-7 pr-7 pb-8 pt-7 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
+        <div class="m-6 bg-white w-auto h-auto pl-12 pr-9 pb-8 pt-7 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
             {{-- Button --}}
             <div class="mt-2 mb-20 flex justify-end">
                 <a href="/editdetailpenelitian/{{  $surat->id }}" class=" flex item-center justify-center py-2 px-3 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-red-600 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
@@ -132,7 +132,7 @@
                         <span class="mr-1">:</span>
                         <p>{{ $surat->nama_ketua }}</p>
                     </div>
-                    <div></div> 
+                    <div></div>
                     {{-- b --}}
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">b.</span>NIDN Ketua</p>
@@ -192,11 +192,11 @@
                     </div>
                     <div></div>
                     @endforeach
-                    
+
                     <div class="w-full mt-3">
                         <p >Jumlah Mahasiswa/Staf/Alumni</p>
                     </div>
-                    
+
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
                         <p><span>{{$mahasiswa}}</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
@@ -210,7 +210,7 @@
                         <span class="mr-1">:</span>
                         <p><span>{{ $item->nama_mahasiswa }}</span><span> / </span><span>{{ $item->nim }}</span></p>
                     </div>
-                    
+
                     <div></div>
                     @endforeach
 

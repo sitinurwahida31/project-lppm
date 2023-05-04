@@ -42,8 +42,8 @@
          <nav class="flex" aria-label="Breadcrumb">
              <ol class="inline-flex items-center space-x-1 md:space-x-3">
              <li class="inline-flex items-center">
-                 <a href="/landingpage" class="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white">
-                 <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                 <a href="/landingpage" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white">
+                 <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                  </svg>
                  Home
@@ -54,7 +54,7 @@
                  <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                  </svg>
-                 <a href="/fitmepengabdian" class="ml-1 text-xs font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Penelitian</a>
+                 <a href="/fitmepengabdian" class="ml-1 text-sm font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Pengabdian</a>
                  </div>
              </li>
              <li aria-current="page">
@@ -62,7 +62,7 @@
                  <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                  </svg>
-                 <a href="/inputpengabdian" class="ml-1 text-xs font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Form</a>
+                 <a href="/inputpengabdian" class="ml-1 text-sm font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Form</a>
                  </div>
              </li>
              <li aria-current="page">
@@ -70,7 +70,7 @@
                 <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <a href="/tugaspengabdian" class="ml-1 text-xs font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Surat Tugas</a>
+                <a href="/tugaspengabdian" class="ml-1 text-sm font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Surat Tugas</a>
                 </div>
             </li>
             <li aria-current="page">
@@ -78,7 +78,7 @@
                 <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <a href="" class="ml-1 text-xs font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Surat Pengesahan</a>
+                <a href="" class="ml-1 text-sm font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Surat Pengesahan</a>
                 </div>
             </li>
              </ol>
@@ -99,22 +99,22 @@
                  3
              </div>
          </div>
-         <div class="mb-14  h-6 ml-36 mr-36 font-medium">
-             <span class="pl-[40px]">Form Input</span>
+         <div class="mb-14  h-6 ml-64 mr-36 font-medium">
+             <span class="pl-[60px]">Form Input</span>
              <span class="pl-[233px]">Surat Tugas</span>
              <span class="pl-[202px]">Surat Pengesahan</span>
          </div>
      </div>
      {{-- format --}}
-     <div class=" mt-20 ml-40 mr-40 mb-10 pb-40 drop-shadow-lg bg-white pt-5 items-center justify-center text-xs">
+     <div class=" mt-20 ml-40 mr-40 mb-10 pb-40 drop-shadow-lg bg-white pt-5 items-center justify-center text-sm">
         <div class="ml-28 mr-20">
             {{-- kop surat --}}
             {{-- Ket Surat --}}
             <div class="text-center mt-9 mb-8">
-                <p class="font-bold text-black text-sm tracking-wide">HALAMAN PENGESAHAN</p>
+                <p class="font-bold text-black text-base tracking-wide">HALAMAN PENGESAHAN</p>
             </div>
             {{-- judul --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 mr-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 mr-8 text-sm">
                 <div class="w-full">
                     <p>Judul Pengabdian Kepada Masyarakat</p>
                 </div>
@@ -124,7 +124,7 @@
                 </div>
             </div>
             {{-- ketua tim --}}
-            <div class="text-xs">
+            <div class="text-sm">
                 Ketua Pelaksana
                 <div class="grid grid-cols-6 md:grid-cols-2 gap-0 mr-8">
                     {{-- a --}}
@@ -178,9 +178,9 @@
                 </div>
             </div>
             {{-- Anggota Pelaksana --}}
-            <div class="text-xs">
+            <div class="text-sm">
                 Anggota Pelaksana
-                {{-- <div class="grid grid-cols-6 md:grid-cols-2 gap-0 pr-8">                   
+                {{-- <div class="grid grid-cols-6 md:grid-cols-2 gap-0 pr-8">
 
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">a.</span>Nama Anggota (1) / NIDN</p>
@@ -189,7 +189,7 @@
                         <span class="mr-1">:</span>
                         <p><span>Sukarti, S.Si., M.Si</span><span> / </span><span>0902098901</span></p>
                     </div>
-                    
+
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">b.</span>Nama Anggota (2) / NIDN</p>
                     </div>
@@ -197,7 +197,7 @@
                         <span class="mr-1">:</span>
                         <p><span>Besse Helmi Mustawinar, S.Pd., M.Si</span><span> / </span><span>0929049202</span></p>
                     </div>
-                    
+
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">c.</span>Nama Anggota (3) / NIDN</p>
                     </div>
@@ -205,7 +205,7 @@
                         <span class="mr-1">:</span>
                         <p>-...</p>
                     </div>
-                    
+
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">c.</span>Nama Anggota (4) / NIDN</p>
                     </div>
@@ -213,7 +213,7 @@
                         <span class="mr-1">:</span>
                         <p>-...</p>
                     </div>
-                    
+
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">e.</span>Jumlah Mahasiswa/Staf/Alumni</p>
                     </div>
@@ -231,7 +231,7 @@
                         <div class="w-full h-auto flex">
                             <span class="mr-1">:</span>
                             <p><span>{{ $item->nama_anggota }}</span><span> / </span><span>{{ $item->nomor_induk_anggota }}</span></p>
-                        </div>                        
+                        </div>
                     @endforeach
 
                     <div class="w-full">
@@ -284,7 +284,7 @@
                 </div>
             </div>
             {{-- Luaran Penelitian --}}
-            <div class="text-xs">
+            <div class="text-sm">
                 Luaran Pengabdian
                 <div class="grid grid-cols-6 md:grid-cols-2 gap-0 mr-8">
                     {{-- a --}}
@@ -309,20 +309,50 @@
                 <p>Palopo, {{ $surat->created_at }}</p>
             </div>
             {{-- Tanda Tangan --}}
-            <div class="flex">
+            {{-- <div class="flex"> --}}
                 {{-- Tanda tangan dekan --}}
-                <div class=" text-xs text-black tracking-wide mr-[48%]">
+                {{-- <div class=" text-sm text-black tracking-wide mr-[48%]">
                     <div>
                         <p>Mengetahui,</p>
                         <p class="font-bold mb-[70px] mt-1 w-full">Dekan <SPAn>{{ $surat->nama_fakultas }}</SPAn></p>
                         <P class="font-bold">{{ $surat->nama_dekan }}</P>
                         <p>NIP. <span>{{ $surat->nomor_induk_dekan }}</span></p>
                     </div>
-                </div>
+                </div> --}}
                 {{-- tanda tangan ketua Pelaksana --}}
-                <div class="text-xs text-black tracking-wide">
+                {{-- <div class="text-sm text-black tracking-wide">
                     <div>
                         <p class="font-bold mb-[70px] mt-5">Plt Ketua LPPM</p>
+                        <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
+                        <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
+                    </div>
+                </div> --}}
+            {{-- </div> --}}
+            <div class="flex mt-0">
+                {{-- Tanda tangan dekan --}}
+                <div class="text-base text-black tracking-wide mr-[60%]">
+                    <div>
+                        <p>Mengetahui,</p>
+                        <p class="font-bold mb-[60px] mt-1 w-full">Dekan <SPAn>{{ $surat->nama_fakultas }}</SPAn></p>
+                        <P class="font-bold">{{ $surat->nama_dekan }}</P>
+                        <p>NIP. <span>{{ $surat->nomor_induk_dekan }}</span></p>
+                    </div>
+                </div>
+                {{-- tanda tangan ketua Pelaksana --}}
+                <div class="text-base text-black tracking-wide">
+                    <div>
+                        <p class="font-bold mb-[60px] mt-5">Ketua Pengabdian</p>
+                        <P class="font-bold">{{ $surat->nama }}</P>
+                        <p>NIDN. <span>{{ $surat->nomor_induk }}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mx-auto mt-5 flex justify-center">
+                {{-- tanda tangan ketua Pelaksana --}}
+                <div class="text-base text-black text-center tracking-wide">
+                    <div>
+                        <p class=" mt-2">Menyetujui</p>
+                        <p class="font-bold mb-[60px]">Plt Ketua LPPM</p>
                         <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
                         <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
                     </div>
@@ -344,10 +374,10 @@
      </div>
      {{-- button download --}}
      <div class="ml-40 mr-40 mt-16 mb-28 flex justify-end">
-        <a href="/pengabdian" class="py-1 px-4 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-red-600 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+        <a href="/pengabdian" class="py-1 px-4 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-red-700 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             Close
         </a>
-        <a href="/downloadsrtpgshanpengabdiandosen/{{ $surat->id }}" target="_blank" class="py-1 px-3 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+        <a href="/downloadsrtpgshanpengabdiandosen/{{ $surat->id }}" target="_blank" class="py-1 px-3 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             Download
         </a>
     </div>
