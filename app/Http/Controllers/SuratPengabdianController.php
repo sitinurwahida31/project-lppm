@@ -46,9 +46,9 @@ class SuratPengabdianController extends Controller
     {
 
         $datas = DB::table('tb_surat')
+        ->where('jenis_surat', 'pengabdian')
         ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
         ->join('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
-        ->where('jenis_surat', 'pengabdian')
         ->select(
             'tb_surat.id',
             'nomor_surat',
@@ -69,7 +69,7 @@ class SuratPengabdianController extends Controller
                     ->orWhere('nomor_induk', 'LIKE', '%' . $s . '%');
             });
         }
-        // dd($datas);
+        // dd($datas->first());
         return view('pengabdian.sr_tugas_pengabdian', [
             'datas' => $datas->paginate(10),
         ]);
@@ -490,6 +490,25 @@ class SuratPengabdianController extends Controller
             'ketualppm' => $ketualppm,
             'num' => $num,
         ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+    //  * @param  \App\Models\Surat  $Surat
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyPengabdian($id)
+    {
+        $referenceId = Surat::find($id)->first();
+        
+        Surat::find($id)->delete();
+        SuratDetail::where('id', $referenceId->id_detail_surat)->delete();
+        KetuaTim::where('id', $referenceId->id_ketua)->delete();
+        AnggotaTim::where('id_surat', $id)->delete();
+        AnggotaMahasiswa::where('id_surat', $id)->delete();
+        return redirect('/surattugas/pengabdian');
     }
 }
 

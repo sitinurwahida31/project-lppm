@@ -18,7 +18,7 @@ class UserController extends Controller
         $datas = DB::table('user')->paginate(5);
         
         // dd($datas);
-        return view('user', [
+        return view('generalview.user', [
             'datas' => $datas,
         ]);
     }
@@ -104,8 +104,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyUser($id)
     {
-        //
+        User::where('id', $id)->delete();
+        return redirect('/datauser');
     }
+
+    
 }
+
