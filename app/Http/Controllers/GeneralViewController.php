@@ -11,10 +11,6 @@ class GeneralViewController extends Controller
     {
         return view('generalview.signin');
     }
-    public function signup()
-    {
-        return view('sign_in');
-    }
     public function landing()
     {
         return view('layoutdosen.landing');
@@ -23,38 +19,28 @@ class GeneralViewController extends Controller
     // == FUNCTION UNTUK VIEW ADMIN ==
     public function dashboard()
     {
-        return view('dashboard');
-    }    
+        return view('generalview.dashboard');
+    }
     public function suratTugasPenelitian()
     {
-        return view('sr_tugas_penelitian');
+        return view('penelitian.sr_tugas_penelitian');
     }
     public function suratPengesahanPenelitian()
     {
-        return view('sr_pengesahan_penelitian');
+        return view('penelitian.sr_pengesahan_penelitian');
     }
     public function suratPengesahanPengabdian()
     {
-        return view('sr_pengesahan_pengabdian');
+        return view('pengabdian.sr_pengesahan_pengabdian');
     }
 
     // == FUNCTION UNTUK VIEW DESEN ==
-    // == PENELITIAN ==
     public function penelitian()
     {
         return view('layoutdosen.fitur_menu_penelitian');
     }
-    
-
-    // == PENGABIDAN ==
     public function pengabdian()
     {
-        return view('.layoutdosen.fitur_menu_pengabdian');
+        return view('layoutdosen.fitur_menu_pengabdian');
     }
-    
-    public function suratPengesahanPengabdianFormat()
-    {
-        return view('layoutdosen.format_sr-pengesahan_pengabdian');
-    }
-
 }
