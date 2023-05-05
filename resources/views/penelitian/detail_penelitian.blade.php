@@ -196,8 +196,7 @@
                     <div class="w-full mt-3">
                         <p >Jumlah Mahasiswa/Staf/Alumni</p>
                     </div>
-                    
-                    <div class="w-full h-auto flex">
+                    <div class="w-full h-auto flex mt-3">
                         <span class="mr-1">:</span>
                         <p><span>{{$mahasiswa}}</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
                     </div>
@@ -217,7 +216,7 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mr-8 mb-2">
                     <div class="w-full">
-                        <p>Mitra</p>
+                        <p>Mitraa</p>
                     </div>
                     <div class="w-full flex">
                         <span class="mr-1">:</span>
