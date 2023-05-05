@@ -179,7 +179,11 @@
                     </div>
                     <div></div>
                 </div>
-                Anggota Pelaksana
+
+                {{-- anggota Pelaksana --}}
+                <div>
+                    Anggota Pelaksana
+                </div>
                 <div class="grid grid-cols-6 md:grid-cols-3 gap-0 pr-8 mb-3">
                     {{-- a --}}
                     @foreach ($anggota as $item)
@@ -192,29 +196,33 @@
                     </div>
                     <div></div>
                     @endforeach
+                </div>
 
-                    <div class="w-full mt-3">
-                        <p >Jumlah Mahasiswa/Staf/Alumni</p>
+                {{-- Jumlah staf/mhs --}}
+                <div class="grid grid-cols-3 gap-0 pr-8 mb-3">                
+                    <div class="w-full">
+                        <p>Mahasiswa</p>
                     </div>
-
-                    <div class="w-full h-auto flex">
-                        <span class="mr-1">:</span>
-                        <p><span>{{$mahasiswa}}</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
+                    <div class="col-span-2">                    
                     </div>
-                    <div></div>
                     @foreach ($data_mahasiswa as $item)
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">{{ chr(96+ $loop->iteration) }}.</span>Nama Mahasiswa ({{  $loop->iteration }}) / NIM</p>
                     </div>
-                    <div class="w-full h-auto flex">
+                    <div class="w-full h-auto col-span-2 flex">
                         <span class="mr-1">:</span>
                         <p><span>{{ $item->nama_mahasiswa }}</span><span> / </span><span>{{ $item->nim }}</span></p>
                     </div>
-
-                    <div></div>
                     @endforeach
-
+                    <div class="w-full mt-3">
+                        <p >Jumlah Mahasiswa/Staf/Alumni</p>
+                    </div>
+                    <div class="w-full mt-3 h-auto col-span-2 flex">
+                        <span class="mr-1">:</span>
+                        <p><span>{{$mahasiswa}}</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
+                    </div>
                 </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mr-8 mb-2">
                     <div class="w-full">
                         <p>Mitra</p>

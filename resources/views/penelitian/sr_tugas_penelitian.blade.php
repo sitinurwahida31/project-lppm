@@ -71,15 +71,12 @@
          <!-- Header / Profile -->
          @include('layout.header_admin')
 
-        <div class="bg-white h-9 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
-            <span class="text-green-700 font-bold pl-5 text-sm sm:flex">DATA PENELITIAN</span>
+        <div class="bg-white h-12 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
+            <span class="text-green-700 font-bold pl-5 text-base sm:flex">DATA PENELITIAN</span>
         </div>
 
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
             <div class="items-center gap-x-4 hidden sm:flex justify-end">
-                {{-- Button tambah --}}
-                {{-- <button type="button" class=" shadow-md px-6 py-1.5 text-xs font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500">Tambah Data</button> --}}
-
                {{-- fitur search --}}
                 <div class="w-full lg:w-[40%]">
                     <form action="/surattugas/penelitian" class="flex items-center justify-end">
@@ -150,40 +147,22 @@
                             </td>
                             <td class="px-6 py-1 justify-center h-full ">
                                 <div class="flex items-stretch h-full place-items-center">
-                                    <a href="/surattugas/penelitian/detailsuratpenelitian/{{ $data->id }}" class="p-1 text-white bg-blue-500 m-0.5" >
+                                    <a href="/surattugas/penelitian/detailsuratpenelitian/{{ $data->id }}" class="p-2 text-white bg-blue-500 m-0.5 mr-1 rounded" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                                             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                         </svg>
                                     </a>
-
-                                    {{-- icon delete --}}
-<<<<<<< HEAD
-                                    <a href="#" class="font-medium p-1 text-white bg-red-600 dark:gray-blue-500 hover:underline m-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                        </svg>
-                                    </a>
-
-                                </div>
-=======
-                                    {{-- <a href="/destroypenelitian/{{ $data->id }}" class="font-medium text-red-600 dark:gray-blue-500 hover:underline m-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                        </svg>
-                                    </a> --}}
-
                                     <form action="/destroypenelitian/{{ $data->id }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" onclick="return confirm('Yakin Hapus Data Penelitian?')" class="font-medium text-red-600 dark:gray-blue-500 hover:underline m-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <button type="submit" onclick="return confirm('Yakin Hapus Data Penelitian?')" class="font-medium text-white p-2 rounded bg-red-600 dark:gray-blue-500 hover:underline m-0.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                             </svg>
                                         </button>
                                     </form>                                    
                                 </div>    
->>>>>>> 84d7a2a758477931b2ff476467f9f05ec87a61ee
                             </td>
                         </tr>
                         @endforeach

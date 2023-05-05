@@ -1,4 +1,4 @@
-<nav class="bg-green-900 px-2 sm:px-14 py-3 dark:bg-white-900 fixed w-full z-20 top-0 left-0 ">
+<nav class="bg-green-900 px-2 sm:px-14 py-2 dark:bg-white-900 fixed w-full z-20 top-0 left-0 ">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <a href="" class="flex items-center">
             <img src="/img/logo.png" class="h-9 mr-3 sm:h-9" alt="logo uncp">

@@ -143,73 +143,80 @@
             <div class="pt-5 tracking-wide">
                 <p class="text-xs">Menugaskan kepada saudara:</p>
             </div>
+            
             {{-- Anggota --}}
-                <div class="ml-4 flex text-sm text-black mt-5 text-left font-normal tracking-wide">
-                    <div class="mr-4">
-                        <p>1</p>
-                        @php
-                            for ($x = 2; $x <= $countAnggota; $x++) {
-                                echo "<p>$x</p>";
-                            }
-                        @endphp
-                    </div>
-                    <div class="mr-14">
-                        <p> {{ $surat->nama_ketua }} </p>
-                        @foreach ($anggota as $item)
-                            <p>{{ $item->nama_anggota }}</p>
-                        @endforeach
-                    </div>
-                    <div class="mr-14">
-                        <p>({{ $surat->nidn }})</p>
-                        @foreach ($anggota as $item)
-                            <p>({{ $item->nomor_induk_anggota }})</p>
-                        @endforeach
-                    </div>
-                    <div class="mr-7">
-                        <p>(Ketua)</p>
-                        @foreach ($anggota as $item)
-                            <p>(Anggota)</p>
-                        @endforeach
-                    </div>
+            <div class="ml-4 flex text-sm text-black mt-5 text-left font-normal tracking-wide">
+                <div class="mr-4">
+                    <p>1</p>
+                    @php
+                        for ($x = 2; $x <= $countAnggota; $x++) {
+                            echo "<p>$x</p>";
+                        }
+                    @endphp
                 </div>
+                <div class="mr-14">
+                    <p> {{ $surat->nama_ketua }} </p>
+                    @foreach ($anggota as $item)
+                        <p>{{ $item->nama_anggota }}</p>
+                    @endforeach
+                </div>
+                <div class="mr-14">
+                    <p>({{ $surat->nidn }})</p>
+                    @foreach ($anggota as $item)
+                        <p>({{ $item->nomor_induk_anggota }})</p>
+                    @endforeach
+                </div>
+                <div class="mr-7">
+                    <p>(Ketua)</p>
+                    @foreach ($anggota as $item)
+                        <p>(Anggota)</p>
+                    @endforeach
+                </div>
+            </div>
+            {{-- new --}}
             <div class="pt-4 tracking-wide">
                 <p class="text-sm">Melibatkan:</p>
             </div>
-                {{-- mahasiswa --}}
-                <div class="ml-4 flex text-sm text-black mt-4 text-left font-normal tracking-wide">
-                    <div class="mr-4">
-                        <a href=""><p>1.</p></a>
-                        <a href=""><p>2.</p></a>
-                    </div>
-                    <div class="mr-14">
-                        <p>siti</p>
-                        <p>ida</p>
-                    </div>
-                    <div class="mr-14">
-                        <p>(09220118802)</p>
-                        <p>(09220118802)</p>
-                    </div>
-                    <div class="mr-7">
+            {{-- mahasiswa --}}
+            <div class="ml-4 flex text-sm text-black mt-4 text-left font-normal tracking-wide">
+                <div class="mr-4">
+                        @foreach ($mahasiswa as $item)
+                        <p>{{ $loop->iteration }}</p>                        
+                    @endforeach
+                </div>
+                <div class="mr-14">
+                    @foreach ($mahasiswa as $item)
+                        <p>{{ $item->nama }}</p>                        
+                    @endforeach
+                </div>
+                <div class="mr-14">
+                    @foreach ($mahasiswa as $item)
+                        <p>({{ $item->nim }})</p>                        
+                    @endforeach
+                </div>
+                <div class="mr-7">
+                    @foreach ($mahasiswa as $item)                    
                         <p>(Mahasiswa)</p>
-                        <p>(Mahasiswa)</p>
-                    </div>
+                    @endforeach
                 </div>
-                {{-- perihal surat --}}
-                <div class="text-justify text-sm text-black font-normal mt-5 tracking-wide">
-                    <p>Untuk melakukan pengabdian yang berjudul <span>"{{ $surat->judul_surat }}"</span> dengan jangka waktu penelitian <span>{{ $surat->jangka_waktu }}</span>, mulai pada <span>{{ $surat->tanggal_mulai }}</span> sampai <span>{{ $surat->tanggal_selesai }}</span>. Selanjutnya, Saudara melaporkan hasil pengabdian ke ketua LPPM sebanyak 1 buah laporan. </p>
+            </div>
+
+            {{-- perihal surat --}}
+            <div class="text-justify text-sm text-black font-normal mt-5 tracking-wide">
+                <p>Untuk melakukan pengabdian yang berjudul <span>"{{ $surat->judul_surat }}"</span> dengan jangka waktu penelitian <span>{{ $surat->jangka_waktu }}</span>, mulai pada <span>{{ $surat->tanggal_mulai }}</span> sampai <span>{{ $surat->tanggal_selesai }}</span>. Selanjutnya, Saudara melaporkan hasil pengabdian ke ketua LPPM sebanyak 1 buah laporan. </p>
+            </div>
+            <div class="text-left text-sm text-black font-normal mt-5 tracking-wide">
+                <p>Demikian Surat Tugas ini dibuat untuk dapat digunakan sebagaimana mestinya.</p>
+            </div>
+            {{-- tanda tangan ketua lppm --}}
+            <div class="flex items-center justify-end text-base text-black mt-7 tracking-wide">
+                <div>
+                    <p>Palopo, {{ $surat->created_at }}</p>
+                    <p class="font-bold mb-[70px] mt-3">Plt Ketua LPPM</p>
+                    <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
+                    <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
                 </div>
-                <div class="text-left text-sm text-black font-normal mt-5 tracking-wide">
-                    <p>Demikian Surat Tugas ini dibuat untuk dapat digunakan sebagaimana mestinya.</p>
-                </div>
-                {{-- tanda tangan ketua lppm --}}
-                <div class="flex items-center justify-end text-base text-black mt-7 tracking-wide">
-                    <div>
-                        <p>Palopo, {{ $surat->created_at }}</p>
-                        <p class="font-bold mb-[70px] mt-3">Plt Ketua LPPM</p>
-                        <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
-                        <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
-                    </div>
-                </div>
+            </div>
             {{-- Tembusan --}}
             <div class="text-sm text-black font-normal mt-7 tracking-wide">
                 <p>Tembusan disampaikan dengan hormat kepada:</p>

@@ -107,8 +107,7 @@ title{
     color: #fff;
     font-weight: 500;
     margin: 10px;
-    text-trasform: uppercase;
-
+    text-transform: uppercase;
 }
 .btn:hover{
     background: #15803d;
@@ -224,4 +223,7 @@ a{
     font-style: italic;
     font-size: 12px;
     text-align: left !important;
+}
+.text-base {
+    font-size: 14px;
 }

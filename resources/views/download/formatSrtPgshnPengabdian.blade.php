@@ -38,7 +38,7 @@
      <div class="flex items-center justify-between text-base">
         <div class="mx-20 mb-20 mt-16">
             {{-- Ket Surat --}}
-            <div class="text-center mb-8">
+            <div class="text-center mb-4">
                 <p class="font-bold text-black text-lg tracking-wide">HALAMAN PENGESAHAN</p>
             </div>
             {{-- judul --}}

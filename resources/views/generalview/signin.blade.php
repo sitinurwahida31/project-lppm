@@ -22,6 +22,7 @@
                     <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Password">
                 </div>
+                <div class="message-error text-base">@error('loginError') {{ $message }} @enderror</div>
                 <input type="submit" value="Sign In" class="btn">              
             </form>
             

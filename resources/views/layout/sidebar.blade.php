@@ -1,6 +1,6 @@
 <div class="flex items-center">
     <!-- Left side (Sidebar) -->
-    <div class="bg-white w-[220px] h-screen px-8 py-6 sm:flex flex-col justify-between sidebar in-active hidden shadow drop-shadow-xl">
+    <div class="bg-white w-[350px] h-screen px-8 py-6 sm:flex flex-col justify-between sidebar in-active hidden shadow drop-shadow-xl">
         <!-- Top nav -->
         <div class="flex flex-col gap-y-6">
             <!-- Header -->
@@ -16,7 +16,7 @@
             <div>
                 <ul class="flex flex-col gap-y-1">
                     <!-- ICON DASHBOARD -->
-                    <li>
+                    <li class="mb-2.5">
                         <a href="/dashboard" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
                                 <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
@@ -24,8 +24,8 @@
                             <p class="font-medium text-base">Dashboard</p>
                         </a>
                         <!-- ICON ALAT -->
-                    <li>
-                    <li>
+                    </li>
+                    <li class="mb-2.5">
                         <a href="/datauser" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
@@ -33,7 +33,7 @@
                             <p class="font-medium text-base">Kelola User</p>
                         </a>
                     </li>
-                    <li>
+                    <li class="mb-2.5">
                         <a href="/datasurat" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-clipboard2-data-fill" viewBox="0 0 16 16">
                                 <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
@@ -42,9 +42,7 @@
                             <p class="font-medium text-base">Data Surat</p>
                         </a>
                     </li>
-
-
-                    <li>
+                    <li class="mb-2.5">
                         <a href="/surattugas/penelitian" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
                                 <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
@@ -54,7 +52,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <li class="mb-2.5">
                         <a href="/surattugas/pengabdian" class="flex items-center gap-x-5 h-[35px] rounded-xl px-4 hover:bg-gray-100 text-green-700 hover:text-amber-400">
                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
                                 <path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>

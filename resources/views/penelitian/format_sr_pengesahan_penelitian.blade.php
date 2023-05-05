@@ -375,6 +375,9 @@
      </div>
      {{-- button download --}}
      <div class="ml-40 mr-40 mt-16 mb-28 flex justify-end">
+        <a href="/surattugas/penelitian/format/{{ $surat->id }}" class="py-1 px-5 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-gray-600 rounded-lg border border-gray-200 hover:bg-gray-500 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-600 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+            Back
+        </a>
         <a href="/penelitian" class="py-1 px-4 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-red-700 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             Close
         </a>

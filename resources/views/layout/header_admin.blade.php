@@ -14,7 +14,7 @@
 
     <div class="items-center gap-x-2 justify-end hidden sm:flex pr-4">
         <img class="w-8" src="/img/icons/default_profile.svg" alt="Profile Image">
-        <p class="text-dark-green font-medium text-base text-white">
+        <p class="font-medium text-base text-white">
             {{ auth()->user()->username }}
         </p>
     </div>

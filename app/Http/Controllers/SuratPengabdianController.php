@@ -82,11 +82,72 @@ class SuratPengabdianController extends Controller
      */
     public function create()
     {
+        $semester = DB::table('tb_semester')->select('tahun_semester', 'nomor_semester')->get();
         $prodi = ProgramStudi::select(
             '*'
         )->get();
-        // dd($prodi);
-        return view('pengabdian.form_input_pengabdian', compact('prodi'));
+        // Generate nomor surat
+        $num = DB::table('tb_surat')->select('id', 'nomor_surat')
+            ->orderBy('nomor_surat', 'desc')->first();
+        $number = "";
+        if ($num) {
+            $v = explode('/', $num->nomor_surat);
+            $v = $v[0];
+            $number = (int)$v + 1;
+        } else {
+            $number = "001";
+        }
+
+        if ($num && strlen((string)$number) == 1) {
+            $number = "00" . (string)$number;
+        } else if ($num && strlen((string)$number) == 2) {
+            $number = "0" . (string)$number;
+        } else if ($num && strlen((string)$number) == 3) {
+            $number = (string)$number;
+        }
+        
+        $bulan = date('m');
+        switch ($bulan){
+            case 1: 
+                $bulan = "I";
+                break;
+            case 2:
+                $bulan = "II";
+                break;
+            case 3:
+                $bulan = "III";
+                break;
+            case 4:
+                $bulan = "IV";
+                break;
+            case 5:
+                $bulan = "V";
+                break;
+            case 6:
+                $bulan = "VI";
+                break;
+            case 7:
+                $bulan = "VII";
+                break;
+            case 8:
+                $bulan = "VIII";
+                break;
+            case 9:
+                $bulan = "IX";
+                break;
+            case 10:
+                $bulan = "X";
+                break;
+            case 11:
+                $bulan = "XI";
+                break;
+            case 12:
+                $bulan = "XII";
+                break;
+        }
+        $nosrt = $number.'/ST'.'/LPPM-UNCP'.'/'.$bulan.'/'.date('Y');
+        // dd($nosrt);
+        return view('pengabdian.form_input_pengabdian', compact('prodi', 'semester', 'nosrt'));
     }
 
     /**
@@ -118,9 +179,12 @@ class SuratPengabdianController extends Controller
 
             'judul_pengabdian' => 'required',
             'semester' => 'required',
-            'nomor_surat' => 'required',
             'nama_anggota1' => 'required',
             'nomor_induk_anggota1' => 'required',
+            'nama_mahasiswa1' => 'required',
+            'nim_mahasiswa1' => 'required',
+            'nama_mahasiswa2' => 'required',
+            'nim_mahasiswa2' => 'required',
         ]);
         // dd($request->all());
 
@@ -151,10 +215,70 @@ class SuratPengabdianController extends Controller
         ];
         $ketuaTim = KetuaTim::create($requestKetuaTim);
 
+        // GENERATE NOMOR SURAT
+        $num = DB::table('tb_surat')->select('id', 'nomor_surat')
+            ->orderBy('nomor_surat', 'desc')->first();
+        $number = "";
+        if ($num) {
+            $v = explode('/', $num->nomor_surat);
+            $v = $v[0];
+            $number = (int)$v + 1;
+        } else {
+            $number = "001";
+        }
+
+        if ($num && strlen((string)$number) == 1) {
+            $number = "00" . (string)$number;
+        } else if ($num && strlen((string)$number) == 2) {
+            $number = "0" . (string)$number;
+        } else if ($num && strlen((string)$number) == 3) {
+            $number = (string)$number;
+        }
+        
+        $bulan = date('m');
+        switch ($bulan){
+            case 1: 
+                $bulan = "I";
+                break;
+            case 2:
+                $bulan = "II";
+                break;
+            case 3:
+                $bulan = "III";
+                break;
+            case 4:
+                $bulan = "IV";
+                break;
+            case 5:
+                $bulan = "V";
+                break;
+            case 6:
+                $bulan = "VI";
+                break;
+            case 7:
+                $bulan = "VII";
+                break;
+            case 8:
+                $bulan = "VIII";
+                break;
+            case 9:
+                $bulan = "IX";
+                break;
+            case 10:
+                $bulan = "X";
+                break;
+            case 11:
+                $bulan = "XI";
+                break;
+            case 12:
+                $bulan = "XII";
+                break;
+        }
+        $nosrt = $number.'/ST'.'/LPPM-UNCP'.'/'.$bulan.'/'.date('Y');
         // == CREATE DATA IN SURAT pengabdian ==
         $requestSuratpengabdian = [
             'judul_surat' => $request->judul_pengabdian,
-            'nomor_surat' => $request->nomor_surat,
+            'nomor_surat' => $nosrt,
             'semester' => $request->semester,
             'id_detail_surat' => $detailSurat->id,
             'id_ketua' => $ketuaTim->id,
@@ -201,7 +325,7 @@ class SuratPengabdianController extends Controller
         if($request->nama_mahasiswa1 && $request->nim_mahasiswa1){
             AnggotaMahasiswa::create([
                 'nama' => $request->nama_mahasiswa1,
-                'id_surat_pengabdian' => $suratpengabdian->id,
+                'id_surat' => $suratpengabdian->id,
                 'nim' => $request->nim_mahasiswa1,
                 'user_create' => Auth::user()->id
             ]);
@@ -209,7 +333,7 @@ class SuratPengabdianController extends Controller
         if($request->nama_mahasiswa2 && $request->nim_mahasiswa2){
             AnggotaMahasiswa::create([
                 'nama' => $request->nama_mahasiswa2,
-                'id_surat_pengabdian' => $suratpengabdian->id,
+                'id_surat' => $suratpengabdian->id,
                 'nim' => $request->nim_mahasiswa2,
                 'user_create' => Auth::user()->id
             ]);
@@ -264,14 +388,23 @@ class SuratPengabdianController extends Controller
             'nomor_induk as nomor_induk_anggota',
         )
         ->get();
+        $mahasiswa = AnggotaMahasiswa::where('id_surat', $id)->get();
 
         $countAnggota = count($anggota)+1;
         // dd($countAnggota);
+        // return dd([
+        //     'surat' => $surat,
+        //     'ketualppm' => $ketualppm,
+        //     'anggota' => $anggota,
+        //     'countAnggota' => $countAnggota,
+        //     'mahasiswa' => $mahasiswa,
+        // ]);
         return view('pengabdian.format_sr-tugas_pengabdian', [
             'surat' => $surat,
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
             'countAnggota' => $countAnggota,
+            'mahasiswa' => $mahasiswa,
         ]);
     }
 
@@ -495,7 +628,7 @@ class SuratPengabdianController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-    //  * @param  \App\Models\Surat  $Surat
+    * @param  \App\Models\Surat  $Surat
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
