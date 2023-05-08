@@ -7,11 +7,13 @@ use App\Models\KetuaTim;
 use App\Models\AnggotaTim;
 use App\Models\SuratDetail;
 use Illuminate\Support\Str;
+use App\Exports\SuratPenelitianExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\AnggotaMahasiswa;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SuratPenelitianController extends Controller
 {
@@ -354,64 +356,10 @@ class SuratPenelitianController extends Controller
         return redirect('/surattugas/penelitian/format/'.$suratPenelitian->id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Surat  $Surat
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Surat $Surat)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Surat  $Surat
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Surat $Surat)
-    {
+    // =========================================================================================
+    // =========================================================================================
 
-    }
-
-    public function editAdmin(Request $request, $id)
-    {
-        // $data = $request->validate([
-        //     'fakultas' => 'required',
-        //     'nama_prodi' => 'required',
-        //     'ketua_prodi' => 'required',
-        //     'nomor_induk_kaprodi' => 'required',
-        // ]);
-        // $data = Surat::where('id', $id)->update($data);
-        // dd($request->all(), $data);
-        return view('penelitian.edit_penelitian');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Surat  $Surat
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Surat $Surat)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Surat  $Surat
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Surat $Surat)
-    {
-        //
-    }
 
     public function suratTugasPenelitianFormat($id)
     {
@@ -587,7 +535,6 @@ class SuratPenelitianController extends Controller
         ]);
     }
 
-
     public function suratPengesahanPenelitianFormat($id)
     {
         $surat = DB::table('tb_surat')
@@ -633,6 +580,7 @@ class SuratPenelitianController extends Controller
             'publikasi_ilmiah',
         )
         ->first();
+
         $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
         $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
         $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
@@ -708,4 +656,14 @@ class SuratPenelitianController extends Controller
         return redirect('/surattugas/penelitian');
     }
     
+
+    // =========================================================================================
+    // =========================================================================================
+    
+    
+    public function suratPenelitianExport() 
+    {
+        return Excel::download(new SuratPenelitianExport, 'SuratTugasPenelitian.xlsx');
+    }
+   
 }
