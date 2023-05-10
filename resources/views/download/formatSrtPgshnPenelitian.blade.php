@@ -42,7 +42,7 @@
                 <p class="font-bold text-black text-lg tracking-wide">HALAMAN PENGESAHAN</p>
             </div>
             {{-- judul --}}
-            <div class="grid grid-cols-2 gap-0 mr-8">
+            <div class="grid grid-cols-2 gap-0 mr-4">
                 <div class="w-full">
                     <p>Judul Penelitian</p>
                 </div>

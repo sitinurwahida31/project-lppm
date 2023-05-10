@@ -39,11 +39,11 @@
      {{-- content --}}
      {{-- breadcrumb --}}
      <div class="flex justify-end items-center mb-14 mt-20 mr-16">
-         <nav class="flex" aria-label="Breadcrumb">
+         <nav class="flex mt-2" aria-label="Breadcrumb">
              <ol class="inline-flex items-center space-x-1 md:space-x-3">
              <li class="inline-flex items-center">
-                 <a href="./landingpage" class="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white">
-                 <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                 <a href="./landingpage" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white">
+                 <svg aria-hidden="true" class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                  </svg>
                  Home
@@ -54,7 +54,7 @@
                  <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                  </svg>
-                 <a href="./fitmepenelitian" class="ml-1 text-xs font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Penelitian</a>
+                 <a href="./fitmepenelitian" class="ml-1 text-sm font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Penelitian</a>
                  </div>
              </li>
              <li aria-current="page">
@@ -62,7 +62,7 @@
                  <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                  </svg>
-                 <a href="./inputpenelitian" class="ml-1 text-xs font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Form</a>
+                 <a href="./inputpenelitian" class="ml-1 text-sm font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Form</a>
                  </div>
              </li>
              <li aria-current="page">
@@ -70,7 +70,7 @@
                 <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="ml-1 text-xs font-medium text-gray-500 md:ml-2 dark:text-gray-400">Surat Tugas</span>
+                <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Surat Tugas</span>
                 </div>
             </li>
              </ol>
@@ -91,8 +91,8 @@
                  3
              </div>
          </div>
-         <div class="mb-14  h-6 ml-36 mr-36 font-medium">
-             <span class="pl-[40px]">Form Input</span>
+         <div class="mb-14  h-6 ml-64 mr-36 font-medium">
+             <span class="pl-[60px]">Form Input</span>
              <span class="pl-[233px]">Surat Tugas</span>
              <span class="pl-[202px]">Surat Pengesahan</span>
          </div>
@@ -107,24 +107,24 @@
                 <img class="h-auto w-auto rounded-lg" src="/img/logo.png" alt="">
             </div>
             <div class="w-auto h-auto text-center ml-8 p-1">
-                <p class="font-bold text-black text-lg tracking-wide">UNIVERSITAS COKROAMINOTO PALOPO</p>
-                <p class="font-bold text-black text-sm tracking-wide">LEMBAGA PENELITIAN DAN PENGABDIAN MASYARAKAT</p>
-                <p class="font-medium text-black text-xs tracking-wide">Jl.Latamacelling No. 19 Kota Palopo 91921 - Sulawesi Selatan</p>
-                <p class="font-medium text-black text-xs tracking-wide">Telp. (0471) 22111, fax. (0471) 325055. Website http://www.lppm.uncp.ac.id</p>
+                <p class="font-bold text-black text-xl tracking-wide">UNIVERSITAS COKROAMINOTO PALOPO</p>
+                <p class="font-bold text-black text-lg tracking-wide">LEMBAGA PENELITIAN DAN PENGABDIAN MASYARAKAT</p>
+                <p class="font-medium text-black text-sm tracking-wide">Jl.Latamacelling No. 19 Kota Palopo 91921 - Sulawesi Selatan</p>
+                <p class="font-medium text-black text-sm tracking-wide">Telp. (0471) 22111, fax. (0471) 325055. Website http://www.lppm.uncp.ac.id</p>
             </div>
         </div>
         <hr class="border-[2px] border-opacity-100 border-black mt-1 mb-2">
         {{-- Ket Surat --}}
         <div class="text-center">
-            <p class="font-bold text-black text-sm tracking-wide">SURAT TUGAS</p>
+            <p class="font-bold text-black text-lg tracking-wide">SURAT TUGAS</p>
             <hr class="border-[1px] border-opacity-100 border-black ml-[218px] mr-[218px]">
-            <p class="text-black text-xs font-normal tracking-wide">Nomor: {{ $surat->nomor_surat }}</p>
+            <p class="text-black text-sm font-normal tracking-wide">Nomor: {{ $surat->nomor_surat }}</p>
         </div>
         <div class="pt-5 ">
-            <p class="text-xs text-black tracking-wide">Yang bertanda tangan di bawah ini:</p>
+            <p class="text-sm text-black tracking-wide">Yang bertanda tangan di bawah ini:</p>
         </div>
         {{-- info ketua --}}
-        <div class="ml-4 flex text-xs text-black mt-5 text-left tracking-wide">
+        <div class="ml-4 flex text-sm text-black mt-5 text-left tracking-wide">
             <div class="">
                 <p>NIDN</p>
                 <p>Jabatan</p>
@@ -142,58 +142,85 @@
             </div>
         </div>
         <div class="pt-5 tracking-wide">
-            <p class="text-xs">Menugaskan kepada saudara:</p>
+            <p class="text-sm">Menugaskan kepada saudara:</p>
         </div>
         {{-- Anggota --}}
-            <div class="ml-4 flex text-xs text-black mt-5 text-left font-normal tracking-wide">
-                <div class="mr-4">
-                    <p>1</p>
-                    @php
-                        for ($x = 2; $x <= $countAnggota; $x++) {
-                            echo "<p>$x</p>";
-                        }
-                    @endphp
-                </div>
-                <div class="mr-14">
-                    <p> {{ $surat->nama_ketua }} </p>
-                    @foreach ($anggota as $item)
-                        <p>{{ $item->nama_anggota }}</p>                            
-                    @endforeach
-                </div>
-                <div class="mr-14">
-                    <p>({{ $surat->nidn }})</p>
-                    @foreach ($anggota as $item)
-                        <p>({{ $item->nomor_induk_anggota }})</p>                            
-                    @endforeach
-                </div>
-                <div class="mr-7">
-                    <p>(Ketua)</p>
-                    @foreach ($anggota as $item)
-                        <p>(Anggota)</p>                           
-                    @endforeach
-                </div>
+        <div class="ml-4 flex text-sm text-black mt-5 text-left font-normal tracking-wide">
+            <div class="mr-4">
+                <p>1</p>
+                @php
+                    for ($x = 2; $x <= $countAnggota; $x++) {
+                        echo "<p>$x</p>";
+                    }
+                @endphp
             </div>
-            {{-- perihal surat --}}
-            <div class="text-justify text-xs text-black font-normal mt-5 tracking-wide">
-                <p>Untuk melakukan penelitian yang berjudul <span>"{{ $surat->judul_surat }}"</span> dengan jangka waktu penelitian <span>{{ $surat->jangka_waktu }}</span>, mulai pada <span>{{ $surat->tanggal_mulai }}</span> sampai <span>{{ $surat->tanggal_selesai }}</span>. Selanjutnya, Saudara melaporkan hasil penelitian ke ketua LPPM sebanyak 1 buah laporan. </p>
+            <div class="mr-14">
+                <p> {{ $surat->nama_ketua }} </p>
+                @foreach ($anggota as $item)
+                    <p>{{ $item->nama_anggota }}</p>
+                @endforeach
             </div>
-            <div class="text-left text-xs text-black font-normal mt-5 tracking-wide">
-                <p>Demikian Surat Tugas ini dibuat untuk dapat digunakan sebagaimana mestinya.</p>
+            <div class="mr-14">
+                <p>({{ $surat->nidn }})</p>
+                @foreach ($anggota as $item)
+                    <p>({{ $item->nomor_induk_anggota }})</p>
+                @endforeach
             </div>
-            {{-- tanda tangan ketua lppm --}}
-            <div class="flex items-center justify-end text-xs text-black mt-7 tracking-wide">
-                <div>
-                    <p>Palopo, {{ $surat->created_at }}</p>
-                    <p class="font-bold mb-[70px] mt-3">Plt Ketua LPPM</p>
-                    <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
-                    <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
-                </div>
+            <div class="mr-7">
+                <p>(Ketua)</p>
+                @foreach ($anggota as $item)
+                    <p>(Anggota)</p>
+                @endforeach
             </div>
+        </div>
+        {{-- new --}}
+        <div class="pt-4 tracking-wide">
+            <p class="text-sm">Melibatkan:</p>
+        </div>
+        {{-- mahasiswa --}}
+        <div class="ml-4 flex text-sm text-black mt-4 text-left font-normal tracking-wide">
+            <div class="mr-4">
+                    @foreach ($mahasiswa as $item)
+                    <p>{{ $loop->iteration }}</p>                        
+                @endforeach
+            </div>
+            <div class="mr-14">
+                @foreach ($mahasiswa as $item)
+                    <p>{{ $item->nama }}</p>                        
+                @endforeach
+            </div>
+            <div class="mr-14">
+                @foreach ($mahasiswa as $item)
+                    <p>{{ $item->nim }}</p>                        
+                @endforeach
+            </div>
+            <div class="mr-7">
+                @foreach ($mahasiswa as $item)                    
+                    <p>(Mahasiswa)</p>
+                @endforeach
+            </div>
+        </div>
+        {{-- perihal surat --}}
+        <div class="text-justify text-sm text-black font-normal mt-5 tracking-wide">
+            <p>Untuk melakukan penelitian yang berjudul <span>"{{ $surat->judul_surat }}"</span> dengan jangka waktu penelitian <span>{{ $surat->jangka_waktu }}</span>, mulai pada <span>{{ $surat->tanggal_mulai }}</span> sampai <span>{{ $surat->tanggal_selesai }}</span>. Selanjutnya, Saudara melaporkan hasil penelitian ke ketua LPPM sebanyak 1 buah laporan. </p>
+        </div>
+        <div class="text-left text-sm text-black font-normal mt-5 tracking-wide">
+            <p>Demikian Surat Tugas ini dibuat untuk dapat digunakan sebagaimana mestinya.</p>
+        </div>
+        {{-- tanda tangan ketua lppm --}}
+        <div class="flex items-center justify-end text-base text-black mt-7 tracking-wide">
+            <div>
+                <p>Palopo, {{ $surat->created_at }}</p>
+                <p class="font-bold mb-[70px] mt-3">Plt Ketua LPPM</p>
+                <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
+                <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
+            </div>
+        </div>
         {{-- Tembusan --}}
-        <div class="text-xs text-black font-normal mt-7 tracking-wide">
+        <div class="text-sm text-black font-normal mt-7 tracking-wide">
             <p>Tembusan disampaikan dengan hormat kepada:</p>
         </div>
-        <div class="flex text-xs text-black mt-1 text-left font-normal tracking-wide">
+        <div class="flex text-sm text-black mt-1 text-left font-normal tracking-wide">
             <div class="mr-4">
                 <p>1.</p>
                 <p>2.</p>
@@ -211,11 +238,11 @@
     </div>
     {{-- button download --}}
     <div class="ml-40 mr-40 mt-16 mb-28 flex justify-end">
-        <a href="/suratpengesahan/penelitian/format/{{ $surat->id }}" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-            Next
-        </a>
-        <a href="/downloadsrttgspenelitiandosen/{{ $surat->id }}" target="_blank" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+        <a href="/downloadsrttgspenelitiandosen/{{ $surat->id }}" target="_blank" class="py-1 px-5 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
             Download
+        </a>
+        <a href="/suratpengesahan/penelitian/format/{{ $surat->id }}" class="py-1 px-5 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-gray-600 rounded-lg border border-gray-200 hover:bg-gray-500 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-600 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+            Next
         </a>
     </div>
     {{-- footer --}}

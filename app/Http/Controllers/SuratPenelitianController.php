@@ -81,11 +81,75 @@ class SuratPenelitianController extends Controller
      */
     public function create()
     {
+        $semester = DB::table('tb_semester')->select('tahun_semester', 'nomor_semester')->get();
         $prodi = DB::table('tb_prodi')->select(
             'id',
             'nama_prodi',
         )->get();
-        return view('penelitian.form_input_penelitian', compact('prodi'));
+
+        // Generate nomor surat
+        $num = DB::table('tb_surat')->select('id', 'nomor_surat')
+            ->orderBy('nomor_surat', 'desc')->first();
+        $number = "";
+        if ($num) {
+            $v = explode('/', $num->nomor_surat);
+            $v = $v[0];
+            $number = (int)$v + 1;
+        } else {
+            $number = "001";
+        }
+
+        if ($num && strlen((string)$number) == 1) {
+            $number = "00" . (string)$number;
+        } else if ($num && strlen((string)$number) == 2) {
+            $number = "0" . (string)$number;
+        } else if ($num && strlen((string)$number) == 3) {
+            $number = (string)$number;
+        }
+        
+        $bulan = date('m');
+        switch ($bulan){
+            case 1: 
+                $bulan = "I";
+                break;
+            case 2:
+                $bulan = "II";
+                break;
+            case 3:
+                $bulan = "III";
+                break;
+            case 4:
+                $bulan = "IV";
+                break;
+            case 5:
+                $bulan = "V";
+                break;
+            case 6:
+                $bulan = "VI";
+                break;
+            case 7:
+                $bulan = "VII";
+                break;
+            case 8:
+                $bulan = "VIII";
+                break;
+            case 9:
+                $bulan = "IX";
+                break;
+            case 10:
+                $bulan = "X";
+                break;
+            case 11:
+                $bulan = "XI";
+                break;
+            case 12:
+                $bulan = "XII";
+                break;
+        }
+        $nosrt = $number.'/ST'.'/LPPM-UNCP'.'/'.$bulan.'/'.date('Y');
+        // dd($num, $number, $nosrt);
+
+        return view('penelitian.form_input_penelitian', compact('prodi', 'semester', 'nosrt'));
     }
 
     /**
@@ -117,10 +181,13 @@ class SuratPenelitianController extends Controller
 
             'judul_penelitian' => 'required',
             'semester' => 'required',
-            'nomor_surat' => 'required',
             'nama_anggota1' => 'required',
             'nomor_induk_anggota1' => 'required',
-        ]);
+            'nama_mahasiswa1' => 'required',
+            'nim_mahasiswa1' => 'required',
+            'nama_mahasiswa2' => 'required',
+            'nim_mahasiswa2' => 'required',
+        ]);        
 
         // == CREATE DATA IN SURAT PENELITIAN DETAIL==
         $requestDetailSuratPenelitian = [
@@ -138,6 +205,8 @@ class SuratPenelitianController extends Controller
         ];
         $detailSurat = SuratDetail::create($requestDetailSuratPenelitian);
 
+        
+        // dd($requestDetailSuratPenelitian);
         // == CREATE DATA IN KETUA TIM==
         $requestKetuaTim = [
             'nama' => $request->nama_ketua,
@@ -150,10 +219,71 @@ class SuratPenelitianController extends Controller
         ];
         $ketuaTim = KetuaTim::create($requestKetuaTim);
 
+        // GENERATE NOMOR SURAT
+        $num = DB::table('tb_surat')->select('id', 'nomor_surat')
+            ->orderBy('nomor_surat', 'desc')->first();
+        $number = "";
+        if ($num) {
+            $v = explode('/', $num->nomor_surat);
+            $v = $v[0];
+            $number = (int)$v + 1;
+        } else {
+            $number = "001";
+        }
+
+        if ($num && strlen((string)$number) == 1) {
+            $number = "00" . (string)$number;
+        } else if ($num && strlen((string)$number) == 2) {
+            $number = "0" . (string)$number;
+        } else if ($num && strlen((string)$number) == 3) {
+            $number = (string)$number;
+        }
+        
+        $bulan = date('m');
+        switch ($bulan){
+            case 1: 
+                $bulan = "I";
+                break;
+            case 2:
+                $bulan = "II";
+                break;
+            case 3:
+                $bulan = "III";
+                break;
+            case 4:
+                $bulan = "IV";
+                break;
+            case 5:
+                $bulan = "V";
+                break;
+            case 6:
+                $bulan = "VI";
+                break;
+            case 7:
+                $bulan = "VII";
+                break;
+            case 8:
+                $bulan = "VIII";
+                break;
+            case 9:
+                $bulan = "IX";
+                break;
+            case 10:
+                $bulan = "X";
+                break;
+            case 11:
+                $bulan = "XI";
+                break;
+            case 12:
+                $bulan = "XII";
+                break;
+        }
+        $nosrt = $number.'/ST'.'/LPPM-UNCP'.'/'.$bulan.'/'.date('Y');
+
         // == CREATE DATA IN SURAT PENELITIAN ==
         $requestSuratPenelitian = [
             'judul_surat' => $request->judul_penelitian,
-            'nomor_surat' => $request->nomor_surat,
+            'nomor_surat' => $nosrt,
             'semester' => $request->semester,
             'id_detail_surat' => $detailSurat->id,
             'id_ketua' => $ketuaTim->id,
@@ -163,6 +293,7 @@ class SuratPenelitianController extends Controller
         ];
 
         $suratPenelitian = Surat::create($requestSuratPenelitian);
+        // dd($requestDetailSuratPenelitian, $requestKetuaTim, $requestSuratPenelitian);
 
         if($request->nama_anggota1 && $request->nomor_induk_anggota1){
             AnggotaTim::create([
@@ -229,9 +360,143 @@ class SuratPenelitianController extends Controller
      * @param  \App\Models\Surat  $Surat
      * @return \Illuminate\Http\Response
      */
-    public function show(Surat $Surat)
+    public function showPenelitian($id)
     {
-        //
+        // $surat = Surat::where('id', $id)->first();
+        // $detail = SuratDetail::where('id', $id)->first();
+        // $ketua = KetuaTim::where('id', $id)->first();
+        // $anggota = AnggotaTim::where('id', $id)->first();
+        // $mahasiswa = AnggotaMahasiswa::where('id', $id)->first();
+
+        $surat = Surat::where('tb_surat.id',$id)
+        ->rightJoin('tb_detail_surat', 'tb_detail_surat.id', '=', 'tb_surat.id_detail_surat' )
+        ->join('tb_ketua_tim', 'tb_ketua_tim.id', '=', 'tb_surat.id_ketua' )
+        ->join('tb_prodi', 'tb_prodi.id', '=', 'tb_ketua_tim.prodi' )
+        ->join('tb_fakultas', 'tb_fakultas.id', '=', 'tb_prodi.fakultas' )
+        ->select(
+            'tb_surat.id',
+            'judul_surat',
+            'nomor_surat',
+            'semester',
+            'jenis_surat',
+            'status',
+            'id_detail_surat',
+            'id_ketua',
+            'tb_surat.user_create',
+            'tb_surat.created_at',
+            'nama as nama_ketua',
+            'nomor_induk',
+            'prodi',
+            'jabatan_fungsional',
+            'email',
+            'telepon',
+            'nama_prodi',
+            'fakultas',
+            'ketua_prodi',
+            'nomor_induk_kaprodi',
+            'nama_fakultas',
+            'nama_dekan',
+            'nomor_induk_dekan',
+            'jangka_waktu',
+            'tanggal_mulai',
+            'tanggal_selesai',
+            'sumber_dana',
+            'mitra',
+            'biaya_penelitian_pengabdian',
+            'terbilang',
+            'jarak_lokasi_mitra',
+            'produk',
+            'publikasi_ilmiah',
+        )
+        ->first();
+        // dd($surat);
+        $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
+        $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
+        $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
+        // 23 January 2022
+        $surat->biaya_penelitian_pengabdian = number_format($surat->biaya_penelitian_pengabdian);
+
+        $anggota = Db::table('tb_anggota_tim')
+        ->where('id_surat', $id)
+        ->select(
+            'nama as nama_anggota',
+            'nomor_induk as nomor_induk_anggota',
+        )
+        ->get();
+
+        $mahasiswa = Db::table('tb_anggota_mahasiswa')
+        ->where('id_surat', $id)
+        ->select(
+            'nama as nama_mahasiswa',
+            'nim',
+        )
+        ->get();
+
+        $semester = Db::table('tb_semester')
+        ->select(
+            'tahun_semester',
+            'nomor_semester',
+        )
+        ->get();
+
+        
+        $listSumberDana = [
+            'Mandiri',
+            'DRPTM',
+            'Internal UNCP',
+            'Pemerintah Daerah',
+            'Lainnya',
+        ];
+
+        $listJabatan = [
+            'Guru Besar',
+            'Lektor Kepala',
+            'Lektor',
+            'Asisten Ahli',
+            'Tenaga Pengajar',
+            'Lainnya'
+        ];
+
+        $listProduk = [
+            'Produk',
+            'Prototype',
+            'Desain',
+            'Lainnya'
+        ];
+
+        $listPublikasi = [
+            'Jurnal Nasional ISSN',
+            'Jurnal Nasional Terakreditasi',
+            'Jurnal Internasional Bereputasi',
+            'Lainnya'
+        ];
+        
+
+        // dd([
+        //     'surat' => $surat,
+        //     'anggota' => $anggota,
+        //     'mahasiswa' => $mahasiswa,
+        //     'semester' => $semester,
+        //     'listSumberDana' => $listSumberDana,
+        //     'listJabatan' => $listJabatan,
+        //     'listProduk' => $listProduk,
+        //     'listPublikasi' => $listPublikasi,
+
+        // ]);
+
+        return view('penelitian.edit_penelitian',[
+            'surat' => $surat,
+            'anggota' => $anggota,
+            'mahasiswa' => $mahasiswa,
+            'semester' => $semester,
+            'listSumberDana' => $listSumberDana,
+            'listJabatan' => $listJabatan,
+            'listProduk' => $listProduk,
+            'listPublikasi' => $listPublikasi,
+
+        ]);
+
+        
     }
 
     /**
@@ -266,10 +531,95 @@ class SuratPenelitianController extends Controller
      * @param  \App\Models\Surat  $Surat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Surat $Surat)
+    public function updatePenelitian(Request $request, $id)
     {
-        //
+        $request->validate([
+            // 'jangka_waktu' => 'required',
+            // 'tanggal_mulai' => 'required',
+            // 'tanggal_selesai' => 'required',
+            // 'sumber_dana' => 'required',
+            // 'mitra' => 'required',
+            // 'biaya_penelitian_pengabdian' => 'required|numeric',
+            // 'terbilang' => 'required',
+            // 'jarak_lokasi_mitra' => 'required',
+            // 'produk' => 'required',
+            // 'publikasi_ilmiah' => 'required',
+
+            // 'nama_ketua' => 'required',
+            // 'nomor_induk_ketua' => 'required',
+            // 'prodi_ketua' => 'required',
+            // 'jabatan_fungsional' => 'required',
+            // 'email' => 'required',
+            // 'telepon' => 'required|numeric',
+
+            'judul_surat' => 'required',
+            'semester' => 'required',
+            // 'nama_anggota1' => 'required',
+            // 'nomor_induk_anggota1' => 'required',
+            // 'nama_mahasiswa1' => 'required',
+            // 'nim_mahasiswa1' => 'required',
+            // 'nama_mahasiswa2' => 'required',
+            // 'nim_mahasiswa2' => 'required',
+        ]);
+
+        $surat = [
+            'judul_surat' => $request->judul_surat,
+            'semester' => $request->semester,
+            
+        ];
+
+        // dd($surat);
+
+        // $detailSurat = [
+        //     'jangka_waktu' => $request->jangka_waktu,
+        //     'tanggal_mulai' => $request->tanggal_mulai,
+        //     'tanggal_selesai' => $request->tanggal_selesai,
+        //     'sumber_dana' => $request->sumber_dana,
+        //     'mitra' => $request->mitra,
+        //     'biaya_penelitian_pengabdian' => $request->biaya_penelitian_pengabdian,
+        //     'terbilang' => $request->terbilang,
+        //     'jarak_lokasi_mitra' => $request->jarak_lokasi_mitra,
+        //     'produk' => $request->produk,
+        //     'publikasi_ilmiah' => $request->publikasi_ilmiah,
+        // ];
+
+        
+        Surat::where('id', $id)->update($surat);
+
+        // SuratDetail::where('id', $id)->update($detailSurat);
+        
+        // $data = SuratDetail::where('id', $id)->update($data);
+        // $data = KetuaTim::where('id', $id)->update($data);
+        // $data = AnggotaTim::where('id', $id)->update($data);
+        // $data = AnggotaMahasiswa::where('id', $id)->update($data);
+        // dd($data);
+
+        // return redirect()->back();
+        // return redirect('/surattugas/penelitian/detailsuratpenelitian/{id}');
+        
     }
+
+
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function updateProdi(Request $request, $id)
+    // {
+    //     $data = $request->validate([
+    //         'fakultas' => 'required',
+    //         'nama_prodi' => 'required',
+    //         'ketua_prodi' => 'required',
+    //         'nomor_induk_kaprodi' => 'required',
+    //     ]);
+    //     $data = ProgramStudi::where('id', $id)->update($data);
+    //     // dd($request->all(), $data);
+    //     return redirect('/datasurat');
+    // }
+
 
     /**
      * Remove the specified resource from storage.
@@ -325,13 +675,17 @@ class SuratPenelitianController extends Controller
         )
         ->get();
 
+        $mahasiswa = AnggotaMahasiswa::where('id_surat', $id)->get();
+
+
         $countAnggota = count($anggota)+1;
-        // dd($countAnggota, $surat, $ketualppm, $anggota);
+        // dd($countAnggota, $surat, $ketualppm, $anggota, $mahasiswa);
         return view('penelitian.format_sr-tugas_penelitian', [
             'surat' => $surat,
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
             'countAnggota' => $countAnggota,
+            'mahasiswa' => $mahasiswa,
         ]);
     }
 
@@ -550,15 +904,14 @@ class SuratPenelitianController extends Controller
                 break;
         }
         // dd($surat, $anggota, $mahasiswa, $ketualppm, $num) ;
-        return view('penelitian.format_sr-pengesahan_penelitian',
-            compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
+        return view('penelitian.format_sr_pengesahan_penelitian', compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
         );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-    //  * @param  \App\Models\Surat  $Surat
+    * @param  \App\Models\Surat  $Surat
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */

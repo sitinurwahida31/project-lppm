@@ -71,21 +71,21 @@
         <!-- Header / Profile -->
         @include('layout.header_admin')
 
-        <div class="bg-white h-9 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
-            <span class="text-green-700 font-bold pl-5 text-sm sm:flex">DASHBOARD</span>
+        <div class="bg-white h-12 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
+            <span class="text-green-700 font-bold pl-5 text-base sm:flex">DASHBOARD</span>
         </div>
 
         {{-- card --}}
         <div class="grid grid-cols-4 gap-1 w-full px-7 mt-8">
             <div class="w-auto p-1">
-                <div class="bg-green-600 shadow-xl flex flex-col justify-between leading-normal h-[80px] rounded-t-lg">
+                <div class="bg-green-600 shadow-xl flex flex-col justify-between leading-normal h-[90px] rounded-t-lg">
                     <div class=" justify-between p-3 leading-normal hidden sm:flex gap-x-4">
                         <div class="p-1">
-                            <span class="font-sans text-lg font-medium text-slate-100">
+                            <span class="font-sans text-xl font-medium text-slate-100">
                                 120
                             </span>
                             <hr class="border-slate-100">
-                            <span class="font-sans text-xs font-medium text-slate-100 dark:text-gray-400 ">
+                            <span class="font-sans text-sm font-medium text-slate-100 dark:text-gray-400 ">
                                 Data User
                             </span>
                         </div>
@@ -98,23 +98,23 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-100 h-6 border-green-500 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
-                    <p class="text-xs font-medium">cek info</p>
+                <div class="bg-slate-100 h-8 border-green-500 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
+                    <p class="text-sm font-medium">cek info</p>
                     <a href="\user"><button type="button" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-xs p-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg aria-hidden="true" class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button></a>
                 </div>
             </div>
 
             <div class="w-auto p-1">
-                <div class="bg-amber-300 shadow-xl flex flex-col justify-between leading-normal h-[80px] rounded-t-lg">
+                <div class="bg-amber-300 shadow-xl flex flex-col justify-between leading-normal h-[90px] rounded-t-lg">
                     <div class=" justify-between p-3 leading-normal hidden sm:flex gap-x-4">
                         <div class="p-1">
-                            <span class="font-sans text-lg font-medium text-slate-100">
+                            <span class="font-sans text-xl font-medium text-slate-100">
                                 120
                             </span>
                             <hr class="border-slate-100">
-                            <span class="font-sans text-xs font-medium text-slate-100 dark:text-gray-400 ">
+                            <span class="font-sans text-sm font-medium text-slate-100 dark:text-gray-400 ">
                                 Data Surat
                             </span>
                         </div>
@@ -125,22 +125,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-100 h-6 border-amber-300 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
-                    <p class="text-xs font-medium">cek info</p>
+                <div class="bg-slate-100 h-8 border-amber-300 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
+                    <p class="text-sm font-medium">cek info</p>
                     <a href="\data_surat"><button type="button" class="text-white bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-amber-200 font-medium rounded-full text-xs p-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg aria-hidden="true" class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button></a>
                 </div>
             </div>
             <div class="w-auto p-1">
-                <div class="bg-red-500 shadow-xl flex flex-col justify-between leading-normal h-[80px] rounded-t-lg">
+                <div class="bg-red-500 shadow-xl flex flex-col justify-between leading-normal h-[90px] rounded-t-lg">
                     <div class=" justify-between p-3 leading-normal hidden sm:flex gap-x-4">
                         <div class="p-1">
-                            <span class="font-sans text-lg font-medium text-slate-100">
+                            <span class="font-sans text-xl font-medium text-slate-100">
                                 120
                             </span>
                             <hr class="border-slate-100">
-                            <span class="font-sans text-xs font-medium text-slate-100 dark:text-gray-400 ">
+                            <span class="font-sans text-sm font-medium text-slate-100 dark:text-gray-400 ">
                                 Data Penelitian
                             </span>
                         </div>
@@ -151,22 +151,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-100 h-6 border-red-500 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
-                    <p class="text-xs font-medium">cek info</p>
+                <div class="bg-slate-100 h-8 border-red-500 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
+                    <p class="text-sm font-medium">cek info</p>
                     <button type="button" class="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-xs p-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg aria-hidden="true" class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
             </div>
             <div class="w-auto p-1">
-                <div class="bg-blue-500 shadow-xl flex flex-col justify-between leading-normal h-[80px] rounded-t-lg">
+                <div class="bg-blue-500 shadow-xl flex flex-col justify-between leading-normal h-[90px] rounded-t-lg">
                     <div class=" justify-between p-3 leading-normal hidden sm:flex gap-x-4">
                         <div class="p-1">
-                            <span class="font-sans text-lg font-medium text-slate-100">
+                            <span class="font-sans text-xl font-medium text-slate-100">
                                 120
                             </span>
                             <hr class="border-slate-100">
-                            <span class="font-sans text-xs font-medium text-slate-100 dark:text-gray-400 ">
+                            <span class="font-sans text-sm font-medium text-slate-100 dark:text-gray-400 ">
                                 Data Pengabdian
                             </span>
                         </div>
@@ -177,10 +177,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-100 h-6 border-blue-500 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
-                    <p class="text-xs font-medium">cek info</p>
+                <div class="bg-slate-100 h-8 border-blue-500 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
+                    <p class="text-sm font-medium">cek info</p>
                     <button type="button" class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-xs p-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg aria-hidden="true" class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                        <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </div>
             </div>

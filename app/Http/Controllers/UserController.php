@@ -13,13 +13,24 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datas = DB::table('user')->paginate(5);
+        $datas = DB::table('user');
         
+        $s = $request->search;
+
+        if ($s) {
+            $datas =  $datas->where(function ($query) use ($s) {
+                $query->where('username', 'LIKE', '%' . $s . '%')
+                    ->orWhere('nidn', 'LIKE', '%' . $s . '%')
+                    ->orWhere('confirm_password', 'LIKE', '%' . $s . '%')
+                    ->orWhere('level', 'LIKE', '%' . $s . '%')
+                    ->orWhere('email', 'LIKE', '%' . $s . '%');
+            });
+        }
         // dd($datas);
         return view('generalview.user', [
-            'datas' => $datas,
+            'datas' => $datas->paginate(10),
         ]);
     }
 

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Dompdf\Dompdf;
+use App\Models\AnggotaMahasiswa;
 use Illuminate\Support\Facades\DB;
 
 class PDFController extends Controller
@@ -38,12 +39,12 @@ class PDFController extends Controller
             'nomor_induk as nidn'
         )
         ->first();
-	
+
         $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
         $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
         $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
         // 23 January 2022
-        
+
         $anggota = Db::table('tb_anggota_tim')
         ->where('id_surat', $id)
         ->select(
@@ -52,14 +53,16 @@ class PDFController extends Controller
         )
         ->get();
 
+        $anggotaMahasiswa = AnggotaMahasiswa::where('id_surat', $id)->get();
         $countAnggota = count($anggota)+1;
         // dd('test');
-        
+
         return view('download.formatSrtTgsPenelitianPdf', [
             'surat' => $surat,
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
             'countAnggota' => $countAnggota,
+            'anggotaMahasiswa' => $anggotaMahasiswa,
         ]);
     }
 
@@ -107,7 +110,7 @@ class PDFController extends Controller
             'produk',
             'publikasi_ilmiah',
         )
-        ->first();  
+        ->first();
         $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
         $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
         $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
@@ -121,7 +124,7 @@ class PDFController extends Controller
             'nomor_induk as nomor_induk_anggota',
         )
         ->get();
-        
+
         $mahasiswa = count(Db::table('tb_anggota_mahasiswa')
         ->where('id_surat', $id)
         ->select(
@@ -139,7 +142,8 @@ class PDFController extends Controller
             'jabatan as jabatan_lppm'
         )
         ->first();
-
+        
+        $anggotaMahasiswa = AnggotaMahasiswa::where('id_surat', $id)->get();
         $cekCount = count($anggota);
         $num = '';
         switch ($cekCount) {
@@ -159,10 +163,10 @@ class PDFController extends Controller
                 $num = 'e';
                 break;
         }
-        // dd($surat, $anggota, $mahasiswa, $ketualppm, $num) ;
+        // dd($surat, $anggota, $mahasiswa, $ketualppm, $num, $anggotaMahasiswa) ;
 
         return view('download.formatSrtPgshnPenelitian',
-            compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
+            compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num', 'anggotaMahasiswa')
         );
     }
 
@@ -194,12 +198,12 @@ class PDFController extends Controller
             'nomor_induk as nidn'
         )
         ->first();
-	
+
         $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
         $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
         $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
         // 23 January 2022
-        
+
         $anggota = Db::table('tb_anggota_tim')
         ->where('id_surat', $id)
         ->select(
@@ -208,20 +212,24 @@ class PDFController extends Controller
         )
         ->get();
 
+        $anggotaMahasiswa = AnggotaMahasiswa::where('id_surat', $id)->get();
+
         $countAnggota = count($anggota)+1;
         $currentDate = Carbon::now()->format('Y-m-d');
-        
+
         return view('download.formatSrtTgsPengabdianPdf', [
             'surat' => $surat,
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
             'countAnggota' => $countAnggota,
+            'anggotaMahasiswa' => $anggotaMahasiswa,
         ]);
 
         $html = view('download.formatSrtTgsPengabdianPdf', [
             'surat' => $surat,
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
+            'countAnggota' => $countAnggota,
             'countAnggota' => $countAnggota,
         ]);
         $pdf = new Dompdf();
@@ -231,7 +239,7 @@ class PDFController extends Controller
         $pdf->stream('SuratTugasPengabdian'.$surat->nama_ketua.$currentDate.'pdf');
     }
 
-    
+
     public function sPengesahanDPengabdianPdf($id)
     {
         $surat = DB::table('tb_surat')
@@ -276,7 +284,7 @@ class PDFController extends Controller
             'produk',
             'publikasi_ilmiah',
         )
-        ->first();  
+        ->first();
         $surat->tanggal_mulai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_mulai)->format('d F Y');
         $surat->tanggal_selesai = Carbon::createFromFormat('Y-m-d', $surat->tanggal_selesai)->format('d F Y');
         $surat->created_at = Carbon::createFromFormat('Y-m-d H:i:s', $surat->created_at)->format('d F Y');
@@ -290,7 +298,7 @@ class PDFController extends Controller
             'nomor_induk as nomor_induk_anggota',
         )
         ->get();
-        
+
         $mahasiswa = count(Db::table('tb_anggota_mahasiswa')
         ->where('id_surat', $id)
         ->select(
@@ -329,7 +337,7 @@ class PDFController extends Controller
                 break;
         }
         // dd($surat, $anggota, $mahasiswa, $ketualppm, $num) ;
-
+       
         return view('download.formatSrtPgshnPengabdian',
             compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
         );

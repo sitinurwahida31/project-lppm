@@ -39,11 +39,11 @@
     {{-- content --}}
     {{-- breadcrumb --}}
     <div class="flex justify-end items-center mb-14 mt-20 mr-16">
-        <nav class="flex" aria-label="Breadcrumb">
+        <nav class="flex mt-2" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
             <li class="inline-flex items-center">
-                <a href="/" class="inline-flex items-center text-xs font-medium text-gray-500 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white">
-                <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <a href="/" class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-500 dark:text-gray-400 dark:hover:text-white">
+                <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                 </svg>
                 Home
@@ -54,7 +54,7 @@
                 <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <a href="/pengabdian" class="ml-1 text-xs font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Pengabdian</a>
+                <a href="/pengabdian" class="ml-1 text-sm font-medium text-gray-500 hover:text-gray-500 md:ml-2 dark:text-gray-400 dark:hover:text-white">Pengabdian</a>
                 </div>
             </li>
             <li aria-current="page">
@@ -62,7 +62,7 @@
                 <svg aria-hidden="true" class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="ml-1 text-xs font-medium text-gray-500 md:ml-2 dark:text-gray-400">Form</span>
+                <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Form</span>
                 </div>
             </li>
             </ol>
@@ -83,8 +83,8 @@
                 3
             </div>
         </div>
-        <div class="mb-14  h-6 ml-36 mr-36 font-medium">
-            <span class="pl-[40px]">Form Input</span>
+        <div class="mb-14  h-6 ml-64 mr-36 font-medium">
+            <span class="pl-[60px]">Form Input</span>
             <span class="pl-[233px]">Surat Tugas</span>
             <span class="pl-[202px]">Surat Pengesahan</span>
         </div>
@@ -93,46 +93,46 @@
         @csrf
         {{-- form input 1 --}}
         <div class=" mt-20 ml-28 mr-28 mb-10 rounded-b-lg drop-shadow-lg bg-white pt-8">
-            <div class="-mt-14  rounded-lg drop-shadow-lg bg-green-900 p-3 text-white font-semibold text-sm">
+            <div class="-mt-14  rounded-lg drop-shadow-lg bg-green-900 p-3 text-white font-semibold text-base">
                 DATA PENGABDIAN
             </div>
             <div action="" class="p-8">
                 {{-- row 1 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                     <div>
-                        <label for="semester" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Semester</label>
-                        <select id="semester" name="semester" required class="@error('semester')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="semester" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Semester</label>
+                        <select id="semester" name="semester" required class="@error('semester')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected value=""></option>
-                        <option value="20221">20221</option>
-                        <option value="20222">20222</option>
-                        <option value="20231">20231</option>
-                        <option value="20232">20232</option>
+                        @foreach ($semester as $item)
+                            <option value="{{ $item->nomor_semester }}">
+                                <div>{{ $item->nomor_semester }}</div>
+                            </option>                            
+                        @endforeach
                         </select>
                         <div class="text-red-500 text-sm italic">@error('semester')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="nomor_surat" class="block mb-1 text-xs font-medium fxsont-medium text-gray-900 dark:text-white">Nomer Surat</label>
-                        <input type="text" required id="nomor_surat" name="nomor_surat" value="{{ old('nomor_surat')}}" class="pl-3 @error('nomor_surat')border-red-400 @enderror bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nomor Surat" >
-                        <div class="text-red-500 text-sm italic">@error('nomor_surat')*{{ $message }} @enderror</div>
+                        <label for="nomor_surat" class="block mb-1 text-sm font-medium fxsont-medium text-gray-900 dark:text-white">Nomor Surat</label>
+                        <input type="text" required id="nomor_surat" name="nomor_surat" value="{{ $nosrt }}" class="pl-3 border border-gray-300 text-gray-700 bg-slate-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled placeholder="{{ $nosrt }}" >
                     </div>
                 </div>
                 {{-- row 2 --}}
                 <div class="mb-4">
-                    <label for="judul_pengabdian" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Judul Pengabdian</label>
-                    <textarea id="judul_pengabdian" required name="judul_pengabdian" rows="4" class="@error('judul_pengabdian')border-red-400 @enderror block pl-3 pt-2 pb-2 p-1 w-full h-16 text-xs text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Judul pengabdian">{{ old('judul_pengabdian') }}</textarea>
+                    <label for="judul_pengabdian" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Judul Pengabdian</label>
+                    <textarea id="judul_pengabdian" required name="judul_pengabdian" rows="4" class="@error('judul_pengabdian')border-red-400 @enderror block pl-3 pt-2 pb-2 p-1 w-full h-16 text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Judul pengabdian">{{ old('judul_pengabdian') }}</textarea>
                     <div class="text-red-500 text-sm italic">@error('judul_pengabdian')*{{ $message }} @enderror</div>
                 </div>
                 {{-- row 3 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-3">
                     <div>
-                        <label for="jangka_waktu" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jangka Waktu Pengabdian</label>
-                        <input type="text" required id="jangka_waktu" name="jangka_waktu" value="{{ old('jangka_waktu')}}" class="@error('jangka_waktu')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jangka Waktu pengabdian" >
+                        <label for="jangka_waktu" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Jangka Waktu Pengabdian</label>
+                        <input type="text" required id="jangka_waktu" name="jangka_waktu" value="{{ old('jangka_waktu')}}" class="@error('jangka_waktu')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jangka Waktu pengabdian" >
                         <div class="text-red-500 text-sm italic">@error('jangka_waktu')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="tanggal_mulai" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Tanggal Mulai</label>
+                        <label for="tanggal_mulai" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Tanggal Mulai</label>
                         <div class="relative">
-                            <input type="date" required id="tanggal_mulai" name="tanggal_mulai" class=" @error('tanggal_mulai')border-red-400 @enderror bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-10 p-1  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                            <input type="date" required id="tanggal_mulai" name="tanggal_mulai" class=" @error('tanggal_mulai')border-red-400 @enderror bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-10 p-1  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
                                 <svg aria-hidden="true" class="w-5 h-4 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
@@ -142,9 +142,9 @@
                         </div>
                     </div>
                     <div>
-                        <label for="tanggal_selesai" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Tanggal Selesai</label>
+                        <label for="tanggal_selesai" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Tanggal Selesai</label>
                         <div class="relative">
-                            <input type="date" required id="tanggal_selesai" name="tanggal_selesai"  class="@error('tanggal_selesai')border-red-400 @enderror bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-10 p-1  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                            <input type="date" required id="tanggal_selesai" name="tanggal_selesai"  class="@error('tanggal_selesai')border-red-400 @enderror bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-10 p-1  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
                                 <svg aria-hidden="true" class="w-5 h-4 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
@@ -157,20 +157,20 @@
                 {{-- row 4 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                     <div>
-                        <label for="jarak_lokasi_mitra" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jarak PT ke Lokasi Mitra</label>
-                        <input type="text" required id="jarak_lokasi_mitra" name="jarak_lokasi_mitra" value="{{ old('jarak_lokasi_mitra')}}" class="@error('jarak_lokasi_mitra')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jarak PT Ke Lokasi" >
+                        <label for="jarak_lokasi_mitra" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Jarak PT ke Lokasi Mitra</label>
+                        <input type="text" required id="jarak_lokasi_mitra" name="jarak_lokasi_mitra" value="{{ old('jarak_lokasi_mitra')}}" class="@error('jarak_lokasi_mitra')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jarak PT Ke Lokasi" >
                         <div class="text-red-500 text-sm italic">@error('jarak_lokasi_mitra')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="mitra" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Mitra</label>
-                        <input type="text" required id="mitra" name="mitra" value="{{ old('mitra')}}" class="@error('mitra')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan Mitra" >
+                        <label for="mitra" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Mitra</label>
+                        <input type="text" required id="mitra" name="mitra" value="{{ old('mitra')}}" class="@error('mitra')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan Mitra" >
                         <div class="text-red-500 text-sm italic">@error('mitra')*{{ $message }} @enderror</div>
                     </div>
                 </div>
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                 <div>
-                    <label for="sumberdana" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Sumber Dana</label>
-                    <select id="sumberdana" required name="sumberdana" class="border-gray-300  @error('sumberdana')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <label for="sumberdana" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Sumber Dana</label>
+                    <select id="sumberdana" required name="sumberdana" class="border-gray-300  @error('sumberdana')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected value=""></option>
                         <option value="Mandiri">Mandiri</option>
                         <option value="DRPTM">DRPTM</option>
@@ -184,13 +184,13 @@
                 {{-- row 5 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                     <div>
-                        <label for="biaya_pengabdian" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Biaya Pengabdian</label>
-                        <input type="number" required id="biaya_pengabdian" name="biaya_pengabdian" value="{{ old('biaya_pengabdian')}}" class="@error('biaya_pengabdian')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Biaya pengabdian" >
+                        <label for="biaya_pengabdian" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Biaya Pengabdian</label>
+                        <input type="number" required id="biaya_pengabdian" name="biaya_pengabdian" value="{{ old('biaya_pengabdian')}}" class="@error('biaya_pengabdian')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Biaya pengabdian" >
                         <div class="text-red-500 text-sm italic">@error('biaya_pengabdian')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="terbilang" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Terbilang</label>
-                        <input type="text" required id="terbilang" name="terbilang" value="{{ old('terbilang')}}" class="@error('terbilang')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tiga Juta Rupiah" >
+                        <label for="terbilang" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Terbilang</label>
+                        <input type="text" required id="terbilang" name="terbilang" value="{{ old('terbilang')}}" class="@error('terbilang')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tiga Juta Rupiah" >
                         <div class="text-red-500 text-sm italic">@error('terbilang')*{{ $message }} @enderror</div>
                     </div>
                 </div>
@@ -198,35 +198,35 @@
         </div>
         {{-- form input 2 --}}
         <div class="mt-14 ml-28 mr-28 mb-10 rounded-b-lg drop-shadow-lg bg-white pt-8">
-            <div class="-mt-14  rounded-lg drop-shadow-lg bg-green-900 p-3 text-white font-semibold text-sm">
+            <div class="-mt-14  rounded-lg drop-shadow-lg bg-green-900 p-3 text-white font-semibold text-base">
                 DATA KETUA TIM
             </div>
             <div action="" class="p-8">
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
-                        <label for="nama_ketua" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Ketua Tim</label>
+                        <label for="nama_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Ketua Tim</label>
                         <input type="text" required id="nama_ketua" name="nama_ketua" value="{{ old('nama_ketua')}}" class="
-                        @error('nama_ketua')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Ketua" >
+                        @error('nama_ketua')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Ketua" >
                         <div class="text-red-500 text-sm italic">@error('nama_ketua')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="nomor_induk_ketua" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID</label>
-                        <input type="numeric" required id="nomor_induk_ketua" name="nomor_induk_ketua" value="{{ old('nomor_induk_ketua')}}" class="@error('nomor_induk_ketua')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <label for="nomor_induk_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN/NID</label>
+                        <input type="numeric" required id="nomor_induk_ketua" name="nomor_induk_ketua" value="{{ old('nomor_induk_ketua')}}" class="@error('nomor_induk_ketua')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                         <div class="text-red-500 text-sm italic">@error('nomor_induk_ketua')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="prodi_ketua" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Program Studi</label>
-                        <select id="prodi_ketua" required name="prodi_ketua" class="@error('prodi_ketua')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="prodi_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Program Studi</label>
+                        <select id="prodi_ketua" required name="prodi_ketua" class="@error('prodi_ketua')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected value=""></option>
                             @foreach ($prodi as $item)
-                                <option value="{{ $item->id }}">{{ $item->nama_prodi }}</option>                                
+                                <option value="{{ $item->id }}">{{ $item->nama_prodi }}</option>
                             @endforeach
                         </select>
                         <div class="text-red-500 text-sm italic">@error('prodi_ketua')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="jabatan_fungsional" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jabatan Fungsional</label>
-                        <select id="jabatan_fungsional" required name="jabatan_fungsional" class="@error('jabatan_fungsional')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="jabatan_fungsional" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Jabatan Fungsional</label>
+                        <select id="jabatan_fungsional" required name="jabatan_fungsional" class="@error('jabatan_fungsional')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected value=""></option>
                             <option value="Guru Besar">Guru Besar</option>
                             <option value="Lektor Kepala">Lektor Kepala</option>
@@ -237,13 +237,13 @@
                         <div class="text-red-500 text-sm italic">@error('jabatan_fungsional')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="email" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Alamat Surel (Email)</label>
-                        <input type="email" required id="email" name="email" value="{{ old('email')}}" class="@error('email')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" >
+                        <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Alamat Surel (Email)</label>
+                        <input type="email" required id="email" name="email" value="{{ old('email')}}" class="@error('email')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" >
                         <div class="text-red-500 text-sm italic">@error('email')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="telepon" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nomer Handphone (HP)</label>
-                        <input type="number" required id="telepon" name="telepon" value="{{ old('telepon')}}" class="@error('telepon')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="HP" >
+                        <label for="telepon" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nomer Handphone (HP)</label>
+                        <input type="number" required id="telepon" name="telepon" value="{{ old('telepon')}}" class="@error('telepon')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="HP" >
                         <div class="text-red-500 text-sm italic">@error('telepon')*{{ $message }} @enderror</div>
                     </div>
                 </div>
@@ -251,63 +251,67 @@
         </div>
         {{-- form input 3 --}}
         <div class="mt-14 ml-28 mr-28 mb-10 rounded-sm shadow-lg bg-white pt-8">
-            <div class="-mt-14 rounded-lg drop-shadow-lg bg-green-900 p-3 text-white font-semibold text-sm">
+            <div class="-mt-14 rounded-lg drop-shadow-lg bg-green-900 p-3 text-white font-semibold text-base">
                 DATA ANGGOTA TIM
             </div>
             <div action="" class="p-8">
                 <div class="grid gap-6 mb-6 md:grid-cols-2 ">
                     <div>
-                        <label for="nama_anggota1" required class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 1</label>
-                        <input type="text" id="nama_anggota1" value="{{ old('nama_anggota1')}}" name="nama_anggota1" class="@error('nama_anggota1')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <label for="nama_anggota1" required class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Anggota 1</label>
+                        <input type="text" id="nama_anggota1" value="{{ old('nama_anggota1')}}" name="nama_anggota1" class="@error('nama_anggota1')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                         <div class="text-red-500 text-sm italic">@error('nama_anggota1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="nomor_induk_anggota1" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 1</label>
-                        <input type="text" required id="nomor_induk_anggota1" name="nomor_induk_anggota1" value="{{ old('nomor_induk_anggota1')}}" class="@error('nomor_induk_anggota1')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <label for="nomor_induk_anggota1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 1</label>
+                        <input type="text" required id="nomor_induk_anggota1" name="nomor_induk_anggota1" value="{{ old('nomor_induk_anggota1')}}" class="@error('nomor_induk_anggota1')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                         <div class="text-red-500 text-sm italic">@error('nomor_induk_anggota1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="nama_anggota2" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 2</label>
-                        <input type="text" id="nama_anggota2" name="nama_anggota2" value="{{ old('nama_anggota2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <label for="nama_anggota2" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Anggota 2</label>
+                        <input type="text" id="nama_anggota2" name="nama_anggota2" value="{{ old('nama_anggota2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
-                        <label for="nomor_induk_anggota2" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 2</label>
-                        <input type="text" id="nomor_induk_anggota2" name="nomor_induk_anggota2" value="{{ old('nomor_induk_anggota2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <label for="nomor_induk_anggota2" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 2</label>
+                        <input type="text" id="nomor_induk_anggota2" name="nomor_induk_anggota2" value="{{ old('nomor_induk_anggota2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                     </div>
                     <div>
                         <label for="nama_anggota3" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 3</label>
-                        <input type="text" id="nama_anggota3" name="nama_anggota3" value="{{ old('nama_anggota3')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_anggota3" name="nama_anggota3" value="{{ old('nama_anggota3')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
-                        <label for="nomor_induk_anggota3" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 3</label>
-                        <input type="text" id="nomor_induk_anggota3" name="nomor_induk_anggota3" value="{{ old('nomor_induk_anggota3')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <label for="nomor_induk_anggota3" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 3</label>
+                        <input type="text" id="nomor_induk_anggota3" name="nomor_induk_anggota3" value="{{ old('nomor_induk_anggota3')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                     </div>
                     <div>
-                        <label for="nama_anggota4" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 4</label>
-                        <input type="text" id="nama_anggota4" name="nama_anggota4" value="{{ old('nama_anggota4')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <label for="nama_anggota4" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Anggota 4</label>
+                        <input type="text" id="nama_anggota4" name="nama_anggota4" value="{{ old('nama_anggota4')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
                     </div>
                     <div>
-                        <label for="nomor_induk_anggota4" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 4</label>
-                        <input type="text" id="nomor_induk_anggota4" name="nomor_induk_anggota4" value="{{ old('nomor_induk_anggota4')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
-                    </div>    
+                        <label for="nomor_induk_anggota4" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 4</label>
+                        <input type="text" id="nomor_induk_anggota4" name="nomor_induk_anggota4" value="{{ old('nomor_induk_anggota4')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                    </div>
                 </div>
-                
+
                 <div class="grid gap-6 mb-6 md:grid-cols-2 mt-4">
                     <div>
-                        <label for="nama_mahasiswa1" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Mahasiswa 1</label>
-                        <input type="text" id="nama_mahasiswa1" name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <label for="nama_mahasiswa1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa 1</label>
+                        <input type="text" id="nama_mahasiswa1"  name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
+                        <div class="text-red-500 text-sm italic">@error('nama_mahasiswa1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="nim_mahasiswa1" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIM Mahasiswa 1</label>
-                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
+                        <label for="nim_mahasiswa1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIM Mahasiswa 1</label>
+                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
+                        <div class="text-red-500 text-sm italic">@error('nim_mahasiswa1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="nama_mahasiswa2" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Mahasiswa 2</label>
-                        <input type="text" id="nama_mahasiswa2" name="nama_mahasiswa2" value="{{ old('nama_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <label for="nama_mahasiswa2" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa 2</label>
+                        <input type="text" id="nama_mahasiswa2" name="nama_mahasiswa2" value="{{ old('nama_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
+                        <div class="text-red-500 text-sm italic">@error('nama_mahasiswa2')*{{ $message }} @enderror</div>
                     </div>
                     <div>
-                        <label for="nim_mahasiswa2" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIM Mahasiswa 2</label>
-                        <input type="text" id="nim_mahasiswa2" name="nim_mahasiswa2" value="{{ old('nim_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
+                        <label for="nim_mahasiswa2" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIM Mahasiswa 2</label>
+                        <input type="text" id="nim_mahasiswa2" name="nim_mahasiswa2" value="{{ old('nim_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
+                        <div class="text-red-500 text-sm italic">@error('nim_mahasiswa2')*{{ $message }} @enderror</div>
                     </div>
                 </div>
             </div>
@@ -320,8 +324,8 @@
             <div action="" class="p-8">
                 <div class="grid gap-6 mb-6 md:grid-cols-1">
                     <div>
-                        <label for="produk" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Produk</label>
-                        <select id="produk" required name="produk" class="@error('produk')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="produk" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
+                        <select id="produk" required name="produk" class="@error('produk')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected value=""></option>
                             <option value="Produk">Produk</option>
                             <option value="Prototype">Prototype</option>
@@ -333,8 +337,8 @@
                 </div>
                 <div class="grid gap-6 mb-6 md:grid-cols-1">
                     <div>
-                        <label for="publikasi_ilmiah" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Publikasi Ilmiah</label>
-                        <select id="publikasi_ilmiah" required name="publikasi_ilmiah" class="@error('publikasi_ilmiah')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <label for="publikasi_ilmiah" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Publikasi Ilmiah</label>
+                        <select id="publikasi_ilmiah" required name="publikasi_ilmiah" class="@error('publikasi_ilmiah')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected value=""></option>
                             <option value="Jurnal Nasional ISSN">Jurnal Nasional ISSN</option>
                             <option value="Jurnal Nasional Terakreditasi">Jurnal Nasional Terakreditasi</option>
@@ -348,7 +352,7 @@
         </div>
         {{-- button save --}}
         <div class=" flex justify-end mt-14 ml-28 mr-28 mb-16">
-            <button type="reset" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-red-600 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+            <button type="reset" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-red-700 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                 Reset
             </button>
             <button type="submit" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">

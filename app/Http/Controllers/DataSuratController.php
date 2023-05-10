@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Semester;
 use App\Models\Stakeholder;
 use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
@@ -36,9 +37,15 @@ class DataSuratController extends Controller
                     ->orWhere('ketua_prodi', 'LIKE', '%' . $s . '%');
             });
         }
+        $semester = DB::table('tb_semester')->select(
+            'id',
+            'tahun_semester',
+            'nomor_semester',
+        )->get();
         // dd($stakeholder);
         return view('datasurat.data_surat', [
             'stakeholder' => $stakeholder,
+            'semester' => $semester,
             'prodi' => $prodi->paginate(10)
         ]);
     }
@@ -77,6 +84,16 @@ class DataSuratController extends Controller
         ProgramStudi::create($request->all());
         return redirect('/datasurat');
     }
+    public function storeSemester(Request $request)
+    {
+        $request->validate([
+            'tahun_semester' => 'required',
+            'nomor_semester' => 'required',
+        ]);
+        // dd($request->all());
+        Semester::create($request->all());
+        return redirect('/datasurat');
+    }
 
     /**
      * Display the specified resource.
@@ -87,6 +104,7 @@ class DataSuratController extends Controller
     public function showProdi($id)
     {
         $prodi = ProgramStudi::where('id', $id)->first();
+        
         return view('datasurat.createprodi', [
             'prodi' => $prodi
         ]);
@@ -132,6 +150,11 @@ class DataSuratController extends Controller
     public function destroyProdi($id)
     {
         ProgramStudi::where('id', $id)->delete();
+        return redirect('/datasurat');
+    }
+    public function destroySemester($id)
+    {
+        Semester::where('id', $id)->delete();
         return redirect('/datasurat');
     }
 }

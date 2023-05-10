@@ -71,8 +71,8 @@
          <!-- Header / Profile -->
          @include('layout.header_admin')
 
-        <div class="bg-white h-9 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
-            <span class="text-green-700 font-bold pl-5 text-sm sm:flex ">DATA SURAT TUGAS PENGABDIAN</span>
+        <div class="bg-white h-12 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
+            <span class="text-green-700 font-bold pl-5 text-base sm:flex ">DATA PENGABDIAN</span>
         </div>
 
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
@@ -88,9 +88,9 @@
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" class="w-5 h-5 text-gray-400 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                             </div>
-                            <input type="text" name="search" id="simple-search" class="shadow-md bg-white border border-slate-200 text-gray-700 text-xs rounded-l-lg focus:ring-gray-300 focus:border-gray-300 block w-[100%] pl-10 p-1 py-1.5 dark:bg-gray-400 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-400 dark:focus:border-amber-400" placeholder="Search">
+                            <input type="text" name="search" id="simple-search" class="shadow-md bg-white border border-slate-200 text-gray-700 text-sm rounded-l-lg focus:ring-gray-300 focus:border-gray-300 block w-[100%] pl-10 p-1 py-1.5 dark:bg-gray-400 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-400 dark:focus:border-amber-400" placeholder="Search">
                         </div>
-                        <button type="submit" class="shadow-md flex justify-center p-1 ml-0 text-sm font-medium h-full w-14 text-gray-600 bg-slate-100 rounded-r-lg border border-gray-200 hover:bg-slate-200 focus:ring-2 focus:outline-none focus:ring-gray-200 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">
+                        <button type="submit" class="shadow-md flex justify-center p-1.5 ml-0 text-sm font-medium h-full w-14 text-gray-600 bg-slate-100 rounded-r-lg border border-gray-200 hover:bg-slate-200 focus:ring-2 focus:outline-none focus:ring-gray-200 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">
                             <svg class="w-5 h-5 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                             <span class="sr-only">Search</span>
                         </button>
@@ -100,8 +100,8 @@
 
             {{-- Table --}}
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7 ">
-                <table class="w-full text-xs text-center text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-white bg-amber-400 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
+                    <thead class="text-sm text-white bg-amber-400 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-2">
                                 No
@@ -150,26 +150,18 @@
                             </td>
                             <td class="px-6 py-1 justify-center h-full ">
                                 <div class="flex items-stretch h-full place-items-center">
-
-                                    <a href="/surattugas/pengabdian/detailsuratpengabdian/{{ $data->id }}" class="text-blue-500 m-0.5" >
+                                    {{-- icon edit --}}
+                                    <a href="/surattugas/pengabdian/detailsuratpengabdian/{{ $data->id }}" class="p-2 text-white bg-blue-500 m-0.5 mr-1 rounded" >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                                             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                         </svg>
                                     </a>
-
-                                    {{-- icon delete --}}
-                                    {{-- <a href="#" class="font-medium text-red-600 dark:gray-blue-500 hover:underline m-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                        </svg>
-                                    </a> --}}
-
                                     <form action="/destroypengabdian/{{ $data->id }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" onclick="return confirm('Yakin Hapus Data Penelitian?')" class="font-medium text-red-600 dark:gray-blue-500 hover:underline m-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <button type="submit" onclick="return confirm('Yakin Hapus Data Penelitian?')" class="font-medium text-white p-2 rounded bg-red-600 dark:gray-blue-500 hover:underline m-0.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                             </svg>
                                         </button>
