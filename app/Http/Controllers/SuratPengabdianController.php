@@ -6,12 +6,14 @@ use App\Models\Surat;
 use App\Models\KetuaTim;
 use App\Models\AnggotaTim;
 use App\Models\SuratDetail;
+use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Models\AnggotaMahasiswa;
-use App\Models\ProgramStudi;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SuratPengabdianExport;
 
 class SuratPengabdianController extends Controller
 {
@@ -642,6 +644,15 @@ class SuratPengabdianController extends Controller
         AnggotaTim::where('id_surat', $id)->delete();
         AnggotaMahasiswa::where('id_surat', $id)->delete();
         return redirect('/surattugas/pengabdian');
+    }
+
+    
+    // =========================================================================================
+    // =========================================================================================
+        
+    public function suratPengabdianExport() 
+    {
+        return Excel::download(new SuratPengabdianExport, 'SuratTugasPengabdian.xlsx');
     }
 }
 

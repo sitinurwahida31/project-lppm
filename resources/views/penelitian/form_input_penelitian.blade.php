@@ -296,12 +296,12 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2 mt-4">
                     <div>
                         <label for="nama_mahasiswa1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa 1</label>
-                        <input type="text" id="nama_mahasiswa1" name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="@error('nama_mahasiswa1')border-red-400 text-sm @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
+                        <input type="text" id="nama_mahasiswa1" name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="@error('nama_mahasiswa1')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
                         <div class="text-red-500 text-sm italic">@error('nama_mahasiswa1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nim_mahasiswa1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIM Mahasiswa 1</label>
-                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="@error('nim_mahasiswa1')border-red-400 text-sm @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
+                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="@error('nim_mahasiswa1')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
                         <div class="text-red-500 text-sm italic">@error('nim_mahasiswa1')*{{ $message }} @enderror</div>
                     </div>
                     <div>

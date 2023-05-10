@@ -44,6 +44,10 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
 
     // == DATA USER
     Route::delete('/destroyuser/{id}', [UserController::class, 'destroyUser']);
+
+    // EXPORT EXCEL
+    Route::get('/surat-penelitian-export',[SuratPenelitianController::class,'suratPenelitianExport'])->name('suratPenelitianExport');
+    Route::get('/surat-pengabdian-export',[SuratPengabdianController::class,'suratPengabdianExport'])->name('suratPengabdianExport');
 });
 
 // === ROUTE DOSEN ==
@@ -54,8 +58,8 @@ Route::group(['middleware' => ['auth', 'level:dosen,admin']], function () {
     Route::get('/penelitian/inputpenelitian', [SuratPenelitianController::class, 'create']);
     Route::post('/storesuratpenelitian', [SuratPenelitianController::class, 'store']);
     Route::get('/surattugas/penelitian/format/{id}', [SuratPenelitianController::class, 'suratTugasPenelitianFormat']);
-    Route::get('/suratpengesahan/penelitian/format/{id}', [SuratPenelitianController::class, 'suratPengesahanPenelitianFormat']);
-    
+    Route::get('/suratpengesahan/penelitian/format/{id}', [SuratPenelitianController::class, 'suratPengesahanPenelitianFormat']);    
+
     // == PENGABDIAN ==
     Route::get('/pengabdian', [GeneralViewController::class, 'pengabdian']);
     Route::get('/pengabdian/inputpengabdian', [SuratPengabdianController::class, 'create']);
