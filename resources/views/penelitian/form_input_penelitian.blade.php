@@ -212,15 +212,14 @@
                     </div>
                     <div>
                         <label for="nomor_induk_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN/NID</label>
-                        <input type="text" required id="nomor_induk_ketua" name="nomor_induk_ketua" value="{{ old('nomor_induk_ketua')}}" class="@error('nomor_induk_ketua')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <input type="text" required id="nomor_induk_ketua" name="nomor_induk_ketua" value="{{ old('nomor_induk_ketua', $surat->nomor_induk )}}" class="@error('nomor_induk_ketua')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                         <div class="text-red-500 text-sm italic">@error('nomor_induk_ketua')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="prodi_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Program Studi</label>
                         <select id="prodi_ketua" required name="prodi_ketua" class="@error('prodi_ketua')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value=""></option>
                             @foreach ($prodi as $item)
-                                <option value="{{ $item->id }}">{{ $item->nama_prodi }}</option>
+                                <option value="{{ $item->id }}">{{ $item->prodi }}</option>
                             @endforeach
                         </select>
                         <div class="text-red-500 text-sm italic">@error('prodi_ketua')*{{ $message }} @enderror</div>

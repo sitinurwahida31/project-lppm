@@ -181,48 +181,6 @@
             {{-- Anggota Pelaksana --}}
             <div class="text-sm">
                 Anggota Pelaksana
-                {{-- <div class="grid grid-cols-6 md:grid-cols-2 gap-0 pr-8">
-
-                    <div class="w-full">
-                        <p ><span class="mr-2 pl-4">a.</span>Nama Anggota (1) / NIDN</p>
-                    </div>
-                    <div class="w-full h-auto flex">
-                        <span class="mr-1">:</span>
-                        <p><span>Sukarti, S.Si., M.Si</span><span> / </span><span>0902098901</span></p>
-                    </div>
-
-                    <div class="w-full">
-                        <p ><span class="mr-2 pl-4">b.</span>Nama Anggota (2) / NIDN</p>
-                    </div>
-                    <div class="w-full h-auto flex">
-                        <span class="mr-1">:</span>
-                        <p><span>Besse Helmi Mustawinar, S.Pd., M.Si</span><span> / </span><span>0929049202</span></p>
-                    </div>
-
-                    <div class="w-full">
-                        <p ><span class="mr-2 pl-4">c.</span>Nama Anggota (3) / NIDN</p>
-                    </div>
-                    <div class="w-full h-auto flex">
-                        <span class="mr-1">:</span>
-                        <p>-...</p>
-                    </div>
-
-                    <div class="w-full">
-                        <p ><span class="mr-2 pl-4">c.</span>Nama Anggota (4) / NIDN</p>
-                    </div>
-                    <div class="w-full h-auto flex">
-                        <span class="mr-1">:</span>
-                        <p>-...</p>
-                    </div>
-
-                    <div class="w-full">
-                        <p ><span class="mr-2 pl-4">e.</span>Jumlah Mahasiswa/Staf/Alumni</p>
-                    </div>
-                    <div class="w-full h-auto flex">
-                        <span class="mr-1">:</span>
-                        <p><span>3</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
-                    </div>
-                </div> --}}
                 <div class="grid grid-cols-6 md:grid-cols-2 gap-0 pr-8 text-sm">
                     {{-- a --}}
                     @foreach ($anggota as $item)
@@ -309,26 +267,7 @@
             <div class="flex justify-end mt-7 mr-5 text-sm">
                 <p>Palopo, {{ $surat->created_at }}</p>
             </div>
-            {{-- Tanda Tangan --}}
-            {{-- <div class="flex "> --}}
-                {{-- Tanda tangan dekan --}}
-                {{-- <div class=" text-sm text-black tracking-wide mr-[48%] justify-start">
-                    <div>
-                        <p>Mengetahui,</p>
-                        <p class="font-bold mb-[70px] mt-1 w-full">Dekan <SPAn>{{ $surat->nama_fakultas }}</SPAn></p>
-                        <P class="font-bold">{{ $surat->nama_dekan }}</P>
-                        <p>NIP. <span>{{ $surat->nomor_induk_dekan }}</span></p>
-                    </div>
-                </div> --}}
-                {{-- tanda tangan ketua Pelaksana --}}
-                {{-- <div class="text-sm text-black tracking-wide justify-end ml-[122px]">
-                    <div>
-                        <p class="font-bold mb-[70px] mt-5">Plt Ketua LPPM</p>
-                        <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
-                        <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
-                    </div>
-                </div> --}}
-            {{-- </div> --}}
+
             <div class="flex mt-0">
                 {{-- Tanda tangan dekan --}}
                 <div class="text-base text-black tracking-wide mr-[60%]">
@@ -359,17 +298,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="flex item-center justify-center text-center mt-5">
-                Tanda tangan dekan
-                <div class=" text-xs text-black tracking-wide">
-                    <div>
-                        <p>Menyetujui</p>
-                        <p class="font-bold mb-[70px] mt-1 w-full">Dekan ?</p>
-                        <P class="font-bold">Nama Ketua Dekan</P>
-                        <p>NIDN. <span>0926018902</span></p>
-                    </div>
-                </div>
-            </div> --}}
 
         </div>
      </div>

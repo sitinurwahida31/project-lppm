@@ -24,8 +24,13 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     Route::get('/suratpengesahan/penelitian', [GeneralViewController::class, 'suratPengesahanPenelitian']);
     Route::get('/surattugas/pengabdian', [SuratPengabdianController::class, 'indexAdmin']);
     Route::get('/surattugas/penelitian/detailsuratpenelitian/{id}', [SuratPenelitianController::class, 'detailpenelitian']);
+
     Route::post('/updatepenelitian/{id}', [SuratPenelitianController::class, 'updatePenelitian']);
     Route::get('/editdetailpenelitian/{id}', [SuratPenelitianController::class, 'showPenelitian']);
+
+    Route::post('/updatepengabdian/{id}', [SuratPengabdianController::class, 'updatePengabdian']);
+    Route::get('/editdetailpengabdian/{id}', [SuratPengabdianController::class, 'showPengabdian']);
+
     Route::get('/surattugas/pengabdian/detailsuratpengabdian/{id}', [SuratPengabdianController::class, 'detailpengabdian']);
     Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratPengesahanPengabdian']);
     Route::delete('/destroypenelitian/{id}', [SuratPenelitianController::class, 'destroyPenelitian']);
