@@ -49,9 +49,9 @@
                 <div class="row bg-gradient-to-r from-white from-10% via-gray-200 via-30% to-white to-90% p-8 ">
                     <div class="gap-40 grid lgx:grid-cols-1 md:grid-cols-2">
                         <div class="master-img">
-                            <div class="mt-3 ml-10 content mdx:my-12 md:max-w-xl mdx:h-40 mdx:mb-10 rounded-lg drop-shadow-md hover:drop-shadow-xl">
+                            <div class="mt-20 mb-44 ml-16 content mdx:my-20 md:max-w-xl mdx:h-40 mdx:mb-10 rounded-lg drop-shadow-md hover:drop-shadow-xl">
                                 {{-- title --}}
-                                <div class="row space-y-8">
+                                <div class="row space-y-16">
                                     <h1 class="text-xl font-inter md:text-3xl mdx:text-3xl fadein">
                                         <span class="text-sm mdx:text-xl">Welcome...</span><br><span class="text-amber-400">Lembaga</span> Penelitian <br> <span
                                             class="text-[#000000]">  dan </span> <span class="text-[#000000]">Pengabdian </span> <br> <span class="text-[#000000]"> Kepada </span><span  class="text-amber-400">Masyarakat </span><br>
@@ -66,7 +66,7 @@
                                     <br>
                                     <div class="flex">
                                         <a href="#"
-                                            class="absolute mb-300 shadow-md text-amber-400 font-medium rounded-lg text-sm px-5 -mt-5 text-center inline-flex items-center">
+                                            class="absolute mb-300 shadow-md bg-white text-amber-400 font-medium rounded-lg text-sm px-5 -mt-5 text-center inline-flex items-center">
                                             User Guide
                                             <div class="flex justify-center ml-5 my-3 text-amber-400">
                                                 <svg class="animate-bounce" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -82,82 +82,10 @@
                             </div>
                         </div>
                             {{-- <img class="md:visible mdx:hidden rounded-lg shadow-md hover:shadow-lg" src="img/master-img.jpg" alt="master-img"> --}}
-                            <img src="https://source.unsplash.com/700x500?computer" alt="image" class="mt-10 mb-7 md:visible mdx:hidden rounded-xl shadow-md hover:shadow-lg "/>
+                            <img src="https://source.unsplash.com/700x500?computer" alt="image" class="mt-20  md:visible mdx:hidden rounded-xl shadow-md hover:shadow-lg "/>
                     </div>
                 </div>
-                <div class="fasilitas">
-                    <div class="text-center">
-                        <h1 id="fasilitas" class=" my-10 text-3xl text-black font-inter smx:mt-96  smx:text-2xl ">
-                           User Guide<br>
-                            <p class="mt-10 text-base rounded-md text-gray-500 text-center ">Tahapan dalam membuat surat tugas dan pengesahan</p>
-                        </h1>
-                        <div class="row lgx:max-w-xs w-100 h-30 my-5 flex items-center">
-                            {{-- tahap 1 --}}
-                            <div class="mx-4 my-4 ">
-                                <div class="bg-gradient-to-t to-gray-200 from-gray-100 hover:border-2 red:300 hover:border-transparent  max-w-sm  rounded-full  shadow-md  ">
-                                    <div class="p-5 bg-gray-100 h-56 rounded-full">
-                                        <a href="#">
-                                            <h5 class="mb-2 text-lg font-bold tracking-tight text-black dark:text-black font-inter animate-bounce">Tahapan 1</h5>
-                                        </a>
-                                        <p class="mb-1 mt-4 font-normal text-gray-700 dark:text-[659093] text-xs text-center">
-                                            Silahkan mengisi terlebih dahulu form surat kemudian simpan data
-                                            Silahkan download file surat tugas terlebih dahulu sebelum mendownload surat pengesahan
-                                        </p>
-                                        {{-- <button class="m-8 mdx:visible md:hidden smx:text-xs smx:h-8 text-[10] mx-auto text-white bg-yellow-400 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 text-center dark:bg-[#DDB07F] dark:hover:bg-yellow-400"
-                                            type="button" data-modal-toggle="K5"> read more
-                                        </button> --}}
-                                        <button class=" md:visible mdx:hidden md:mt-6 h-10  smx:text-xs smx:h-8 text-[10] mx-auto text-white bg-yellow-400 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400"
-                                            type="button" data-modal-toggle="K5"> read more
-                                        </button>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{-- tahap 2 --}}
-                            <div class="mx-4 my-4 ">
-                                <div class="bg-gradient-to-t to-gray-200 from-gray-100 hover:border-2 red:300 hover:border-transparent  max-w-sm  rounded-full  shadow-md  ">
-                                    <div class="p-5 bg-gray-100 h-56 rounded-full">
-                                        <a href="#">
-                                            <h5 class="mb-2 text-lg font-bold tracking-tight text-black dark:text-black font-inter animate-bounce">Tahapan 2</h5>
-                                        </a>
-                                        <p class="mb-1 mt-4 font-normal text-gray-700 dark:text-[659093] text-xs text-center">
-                                            Silahkan download file surat tugas terlebih dahulu sebelum mendownload surat pengesahan
-                                        </p>
-                                        {{-- <button class="m-8 mdx:visible md:hidden smx:text-xs smx:h-8 text-[10] mx-auto text-white bg-yellow-400 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 text-center dark:bg-[#DDB07F] dark:hover:bg-yellow-400"
-                                            type="button" data-modal-toggle="K5"> read more
-                                        </button> --}}
-                                        <button class=" md:visible mdx:hidden md:mt-6 h-10  smx:text-xs smx:h-8 text-[10] mx-auto text-white bg-yellow-400 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400"
-                                            type="button" data-modal-toggle="K5"> read more
-                                        </button>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{-- tahap 3 --}}
-                            <div class="mx-4 my-4 ">
-                                <div class="bg-gradient-to-t to-gray-200 from-gray-100 hover:border-2 red:300 hover:border-transparent  max-w-sm  rounded-full  shadow-md  ">
-                                    <div class="p-5 bg-gray-100 h-56 rounded-full">
-                                        <a href="#">
-                                            <h5 class="mb-2 text-lg font-bold tracking-tight text-black dark:text-black font-inter animate-bounce">Tahapan 3</h5>
-                                        </a>
-                                        <p class="mb-1 mt-4 font-normal text-gray-700 dark:text-[659093] text-xs text-center">
-                                            Silahkan download file surat pengesahan
-                                        </p>
-                                        {{-- <button class="m-8 mdx:visible md:hidden smx:text-xs smx:h-8 text-[10] mx-auto text-white bg-yellow-400 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 text-center dark:bg-[#DDB07F] dark:hover:bg-yellow-400"
-                                            type="button" data-modal-toggle="K5"> read more
-                                        </button> --}}
-                                        <button class=" md:visible mdx:hidden md:mt-6 h-10  smx:text-xs smx:h-8 text-[10] mx-auto text-white bg-yellow-400 hover:bg-yellow-400 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 text-center dark:bg-yellow-400 dark:hover:bg-yellow-400"
-                                            type="button" data-modal-toggle="K5"> read more
-                                        </button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
                 {{-- FASILITAS --}}
                 {{-- <div class="fasilitas">

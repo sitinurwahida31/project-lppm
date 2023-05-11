@@ -100,7 +100,7 @@
                     <p class="ml-2">Cetak Surat Pengesahan</p>
                 </a>
             </div>
-            <div class="text-sm font-medium text-gray-700 mb-5">
+            <div class="text-base font-medium text-gray-700 mb-5">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mr-8 mb-2">
                     <div class="w-full">
                         <p>Nomor Surat</p>
@@ -199,7 +199,7 @@
 
                     <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
-                        <p><span>{{$mahasiswa}}</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
+                        <p><span>{{$mahasiswa}}</span> Mahasiswa *<span class="italic">(Maksimal 2 Mahasiswa)</span></p>
                     </div>
                     <div></div>
                     @foreach ($data_mahasiswa as $item)

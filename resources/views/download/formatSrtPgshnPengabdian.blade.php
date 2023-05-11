@@ -33,10 +33,10 @@
 
     <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
 </head>
-<body class="bg-white">    
+<body class="bg-white">
      {{-- format --}}
      <div class="flex items-center justify-between text-base">
-        <div class="mx-20 mb-20 mt-16">
+        <div class="mx-16 mb-20 mt-8">
             {{-- Ket Surat --}}
             <div class="text-center mb-8">
                 <p class="font-bold text-black text-lg tracking-wide">HALAMAN PENGESAHAN</p>
@@ -116,7 +116,7 @@
                         <div class="w-full h-auto flex">
                             <span class="mr-1">:</span>
                             <p><span>{{ $item->nama_anggota }}</span><span> / </span><span>{{ $item->nomor_induk_anggota }}</span></p>
-                        </div>                        
+                        </div>
                     @endforeach
 
                     <div class="w-full">
@@ -190,16 +190,16 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-end mt-7 mr-5">
+            <div class="flex justify-end mt-5 mr-5">
                 <p>Palopo, {{ $surat->created_at }}</p>
             </div>
             {{-- Tanda Tangan --}}
             <div class="flex mt-0">
                 {{-- Tanda tangan dekan --}}
-                <div class="text-base text-black tracking-wide mr-[44%]">
+                <div class="text-base text-black tracking-wide mr-[38%]">
                     <div>
                         <p>Mengetahui,</p>
-                        <p class="font-bold mb-[60px] mt-1 w-full">Dekan <SPAn>{{ $surat->nama_fakultas }}</SPAn></p>
+                        <p class="font-bold mb-[50px] mt-1 w-full">Dekan <SPAn>{{ $surat->nama_fakultas }}</SPAn></p>
                         <P class="font-bold">{{ $surat->nama_dekan }}</P>
                         <p>NIP. <span>{{ $surat->nomor_induk_dekan }}</span></p>
                     </div>
@@ -207,7 +207,7 @@
                 {{-- tanda tangan ketua Pelaksana --}}
                 <div class="text-base text-black tracking-wide">
                     <div>
-                        <p class="font-bold mb-[60px] mt-5">Ketua Penelitian</p>
+                        <p class="font-bold mb-[50px] mt-5">Ketua Penelitian</p>
                         <P class="font-bold">{{ $surat->nama }}</P>
                         <p>NIDN. <span>{{ $surat->nomor_induk }}</span></p>
                     </div>
@@ -218,16 +218,16 @@
                 <div class="text-base text-black text-center tracking-wide">
                     <div>
                         <p class=" mt-2">Menyetujui</p>
-                        <p class="font-bold mb-[60px]">Plt Ketua LPPM</p>
+                        <p class="font-bold mb-[50px]">Plt Ketua LPPM</p>
                         <P class="font-bold">{{ $ketualppm->nama_lppm }}</P>
                         <p>NIDN. <span>{{ $ketualppm->nidn_lppm }}</span></p>
                     </div>
                 </div>
             </div>
         </div>
-     </div>  
+     </div>
     <script>
         window.print();
-    </script>  
+    </script>
 </body>
 </html>

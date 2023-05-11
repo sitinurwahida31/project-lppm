@@ -36,10 +36,10 @@
     <body class="bg-white">
             {{-- format --}}
             <div class="bg-white items-center">
-                <div class="mx-20 mb-20">
+                <div class="mx-16 mb-20">
                     {{-- kop surat --}}
                     <div class="flex items-center justify-between">
-                        <div class="w-20 mr-1 h-auto justify-start">
+                        <div class="w-20 ml-1 mr-1 h-auto justify-start">
                             <img class="h-auto w-auto" src="/img/logo.png" alt="">
                         </div>
                         <div class="w-auto h-auto text-center">
@@ -56,7 +56,7 @@
                         <hr class="border-[1px] border-opacity-100 border-black ml-[218px] mr-[218px]">
                         <p class="text-black text-base font-normal tracking-wide">Nomor: {{ $surat->nomor_surat }}</p>
                     </div>
-                    <div class="pt-5 ">
+                    <div class="pt-4 ">
                         <p class="text-base text-black tracking-wide">Yang bertanda tangan di bawah ini:</p>
                     </div>
                     {{-- info ketua --}}
@@ -77,7 +77,7 @@
                             <a href=""><p>{{ $ketualppm->nama_lppm }}</p></a>
                         </div>
                     </div>
-                    <div class="pt-5 tracking-wide">
+                    <div class="pt-4 tracking-wide">
                         <p class="text-base">Menugaskan kepada saudara:</p>
                     </div>
                     {{-- Anggota --}}
@@ -93,31 +93,31 @@
                             <div class="mr-14">
                                 <p> {{ $surat->nama_ketua }} </p>
                                 @foreach ($anggota as $item)
-                                    <p>{{ $item->nama_anggota }}</p>                            
+                                    <p>{{ $item->nama_anggota }}</p>
                                 @endforeach
                             </div>
                             <div class="mr-14">
                                 <p>({{ $surat->nidn }})</p>
                                 @foreach ($anggota as $item)
-                                    <p>({{ $item->nomor_induk_anggota }})</p>                            
+                                    <p>({{ $item->nomor_induk_anggota }})</p>
                                 @endforeach
                             </div>
                             <div class="mr-7">
                                 <p>(Ketua)</p>
                                 @foreach ($anggota as $item)
-                                    <p>(Anggota)</p>                           
+                                    <p>(Anggota)</p>
                                 @endforeach
                             </div>
                         </div>
                         {{-- perihal surat --}}
-                        <div class="text-justify text-base text-black font-normal mt-5 tracking-wide">
+                        <div class="text-justify text-base text-black font-normal mt-4 tracking-wide">
                             <p>Untuk melakukan pengabdian yang berjudul <span>"{{ $surat->judul_surat }}"</span> dengan jangka waktu penelitian <span>{{ $surat->jangka_waktu }}</span>, mulai pada <span>{{ $surat->tanggal_mulai }}</span> sampai <span>{{ $surat->tanggal_selesai }}</span>. Selanjutnya, Saudara melaporkan hasil pengabdian ke ketua LPPM sebanyak 1 buah laporan. </p>
                         </div>
-                        <div class="text-left text-base text-black font-normal mt-5 tracking-wide">
+                        <div class="text-left text-base text-black font-normal mt-4 tracking-wide">
                             <p>Demikian Surat Tugas ini dibuat untuk dapat digunakan sebagaimana mestinya.</p>
                         </div>
                         {{-- tanda tangan ketua lppm --}}
-                        <div class="flex items-center justify-end text-base text-black mt-7 tracking-wide">
+                        <div class="flex items-center justify-end text-base text-black mt-4 tracking-wide">
                             <div>
                                 <p>Palopo, {{ $surat->created_at }}</p>
                                 <p class="font-bold mb-[70px] mt-3">Plt Ketua LPPM</p>
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                     {{-- Tembusan --}}
-                    <div class="text-base text-black font-normal mt-7 tracking-wide">
+                    <div class="text-base text-black font-normal mt-6 tracking-wide">
                         <p>Tembusan disampaikan dengan hormat kepada:</p>
                     </div>
                     <div class="flex text-base text-black mt-1 text-left font-normal tracking-wide">
@@ -136,7 +136,7 @@
                             <p>3.</p>
                             <p>4.</p>
                         </div>
-                        <div class="mb-60">
+                        <div class="mb-10">
                             <p>Rektor</p>
                             <p>Dekan</p>
                             <p>Ketua Prodi</p>
