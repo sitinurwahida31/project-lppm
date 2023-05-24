@@ -11,7 +11,8 @@ use App\Http\Controllers\SuratPengabdianController;
 
 Route::get('/signin', [GeneralViewController::class, 'signin'])->name('signin');
 Route::post('/signupstore', [UserController::class, 'store'])->name('signupstore');
-Route::get('/', [GeneralViewController::class, 'landing'])->name('landing');
+Route::get('/landing', [GeneralViewController::class, 'landing'])->name('landing');
+Route::get('/', [GeneralViewController::class, 'landingpage'])->name('landingpage');
 Route::post('/autenticate', [LoginController::class, 'authenticate'])->name('autenticate');
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -24,30 +25,35 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     Route::get('/suratpengesahan/penelitian', [GeneralViewController::class, 'suratPengesahanPenelitian']);
     Route::get('/surattugas/pengabdian', [SuratPengabdianController::class, 'indexAdmin']);
     Route::get('/surattugas/penelitian/detailsuratpenelitian/{id}', [SuratPenelitianController::class, 'detailpenelitian']);
-    Route::get('/editdetailpenelitian/{id}', [SuratPenelitianController::class, 'editAdmin']);
+
+    Route::post('/updatepenelitian/{id}', [SuratPenelitianController::class, 'updatePenelitian']);
+    Route::get('/editdetailpenelitian/{id}', [SuratPenelitianController::class, 'showPenelitian']);
+
+    Route::post('/updatepengabdian/{id}', [SuratPengabdianController::class, 'updatePengabdian']);
+    Route::get('/editdetailpengabdian/{id}', [SuratPengabdianController::class, 'showPengabdian']);
+
     Route::get('/surattugas/pengabdian/detailsuratpengabdian/{id}', [SuratPengabdianController::class, 'detailpengabdian']);
     Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratPengesahanPengabdian']);
     Route::delete('/destroypenelitian/{id}', [SuratPenelitianController::class, 'destroyPenelitian']);
     Route::delete('/destroypengabdian/{id}', [SuratPengabdianController::class, 'destroyPengabdian']);
 
     // == DATA SURAT
-    Route::get('/datasurat', [DataSuratController::class, 'index'])->name('datasurat');
+    Route::get('/datasurat', [DataSuratController::class, 'index']);
     Route::get('/createdatasurat', [DataSuratController::class, 'createStakeholder']);
     Route::get('/createprodi', [DataSuratController::class, 'createProdi']);
     Route::post('/updateprodi/{id}', [DataSuratController::class, 'updateProdi']);
     Route::post('/storeprodi', [DataSuratController::class, 'storeProdi']);
+    Route::post('/storesemester', [DataSuratController::class, 'storeSemester']);
     Route::get('/editprodi/{id}', [DataSuratController::class, 'showProdi']);
     Route::delete('/destroyprodi/{id}', [DataSuratController::class, 'destroyProdi']);
+    Route::delete('/destroysemester/{id}', [DataSuratController::class, 'destroySemester']);
 
     // == DATA USER
     Route::delete('/destroyuser/{id}', [UserController::class, 'destroyUser']);
 
-    // Route::get('/datasurat', [GeneralViewController::class, 'datasurat'])->name('datasurat');
-    // Route::get('/surattugas/penelitian', [SuratPenelitianController::class, 'indexadmin']); //route data surat tugas penelitian
-    // // Route::get('/surattugas/penelitian', [GeneralViewController::class, 'suratTugasPenelitian']);
-    // Route::get('/suratpengesahan/penelitian', [GeneralViewController::class, 'suratPengesahanPenelitian']);
-    // Route::get('/surattugas/pengabdian', [GeneralViewController::class, 'suratTugasPengabdian']);
-    // Route::get('/suratpengesahan/pengabdian', [GeneralViewController::class, 'suratPengesahanPengabdian']);
+    // EXPORT EXCEL
+    Route::get('/surat-penelitian-export',[SuratPenelitianController::class,'suratPenelitianExport'])->name('suratPenelitianExport');
+    Route::get('/surat-pengabdian-export',[SuratPengabdianController::class,'suratPengabdianExport'])->name('suratPengabdianExport');
 });
 
 // === ROUTE DOSEN ==
@@ -59,7 +65,7 @@ Route::group(['middleware' => ['auth', 'level:dosen,admin']], function () {
     Route::post('/storesuratpenelitian', [SuratPenelitianController::class, 'store']);
     Route::get('/surattugas/penelitian/format/{id}', [SuratPenelitianController::class, 'suratTugasPenelitianFormat']);
     Route::get('/suratpengesahan/penelitian/format/{id}', [SuratPenelitianController::class, 'suratPengesahanPenelitianFormat']);
-    
+
     // == PENGABDIAN ==
     Route::get('/pengabdian', [GeneralViewController::class, 'pengabdian']);
     Route::get('/pengabdian/inputpengabdian', [SuratPengabdianController::class, 'create']);

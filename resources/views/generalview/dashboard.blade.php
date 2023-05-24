@@ -1,56 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <title>LPPM UNCP</title>
-        <link rel="shortcut icon" href="img/uncok.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link rel="stylesheet" href="style.css" />
-        <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
-        <link href="https://unpkg.com/intro.js/themes/introjs-modern.css" rel="stylesheet">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lato&family=Roboto:ital,wght@0,400;1,500&display=swap"
-            rel="stylesheet" />
-        <style>
-        #loader {
-            display: none;
-        }
-        </style>
-        <!--intro JS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/introjs.min.css" rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/intro.min.js"></script>
-        <!-- Google reCAPTCHA CDN -->
-        <script src="https://www.google.com/recaptcha/api.js" async defer>
-        </script>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
-
-        <script src="https://cdn.tailwindcss.com?plugins=line-clamp"></script>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.1/dist/flowbite.min.css" /> -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        montserrat: ["Montserrat"],
-                    },
-                    colors: {
-                        "dark-green": "#1E3F41",
-                        "light-green": "#659093",
-                        "cream": "#DDB07F",
-                        "cgray": "#F5F5F5",
-                    }
-                }
-            }
-        }
-    </script>
-    </head>
+    @include('layout.head')
 <body>
     <div class="responsive-top sticky top-0 z-30 bg-yellow-400 p-5 sm:hidden">
         <div class="flex justify-center bg-white p-2 rounded-lg">
@@ -100,7 +50,7 @@
 
                 <div class="bg-slate-100 h-8 border-green-500 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
                     <p class="text-sm font-medium">cek info</p>
-                    <a href="\user"><button type="button" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-xs p-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a href="#"><button type="button" class="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-xs p-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button></a>
                 </div>
@@ -127,7 +77,7 @@
                 </div>
                 <div class="bg-slate-100 h-8 border-amber-300 border rounded-b-lg items-center gap-x-1 justify-center hidden sm:flex ">
                     <p class="text-sm font-medium">cek info</p>
-                    <a href="\data_surat"><button type="button" class="text-white bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-amber-200 font-medium rounded-full text-xs p-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a href="#"><button type="button" class="text-white bg-amber-300 hover:bg-amber-400 focus:ring-4 focus:outline-none focus:ring-amber-200 font-medium rounded-full text-xs p-1 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         <svg aria-hidden="true" class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button></a>
                 </div>

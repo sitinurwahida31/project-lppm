@@ -69,7 +69,7 @@
         </nav>
     </div>
     {{-- step --}}
-    <div>
+    {{-- <div>
         <div class=" h-9 items-center flex justify-center ml-28 mr-28">
             <div class=" rounded-full bg-amber-400 text-white pl-3 pr-3 pt-2 pb-2 text-xs font-bold">
                 1
@@ -88,7 +88,26 @@
             <span class="pl-[233px]">Surat Tugas</span>
             <span class="pl-[202px]">Surat Pengesahan</span>
         </div>
-    </div>
+    </div> --}}
+    <ol class="flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+        <li class="flex md:w-full items-center text-blue-600 dark:text-blue-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+            <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                <svg aria-hidden="true" class="w-4 h-4 mr-2 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                Personal <span class="hidden sm:inline-flex sm:ml-2">Info</span>
+            </span>
+        </li>
+        <li class="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
+            <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+                <span class="mr-2">2</span>
+                Account <span class="hidden sm:inline-flex sm:ml-2">Info</span>
+            </span>
+        </li>
+        <li class="flex items-center">
+            <span class="mr-2">3</span>
+            Confirmation
+        </li>
+    </ol>
+
     {{-- group form input --}}
     <form action="/storesuratpenelitian" method="post">
         @csrf
@@ -104,17 +123,17 @@
                         <label for="semester" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Semester</label>
                         <select id="semester" required name="semester" class="@error('semester')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected value=""></option>
-                        <option value="20221">20221</option>
-                        <option value="20222">20222</option>
-                        <option value="20231">20231</option>
-                        <option value="20232">20232</option>
+                        @foreach ($semester as $item)
+                            <option value="{{ $item->nomor_semester }}">
+                                <div>{{ $item->nomor_semester }}</div>
+                            </option>
+                        @endforeach
                         </select>
                         <div class="text-red-500 text-sm italic">@error('semester')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nomor_surat" class="block mb-1 text-sm font-medium fxsont-medium text-gray-900 dark:text-white">Nomor Surat</label>
-                        <input type="text" required id="nomor_surat" name="nomor_surat" value="{{ old('nomor_surat')}}" class="pl-3 @error('nomor_surat')border-red-400 @enderror bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nomor Surat" >
-                        <div class="text-red-500 text-sm italic">@error('nomor_surat')*{{ $message }} @enderror</div>
+                        <input type="text" required id="nomor_surat" name="nomor_surat" value="{{ $nosrt }}" class="pl-3 border border-gray-300 text-gray-700 bg-slate-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled placeholder="{{ $nosrt }}" >
                     </div>
                 </div>
                 {{-- row 2 --}}
@@ -212,13 +231,12 @@
                     </div>
                     <div>
                         <label for="nomor_induk_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN/NID</label>
-                        <input type="text" required id="nomor_induk_ketua" name="nomor_induk_ketua" value="{{ old('nomor_induk_ketua')}}" class="@error('nomor_induk_ketua')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                        <input type="text" required id="nomor_induk_ketua" name="nomor_induk_ketua" value="{{ old('nomor_induk_ketua' )}}" class="@error('nomor_induk_ketua')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                         <div class="text-red-500 text-sm italic">@error('nomor_induk_ketua')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="prodi_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Program Studi</label>
                         <select id="prodi_ketua" required name="prodi_ketua" class="@error('prodi_ketua')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value=""></option>
                             @foreach ($prodi as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama_prodi }}</option>
                             @endforeach
@@ -296,19 +314,23 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2 mt-4">
                     <div>
                         <label for="nama_mahasiswa1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa 1</label>
-                        <input type="text" id="nama_mahasiswa1" name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_mahasiswa1" name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="@error('nama_mahasiswa1')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
+                        <div class="text-red-500 text-sm italic">@error('nama_mahasiswa1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nim_mahasiswa1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIM Mahasiswa 1</label>
-                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
+                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="@error('nim_mahasiswa1')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
+                        <div class="text-red-500 text-sm italic">@error('nim_mahasiswa1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nama_mahasiswa2" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa 2</label>
-                        <input type="text" id="nama_mahasiswa2" name="nama_mahasiswa2" value="{{ old('nama_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_mahasiswa2" name="nama_mahasiswa2" value="{{ old('nama_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
+                        <div class="text-red-500 text-sm italic">@error('nama_mahasiswa2')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nim_mahasiswa2" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIM Mahasiswa 2</label>
-                        <input type="text" id="nim_mahasiswa2" name="nim_mahasiswa2" value="{{ old('nim_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
+                        <input type="text" id="nim_mahasiswa2" name="nim_mahasiswa2" value="{{ old('nim_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
+                        <div class="text-red-500 text-sm italic">@error('nim_mahasiswa2')*{{ $message }} @enderror</div>
                     </div>
                 </div>
             </div>
@@ -352,7 +374,7 @@
             <button type="reset" class="py-1 px-5 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-red-700 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                 Reset
             </button>
-            <button type="submit" class="py-1 px-5 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+            <button type="submit" onclick="return confirm('Mohon Untuk Dipastikan! Apakah Data Yang Anda Masukan Sudah Sesuai?')" class="py-1 px-5 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                 Save
             </button>
         </div>

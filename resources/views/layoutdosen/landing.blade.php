@@ -1,119 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Universitas Cokroaminoto Palopo</title>
-    <link rel="shortcut icon" href="img/uncok.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/intro.js/themes/introjs-modern.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lato&family=Roboto:ital,wght@0,400;1,500&display=swap"
-        rel="stylesheet" />
-    <style>
-    #loader {
-        display: none;
-    }
-    </style>
-    <!--intro JS-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/introjs.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/intro.min.js"></script>
-    <!-- Google reCAPTCHA CDN -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer>
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    {{-- iconify --}}
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-
-</head>
+@include('layout.head')
 
 <body class="bg-white">
     <!-- Navbar -->
     @include('layout.navbar_user')
-    {{-- content --}}
-    <div data-title="Welcome!" data-intro="Hello World!" class="card-demo dark:text-black text-black ">
-        <div class="container">
-            <div class="jumbotron mt-8 rounded ">
-                {{-- hero --}}
-                <div class="row bg-gradient-to-r from-white from-10% via-gray-200 via-30% to-white to-90% p-8 ">
-                    <div class="gap-40 grid lgx:grid-cols-1 md:grid-cols-2">
-                        <div class="master-img">
-                            <div class="mt-20 mb-44 ml-16 content mdx:my-20 md:max-w-xl mdx:h-40 mdx:mb-10 rounded-lg drop-shadow-md hover:drop-shadow-xl">
-                                {{-- title --}}
-                                <div class="row space-y-16">
-                                    <h1 class="text-xl font-inter md:text-3xl mdx:text-3xl fadein">
-                                        <span class="text-sm mdx:text-xl">Welcome...</span><br><span class="text-amber-400">Lembaga</span> Penelitian <br> <span
-                                            class="text-[#000000]">  dan </span> <span class="text-[#000000]">Pengabdian </span> <br> <span class="text-[#000000]"> Kepada </span><span  class="text-amber-400">Masyarakat </span><br>
-                                    </h1>
-                                    <p class="mt-10 rounded-md text-gray-500 font-semibold text-2xl">
-                                        <span class="text-amber-400"> Universitas </span><span class="text-black">Cokroaminoto</span> <span class="text-amber-400">Palopo
-                                        </span>
-                                    </p>
-                                </div>
-                                {{-- button Guide --}}
-                                <div class="mt-8 mb-7 smx:space-y-5">
-                                    <br>
-                                    <div class="flex">
-                                        <a href="#"
-                                            class="absolute mb-300 shadow-md bg-white text-amber-400 font-medium rounded-lg text-sm px-5 -mt-5 text-center inline-flex items-center">
-                                            User Guide
-                                            <div class="flex justify-center ml-5 my-3 text-amber-400">
-                                                <svg class="animate-bounce" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                                    role="img" width="32" height="32" preserveAspectRatio="xMidYMid meet"
-                                                    viewBox="0 0 16 16">
-                                                    <path fill="currentColor"
-                                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
-                                                </svg>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                            {{-- <img class="md:visible mdx:hidden rounded-lg shadow-md hover:shadow-lg" src="img/master-img.jpg" alt="master-img"> --}}
-                            <img src="https://source.unsplash.com/700x500?computer" alt="image" class="mt-20  md:visible mdx:hidden rounded-xl shadow-md hover:shadow-lg "/>
-                    </div>
-                </div>
-                
+    @include('layout.navbar_user')
+<section class="relative  bg-blueGray-50">
 
-                {{-- FASILITAS --}}
-                {{-- <div class="fasilitas">
-
-                    <section class="informasi">
-                        <div class="mx-8 mb-12 ">
-                            <h1 id="informasi" class="text-2xl font-inter text-center mt-8 text-amber-400">User Guide
-                            </h1>
-                            <div class="flex mx-auto mt-10 ">
-                                <a href="#"
-                                    class="  block p-6 max-w-sm bg-white rounded-lg  shadow-md hover:bg-gray-100 dark:bg-[#F7F2F0]  dark:hover:bg-gray-100">
-                                    <p class=" mdx:text-xs font-normal text-justify  text-gray-700 dark:text-[659093]">
-                                        <span class="text-[#659093]">Sistem Informasi</span> Peminjaman alat program studi informatika, fakultas teknik komputer <span class="text-[#659093]">
-                                            Universitas cokroaminoto palopo.Sistem informasi ini menjadi salah satu sistem informasi yang di gunakan untuk mempermudah
-                                        </span> mahasiswa maupun dosen dalam memberikan layanan  <span
-                                            class="text-[#659093]">peminjaman</span> alat di ruangan prodi.
-                                    </p>
-                                </a>
-
-                            </div>
-                        </div>
-                    </section>
-                </div> --}}
+<div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75 mt-14">
+        <div class="absolute top-0 w-full h-full bg-center bg-cover " style="
+            background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80');
+          ">
+          <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+        </div>
+        <div class="container relative mx-auto">
+          <div class="items-center flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-0 ml-auto mr-auto text-center">
+              <div class="mt-7 md:mt-10">
+                <h1 class="text-white font-bold text-2xl md:text-4xl">LPPM <p>Universitas Cokroaminoto Palopo</p>
+                </h1>
+                <p class="md:mt-10 mt-6 text-lg text-white">
+                    Tahapan Membuat Surat Tugas Dan Pengesahan
+                </p>
+              </div>
             </div>
-            <br>
-    </div>
+          </div>
+        </div>
+        <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
+          <svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0">
+            <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
+          </svg>
+        </div>
+      </div>
+      <section class="pb-10 bg-blueGray-200 -mt-20">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap">
+            <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div class="px-4 py-5 flex-auto">
+                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-[#FFDC00]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01M17 12h.01M7 12h.01"/></g></svg>
+                  </div>
+                  <h6 class="text-xl font-semibold">Form Input</h6>
+                  <p class="mt-2 mb-4 text-blueGray-500">
+                    Silahkan mengisi data-data penelitian atau pengabdian pada form yang disediakan
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-4/12 px-4 text-center">
+              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div class="px-4 py-5 flex-auto">
+                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-[#4caf50]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"/></svg>
+                  </div>
+                  <h6 class="text-xl font-semibold">Surat Tugas</h6>
+                  <p class="mt-2 mb-4 text-blueGray-500">
+                    Mendownload surat tugas penelitian atau pengabdian
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+              <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+                <div class="px-4 py-5 flex-auto">
+                  <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-[#FFDC00]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m20.41 8.41l-4.83-4.83c-.37-.37-.88-.58-1.41-.58H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9.83c0-.53-.21-1.04-.59-1.42zM7 7h7v2H7V7zm10 10H7v-2h10v2zm0-4H7v-2h10v2z"/></svg>
+                  </div>
+                  <h6 class="text-xl font-semibold">Surat Pengesahan</h6>
+                  <p class="mt-2 mb-4 text-blueGray-500">
+                    Mendownload surat pengesahan penelitian atau pengabdian
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb-44">
 
-    {{-- footer --}}
+          </div>
+          {{-- @include('layout.footer') --}}
+      </section>
+      </section>
     @include('layout.footer')
 
         <script src="https://unpkg.com/flowbite@1.4.2/dist/flowbite.js"></script>

@@ -1,25 +1,28 @@
-<nav class="bg-green-900 px-2 sm:px-14 py-3 dark:bg-white-900 fixed w-full z-20 top-0 left-0 ">
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="" class="flex items-center">
-            <img src="/img/logo.png" class="h-9 mr-3 sm:h-9" alt="logo uncp">
-            <span class="self-center font-extrabold text-2xl text-white">LPPM UNCP</span>
-        </a>
-        <div class="flex pt-1 items-center justify-between w-full md:flex md:w-auto md:order-2 " id="navbar-sticky">
-            <ul class="flex flex-col mb-2 p-1 mt-0 border  md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+<nav class="bg-[#4caf50] px-2 sm:px-14 py-2 dark:bg-white-900 fixed w-full z-20 top-0 left-0 ">
+    <div class="container grid md:grid-cols-2 md:gap-4 grid-cols-1 mx-auto">
+        <div class="flex justify-center md:justify-start  items-center pr-5">
+            <a href="" class="flex items-center">
+                <img src="/img/logo.png" class="h-9 mr-3 sm:h-9" alt="logo uncp">
+                <span class="self-center font-extrabold text-xl md:text-2xl text-white">LPPM UNCP</span>
+            </a>
+        </div>
+        <hr class="border-[1px] border-opacity-50 border-slate-300 block md:hidden mt-3 md:mt-0 md:my-2 my-2">
+        <div class="flex pt-1 items-center justify-center lg:justify-end w-full md:flex md:w-auto md:order-2 " id="navbar-sticky">
+            <ul class="flex mb-2 p-1.5 mt-0 md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                    <a href="/" class="block py-1 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Home</a>
+                    <a href="/" class="md:px-2 px-3 py-2 mt-2 font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-[#FFDC00] focus:text-white focus:ring-amber-400 hover:bg-white focus:bg-[#FFDC00] focus:outline-none focus:shadow-outline">Home</a>
                 </li>
                 <li>
                 @auth
-                    <a href="/penelitian" class="block py-1 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Penelitian</a>
+                    <a href="/penelitian" class="md:px-2 px-3 py-2 mt-2 font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-[#FFDC00] focus:text-white focus:ring-amber-400 hover:bg-white focus:bg-[#FFDC00] focus:outline-none focus:shadow-outline">Penelitian</a>
                     </li>
                     <li>
-                        <a href="/pengabdian" class="block py-1 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pengabdian</a>
+                        <a href="/pengabdian" class="md:px-2 px-3 py-2 mt-2 font-semibold text-white bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-#FFDC00 focus:text-white focus:ring-amber-400 hover:bg-white focus:[#FFDC00] focus:outline-none focus:shadow-outline">Pengabdian</a>
                     </li>
                     <li>
                         <form action="/logout" method="post">
                             @csrf
-                            <button type="submit" onclick="return confirm('Yakin Ingin Keluar?')" class="block py-1 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-amber-400 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Logout</button>
+                            <button type="submit" onclick="return confirm('Yakin Ingin Keluar?')" class="block py-0 px-3 font-semibold  text-white rounded hover:text-amber-400 focus:text-white focus:ring-amber-400 hover:bg-white focus:bg-amber-400 focus:outline-none focus:shadow-outline">Logout</button>
                         </form>
                     </li>
                 @endauth

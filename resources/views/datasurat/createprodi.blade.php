@@ -82,47 +82,54 @@
             <div class="border-b-2 border-slate-100 pb-3">
                 <span class="text-green-700 font-bold pl-5 text-sm sm:flex ">@if ($prodi)
                     Edit Data
-                @else 
+                @else
                     Tambah Data
                 @endif </span>
             </div>
-            <form 
+            <form
                 @if ($prodi)
                     action="/updateprodi/{{ $prodi->id }}"
                 @else
                     action="/storeprodi"
                 @endif method="post" class="p-8 pb-4">
                 @csrf
-                <div class="grid gap-6 md:grid-cols-2">                    
+                <div class="grid gap-6 md:grid-cols-2">
                     <div>
                         <label for="fakultas" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Fakultas</label>
                         <select id="fakultas" required name="fakultas" class="@error('fakultas')border-red-400 @enderror block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected value=""></option>
-                            <option value="FKIP">FKIP</option>
-                            <option value="Teknik Komputer">Teknik Komputer</option>
+                            @if ($prodi)
+                                @foreach ($fakultas as $item)
+                                    <option value="{{ $item->id }}" {{ $prodi->fakultas == $item->id ? 'selected' : '' }}>{{ $item->nama_fakultas }}</option>
+                                @endforeach
+                            @else
+                                <option selected value=""></option>
+                                @foreach ($fakultas as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_fakultas }}</option>
+                                @endforeach
+                            @endif
                         </select>
                         <div class="text-red-500 text-sm italic">@error('fakultas')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nama_prodi" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Program Studi</label>
-                        <input type="text" required id="nama_prodi" name="nama_prodi" 
+                        <input type="text" required id="nama_prodi" name="nama_prodi"
                         @if ($prodi)
-                            value="{{ old('nama_prodi', $prodi->nama_prodi)}}" 
+                            value="{{ old('nama_prodi', $prodi->nama_prodi)}}"
                         @else
-                            value="{{ old('nama_prodi')}}"  
+                            value="{{ old('nama_prodi')}}"
                         @endif
                         class="
                         @error('nama_prodi')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Program Studi" >
                         <div class="text-red-500 text-sm italic">@error('nama_prodi')*{{ $message }} @enderror</div>
                     </div>
-                    
+
                     <div>
                         <label for="ketua_prodi" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Ketua Program Studi</label>
-                        <input type="text" required id="ketua_prodi" name="ketua_prodi" 
+                        <input type="text" required id="ketua_prodi" name="ketua_prodi"
                         @if ($prodi)
-                            value="{{ old('ketua_prodi', $prodi->ketua_prodi)}}" 
+                            value="{{ old('ketua_prodi', $prodi->ketua_prodi)}}"
                         @else
-                            value="{{ old('ketua_prodi')}}"  
+                            value="{{ old('ketua_prodi')}}"
                         @endif
                         class="@error('ketua_prodi')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Ketua Program Studi" >
                         <div class="text-red-500 text-sm italic">@error('ketua_prodi')*{{ $message }} @enderror</div>
@@ -131,13 +138,13 @@
                         <label for="nomor_induk_kaprodi" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID</label>
                         <input type="text" required id="nomor_induk_kaprodi" name="nomor_induk_kaprodi"
                         @if ($prodi)
-                            value="{{ old('nomor_induk_kaprodi', $prodi->nomor_induk_kaprodi)}}" 
+                            value="{{ old('nomor_induk_kaprodi', $prodi->nomor_induk_kaprodi)}}"
                         @else
-                            value="{{ old('nomor_induk_kaprodi')}}"  
+                            value="{{ old('nomor_induk_kaprodi')}}"
                         @endif
                         class="@error('nomor_induk_kaprodi')border-red-400 @enderror pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
                         <div class="text-red-500 text-sm italic">@error('nomor_induk_kaprodi')*{{ $message }} @enderror</div>
-                    </div>                 
+                    </div>
                 </div>
                 <div class=" flex justify-end mt-6">
                     <button type="Reset" class="py-1 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-red-600 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">

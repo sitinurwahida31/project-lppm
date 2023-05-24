@@ -71,14 +71,14 @@
          <!-- Header / Profile -->
          @include('layout.header_admin')
 
-        <div class="bg-white h-9 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
+        <div class="bg-white h-12 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
             <span class="text-green-700 font-bold pl-5 text-base sm:flex ">DATA SURAT</span>
         </div>
 
         {{-- card 1 --}}
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
             <div class="items-center gap-x-4 flex w-full">
-               <span class="text-green-700 font-bold text-base flex ">Stakeholder</span>
+               <span class="text-green-700 font-bold text-base flex ">Ketua LPPM</span>
             </div>
             {{-- <div class="items-center gap-x-4 mb-4 sm:flex w-full">
                 Button tambah
@@ -122,13 +122,6 @@
                             <td class="px-6 py-2">
                                 {{ $item->jabatan }}
                             </td>
-                            {{-- <td class="px-6 py-2 flex justify-center">
-                                <a href="/lihatdataaini/" class="btn font-medium text-green-700 dark:text-gray-500 hover:underline m-0.5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
-                                    </svg>
-                                </a>
-                            </td> --}}
                         </tr>
                     </tbody>
                 </table>
@@ -137,6 +130,8 @@
 
         <div class="m-6 bg-white w-auto h-auto pl-5 pr-5 pb-8 pt-6 ml-6 mr-6 mt-8 rounded-xl shadow-lg"> --}}
 
+
+            {{-- ===DATA PRODI=== --}}
             <div class="items-center gap-x-4 mt-8 flex w-full">
                <span class="text-green-700 font-bold mb-4 text-base flex ">Data Prodi</span>
             </div>
@@ -152,9 +147,9 @@
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" class="w-5 h-5 text-gray-400 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                             </div>
-                            <input type="text" name="search" id="simple-search" class="shadow-md bg-white border border-slate-200 text-gray-700 text-xs rounded-l-lg focus:ring-gray-300 focus:border-gray-300 block w-[100%] pl-10 p-1 py-1.5 dark:bg-gray-400 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-400 dark:focus:border-amber-400" placeholder="Search">
+                            <input type="text" name="search" id="simple-search" class="shadow-md bg-white border border-slate-200 text-gray-700 text-xs rounded-l-lg focus:ring-gray-300 focus:border-gray-300 block w-[100%] pl-10 p-2 py-2 dark:bg-gray-400 dark:border-gray-200 dark:placeholder-gray-400 dark:text-white dark:focus:ring-amber-400 dark:focus:border-amber-400" placeholder="Search">
                         </div>
-                        <button type="submit" class="shadow-md flex justify-center p-1 ml-0 text-sm font-medium h-full w-14 text-gray-600 bg-slate-100 rounded-r-lg border border-gray-200 hover:bg-slate-200 focus:ring-2 focus:outline-none focus:ring-gray-200 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">
+                        <button type="submit" class="shadow-md flex justify-center p-2 py-1.5 ml-0 text-sm font-medium h-full w-14 text-gray-600 bg-slate-100 rounded-r-lg border border-gray-200 hover:bg-slate-200 focus:ring-2 focus:outline-none focus:ring-gray-200 dark:bg-amber-600 dark:hover:bg-amber-700 dark:focus:ring-amber-800">
                             <svg class="w-5 h-5 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                             <span class="sr-only">Search</span>
                         </button>
@@ -207,16 +202,16 @@
                                     {{ $item->nama_fakultas }}
                                 </td>
                                 <td class="px-6 py-2 flex justify-center">
-                                    <a href="/editprodi/{{ $item->id }}" class="font-medium p-1 text-white bg-green-600 dark:text-gray-500 hover:underline m-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                    <a href="/editprodi/{{ $item->id }}" class="font-medium p-2 rounded text-white bg-green-600 dark:text-gray-500 hover:underline mr-1 m-0.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                             <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                         </svg>
                                     </a>
                                     <form action="/destroyprodi/{{ $item->id }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" onclick="return confirm('Yakin Hapus Program Studi?')" class="font-medium p-1 text-white bg-red-600 dark:gray-blue-500 hover:underline m-0.5">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <button type="submit" onclick="return confirm('Yakin Hapus Program Studi?')" class="font-medium p-2 text-white rounded bg-red-600 dark:gray-blue-500 hover:underline m-0.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                                             </svg>
                                         </button>
@@ -233,6 +228,105 @@
 
             {{-- pagination --}}
             {{ $prodi->links() }}
+
+
+
+            {{-- ===DATA PRODI=== --}}
+            <div class="items-center gap-x-4 mt-8 flex w-full">
+               <span class="text-green-700 font-bold mb-4 text-base flex ">Data Semester</span>
+            </div>
+            <div class="items-center gap-x-4 mb-4 sm:flex w-full  flex md:justify-between">
+                {{-- Button tambah --}}
+                {{-- <a href="/createsemester" class=" shadow-md px-6 py-1.5 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500">Tambah Data</a> --}}
+                <button data-modal-toggle="createSemester" class=" shadow-md px-6 py-1.5 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-500">Tambah Data</button>
+
+                 <!-- Main modal -->
+                <div id="createSemester" tabindex="-1" aria-hidden="true"
+                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+                    <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow dark:bg-[#f7f2f0]">
+                            <!-- Modal header -->
+                            <div class="flex justify-between items-start p-5 rounded-t-lg border-b dark:border-gray-600 bg-green-900 hover:bg-green-900">
+                                <p class="font-semibold text-white">Form Input Semeseter</p>
+                                <button type="button"
+                                    class="text-[659093] bg-transparent hover:bg-white text-white hover:text-black rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                                    data-modal-toggle="createSemester">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-6 space-y-6 bg-scroll bg-contain overflow-auto  h-54 min-w-full ">
+
+                                <form action="/storesemester" method="post">
+                                    @csrf
+                                    <div class="mb-6">
+                                        <label for="tahun_semester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tahun Semester</label>
+                                        <input type="number" name="tahun_semester" id="tahun_semester" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Input Tahun Semester" required>
+                                    </div>
+                                    <div class="mb-6">
+                                        <label for="nomor_semester" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor Semester</label>
+                                        <input type="number" name="nomor_semester" id="nomor_semester" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Input Nomor Semester" required>
+                                    </div>
+                                    <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
+                                </form>
+                            </div>
+                            <!-- Modal footer -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Table --}}
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-7">
+                <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
+                    <thead class="text-sm text-white bg-amber-400 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-4 py-2">
+                                No
+                            </th>
+                            <th scope="col" class="px-6 py-2">
+                                Tahun Semester
+                            </th>
+                            <th scope="col" class="px-6 py-2">
+                                Kode Semester
+                            </th>
+                            <th scope="col" class="px-6 py-2">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($semester as $item)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <th scope="row" class="px-4 py-2 font-normal text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $loop->iteration }}
+                                </th>
+                                <td class="px-6 py-2">
+                                    {{ $item->tahun_semester }}
+                                </td>
+                                <td class="px-6 py-2">
+                                    {{ $item->nomor_semester }}
+                                </td>
+                                <td class="px-6 py-2 flex justify-center">
+                                    <form action="/destroysemester/{{ $item->id }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" onclick="return confirm('Yakin Hapus Semester?')" class="font-medium p-2 text-white rounded bg-red-600 dark:gray-blue-500 hover:underline m-0.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 

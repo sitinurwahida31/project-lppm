@@ -15,6 +15,10 @@ class GeneralViewController extends Controller
     {
         return view('layoutdosen.landing');
     }
+    public function landingpage()
+    {
+        return view('layout.landingpage');
+    }
 
     // == FUNCTION UNTUK VIEW ADMIN ==
     public function dashboard()

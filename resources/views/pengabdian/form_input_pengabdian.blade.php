@@ -103,17 +103,17 @@
                         <label for="semester" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Semester</label>
                         <select id="semester" name="semester" required class="@error('semester')border-red-400 @enderror block w-full p-1 mb-1 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected value=""></option>
-                        <option value="20221">20221</option>
-                        <option value="20222">20222</option>
-                        <option value="20231">20231</option>
-                        <option value="20232">20232</option>
+                        @foreach ($semester as $item)
+                            <option value="{{ $item->nomor_semester }}">
+                                <div>{{ $item->nomor_semester }}</div>
+                            </option>                            
+                        @endforeach
                         </select>
                         <div class="text-red-500 text-sm italic">@error('semester')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nomor_surat" class="block mb-1 text-sm font-medium fxsont-medium text-gray-900 dark:text-white">Nomor Surat</label>
-                        <input type="text" required id="nomor_surat" name="nomor_surat" value="{{ old('nomor_surat')}}" class="pl-3 @error('nomor_surat')border-red-400 @enderror bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nomor Surat" >
-                        <div class="text-red-500 text-sm italic">@error('nomor_surat')*{{ $message }} @enderror</div>
+                        <input type="text" required id="nomor_surat" name="nomor_surat" value="{{ $nosrt }}" class="pl-3 border border-gray-300 text-gray-700 bg-slate-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled placeholder="{{ $nosrt }}" >
                     </div>
                 </div>
                 {{-- row 2 --}}
@@ -295,19 +295,23 @@
                 <div class="grid gap-6 mb-6 md:grid-cols-2 mt-4">
                     <div>
                         <label for="nama_mahasiswa1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa 1</label>
-                        <input type="text" id="nama_mahasiswa1" name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_mahasiswa1"  name="nama_mahasiswa1" value="{{ old('nama_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
+                        <div class="text-red-500 text-sm italic">@error('nama_mahasiswa1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nim_mahasiswa1" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIM Mahasiswa 1</label>
-                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
+                        <input type="text" id="nim_mahasiswa1" name="nim_mahasiswa1" value="{{ old('nim_mahasiswa1')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
+                        <div class="text-red-500 text-sm italic">@error('nim_mahasiswa1')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nama_mahasiswa2" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa 2</label>
-                        <input type="text" id="nama_mahasiswa2" name="nama_mahasiswa2" value="{{ old('nama_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" >
+                        <input type="text" id="nama_mahasiswa2" name="nama_mahasiswa2" value="{{ old('nama_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
+                        <div class="text-red-500 text-sm italic">@error('nama_mahasiswa2')*{{ $message }} @enderror</div>
                     </div>
                     <div>
                         <label for="nim_mahasiswa2" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIM Mahasiswa 2</label>
-                        <input type="text" id="nim_mahasiswa2" name="nim_mahasiswa2" value="{{ old('nim_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" >
+                        <input type="text" id="nim_mahasiswa2" name="nim_mahasiswa2" value="{{ old('nim_mahasiswa2')}}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
+                        <div class="text-red-500 text-sm italic">@error('nim_mahasiswa2')*{{ $message }} @enderror</div>
                     </div>
                 </div>
             </div>

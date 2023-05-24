@@ -36,7 +36,7 @@
 <body class="bg-white">
      {{-- format --}}
      <div class="flex items-center justify-between text-base">
-        <div class="mx-16 mb-20 mt-8 ml-16">
+        <div class="mb-5 mt-8 ml-16">
             {{-- Ket Surat --}}
             <div class="text-center mb-8">
                 <p class="font-bold text-black text-lg tracking-wide">HALAMAN PENGESAHAN</p>
@@ -190,7 +190,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex justify-end mt-5 mr-5">
+            <div class="flex justify-end mt-5 mr-16">
                 <p>Palopo, {{ $surat->created_at }}</p>
             </div>
             {{-- Tanda Tangan --}}

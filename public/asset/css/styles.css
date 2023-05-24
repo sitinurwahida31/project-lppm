@@ -27,7 +27,7 @@ body{
     left: -50%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(-45deg, #4ade80, #14532d);
+    background: #4caf50;
     z-index: 6;
     transform: translateX(100%);
     transition: 1s ease-in-out;
@@ -107,8 +107,7 @@ title{
     color: #fff;
     font-weight: 500;
     margin: 10px;
-    text-trasform: uppercase;
-
+    text-transform: uppercase;
 }
 .btn:hover{
     background: #15803d;
@@ -224,4 +223,7 @@ a{
     font-style: italic;
     font-size: 12px;
     text-align: left !important;
+}
+.text-base {
+    font-size: 14px;
 }

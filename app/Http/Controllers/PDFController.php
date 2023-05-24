@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Dompdf\Dompdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Dompdf\Dompdf;
+use App\Models\AnggotaMahasiswa;
 use Illuminate\Support\Facades\DB;
 
 class PDFController extends Controller
@@ -52,6 +53,7 @@ class PDFController extends Controller
         )
         ->get();
 
+        $anggotaMahasiswa = AnggotaMahasiswa::where('id_surat', $id)->get();
         $countAnggota = count($anggota)+1;
         // dd('test');
 
@@ -60,6 +62,7 @@ class PDFController extends Controller
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
             'countAnggota' => $countAnggota,
+            'anggotaMahasiswa' => $anggotaMahasiswa,
         ]);
     }
 
@@ -140,6 +143,7 @@ class PDFController extends Controller
         )
         ->first();
 
+        $anggotaMahasiswa = AnggotaMahasiswa::where('id_surat', $id)->get();
         $cekCount = count($anggota);
         $num = '';
         switch ($cekCount) {
@@ -159,10 +163,10 @@ class PDFController extends Controller
                 $num = 'e';
                 break;
         }
-        // dd($surat, $anggota, $mahasiswa, $ketualppm, $num) ;
+        // dd($surat, $anggota, $mahasiswa, $ketualppm, $num, $anggotaMahasiswa) ;
 
         return view('download.formatSrtPgshnPenelitian',
-            compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
+            compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num', 'anggotaMahasiswa')
         );
     }
 
@@ -208,6 +212,8 @@ class PDFController extends Controller
         )
         ->get();
 
+        $anggotaMahasiswa = AnggotaMahasiswa::where('id_surat', $id)->get();
+
         $countAnggota = count($anggota)+1;
         $currentDate = Carbon::now()->format('Y-m-d');
 
@@ -216,12 +222,14 @@ class PDFController extends Controller
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
             'countAnggota' => $countAnggota,
+            'anggotaMahasiswa' => $anggotaMahasiswa,
         ]);
 
         $html = view('download.formatSrtTgsPengabdianPdf', [
             'surat' => $surat,
             'ketualppm' => $ketualppm,
             'anggota' => $anggota,
+            'countAnggota' => $countAnggota,
             'countAnggota' => $countAnggota,
         ]);
         $pdf = new Dompdf();
@@ -254,7 +262,7 @@ class PDFController extends Controller
             'tb_surat.created_at',
             'nama',
             'nomor_induk',
-            'prodi',
+            'tb_prodi.nama_prodi as prodi',
             'jabatan_fungsional',
             'email',
             'telepon',
@@ -329,7 +337,7 @@ class PDFController extends Controller
                 break;
         }
         // dd($surat, $anggota, $mahasiswa, $ketualppm, $num) ;
-       
+
         return view('download.formatSrtPgshnPengabdian',
             compact('surat', 'anggota', 'mahasiswa', 'ketualppm', 'num')
         );

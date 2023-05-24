@@ -35,10 +35,12 @@ class LoginController extends Controller
             if (Auth::user()->level == 'admin') {
                 return redirect()->intended('/dashboard');
             } elseif (Auth::user()->level == 'dosen') {
-                return redirect()->intended('/');
+                return redirect()->intended('/landing');
             }
         }
-        return back()->with('loginError', 'Login failed!');
+        return back()->withErrors([
+            'loginError' => 'Wrong username or password',
+        ]);
     }
 
    public function logout(Request $request)

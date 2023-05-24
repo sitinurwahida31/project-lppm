@@ -72,227 +72,251 @@
          @include('layout.header_admin')
 
         <div class="bg-white h-9 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
-            <span class="text-green-700 font-bold pl-5 text-sm sm:flex">EDIT DATA PENGABDIAN</span>
+            <span class="text-green-700 font-bold pl-5 text-base sm:flex">EDIT DATA PENGABDIAN</span>
         </div>
 
         <div class="m-6 bg-white w-auto h-auto pl-7 pr-7 pb-8 pt-7 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
-            <form action="" class="p-8">
+            <form action="/updatepengabdian/{{ $surat->id }}" method="POST" class="p-8">
+                @csrf
                 {{-- row 1 --}}
+                <div class="shadow-lg mb-4 bg-green-900 py-[8px] px-4 rounded">
+                    <h2 class="font-semibold text-base text-white">Surat</h2>
+                </div>
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                     <div>
-                        <label for="small" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Semester</label>
-                        <select id="small" class="block w-full p-1 py-2 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected>Choose a country</option>
-                        <option value="US">20221</option>
-                        <option value="CA">20222</option>
-                        <option value="FR">20231</option>
-                        <option value="DE">20232</option>
+                        <label for="semester" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Semester</label>
+                        <select id="semester" name="semester" class="block w-full p-2 py-2 mb-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @foreach ($semester as $itemSemester)
+                                @if(old('semester', $surat->semester) == $itemSemester->tahun_semester)
+                                    <option value="{{ $surat->semester }}" selected>{{ $surat->semester }}</option>
+                                @else
+                                    <option value="{{ $itemSemester->tahun_semester }}">{{ $itemSemester->tahun_semester }}</option>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium fxsont-medium text-gray-900 dark:text-white">Nomor Surat</label>
-                        <input type="text" id="last_name" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nomer Surat" required>
+                        <label for="nomor_surat" class="block mb-1 text-sm font-medium fxsont-medium text-gray-900 dark:text-white">Nomor Surat</label>
+                        <input type="text" required id="nomor_surat" name="nomor_surat" class="pl-3 border border-gray-300 text-gray-700 bg-slate-100 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" disabled placeholder="{{ $surat->nomor_surat }}" >
                     </div>
                 </div>
                 {{-- row 2 --}}
                 <div class="mb-4">
-                    <label for="message" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Judul Pengabdian</label>
-                    <textarea id="message" rows="4" class="block pl-3 pt-2 pb-2 p-1 w-full h-16 text-xs text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Judul Penelitian"></textarea>
+                    <label for="judul_surat" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Judul Pengabdian</label>
+                    <textarea id="judul_surat" name="judul_surat" rows="4" class="block pl-3 pt-2 pb-2 p-1 w-full h-16 text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Judul Pengabdian">{{ old('judul_surat', $surat->judul_surat) }}</textarea>
                 </div>
                 {{-- row 3 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-3">
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jangka Waktu Pengabdian</label>
-                        <input type="text" id="last_name" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jangka Waktu Penelitian" required>
+                        <label for="jangka_waktu" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Jangka Waktu Pengabdian</label>
+                        <input type="text" id="jangka_waktu" name="jangka_waktu" value="{{ old('jangka_waktu', $surat->jangka_waktu) }}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jangka Waktu Pengabdian" required>
                     </div>
+
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Tanggal Mulai</label>
+                        <label for="tanggal_mulai" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Tanggal Mulai Lama</label>
                         <div class="relative">
-                            <input datepicker datepicker-format="mm/dd/yyyy" type="text" class=" bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-10 p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
-                                <svg aria-hidden="true" class="w-5 h-4 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
+                            <input type="date" name="tanggal_mulai" value="{{ $surat->tanggal_mulai }}" class=" bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-3 p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                         </div>
                     </div>
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Tanggal Selesai</label>
+                        <label for="tanggal_selesai" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Tanggal Selesai</label>
                         <div class="relative">
-                            <input datepicker datepicker-format="mm/dd/yyyy" type="text" class=" bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-10 p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none ">
-                                <svg aria-hidden="true" class="w-5 h-4 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
+                            <input type="date" name="tanggal_selesai" value="{{ $surat->tanggal_selesai }}" class=" bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full pl-10 p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                         </div>
                     </div>
                 </div>
                 {{-- row 4 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jarak PT ke lokasi Mitra</label>
-                        <input type="text" id="last_name" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jarak PT Ke Lokasi" required>
+                        <label for="jarak_lokasi_mitra" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Jarak PT ke lokasi Mitra</label>
+                        <input type="text" id="jarak_lokasi_mitra" name="jarak_lokasi_mitra" value="{{ old('jarak_lokasi_mitra', $surat->jarak_lokasi_mitra) }}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jarak PT Ke Lokasi" required>
                     </div>
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Mitra</label>
-                        <input type="text" id="last_name" class="pl-3 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan Mitra" required>
+                        <label for="mitra" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Mitra</label>
+                        <input type="text" id="mitra" name="mitra" value="{{ old('mitra', $surat->mitra) }}" class="pl-3 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 py-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan Mitra" required>
                     </div>
                 </div>
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
-                <div>
-                    <label for="small" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Sumber Dana</label>
-                    <select id="small" class="block w-full p-1 py-2 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 py-2 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option selected>Choose a country</option>
-                        <option value="MD">Mandiri</option>
-                        <option value="DR">DRPTM</option>
-                        <option value="IU">Internal UNCP</option>
-                        <option value="PD">Pemerintah Daerah</option>
-                        <option value="LY">Lainnya</option>
-                    </select>
-                </div>
+                    <div>
+                        <label for="sumber_dana" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Sumber Dana</label>
+                        <select id="sumber_dana" name="sumber_dana"  class="block w-full p-2 py-2 mb-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @foreach ($listSumberDana as $listDana)
+                                    @if(old('sumber_dana', $surat->sumber_dana) == $listDana)
+                                        <option value="{{ $surat->sumber_dana }}" selected>{{ $surat->sumber_dana }}</option>
+                                    @else
+                                        <option value="{{ $listDana }}">{{ $listDana }}</option>
+                                    @endif
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 {{-- row 5 --}}
                 <div class="grid gap-6 mb-4 md:grid-cols-2">
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Biaya Pengabdian</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Biaya Penelitian" required>
+                        <label for="biaya_penelitian_pengabdian" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Biaya Pengabdian</label>
+                        <input type="text" id="biaya_penelitian_pengabdian" name="biaya_penelitian_pengabdian" value="{{ old('biaya_penelitian_pengabdian', $surat->biaya_penelitian_pengabdian) }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Biaya Pengabdian" required>
                     </div>
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Terbilang</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tiga Juta Rupiah" required>
+                        <label for="terbilang" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Terbilang</label>
+                        <input type="text" id="terbilang" name="terbilang" value="{{ old('terbilang', $surat->terbilang) }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tiga Juta Rupiah" required>
                     </div>
                 </div>
-            </form>
-            <hr>
-            <form action="" class="p-8">
+
+                <div class="shadow-lg mt-10 mb-4 bg-green-900 py-[8px] px-4 rounded">
+                    <h2 class="font-semibold text-base text-white">Ketua Tim</h2>
+                </div>
+
                 <div class="grid gap-6 mb-6 md:grid-cols-2">
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Ketua Tim</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Ketua" required>
+                        <label for="nama_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Ketua Tim</label>
+                        <input type="text" id="nama_ketua" name="nama_ketua" value="{{ old('nama_ketua', $surat->nama_ketua) }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama Ketua" required>
                     </div>
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" required>
+                        <label for="nidn_ketua" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN/NID</label>
+                        <input type="text" id="nidn_ketua" name="nidn_ketua" value="{{ old('nidn_ketua', $surat->nidn_ketua) }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" required>
                     </div>
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Program Studi</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Program Studi" required>
-                    </div>
-                    <div>
-                        <label for="small" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Jabatan Fungsional</label>
-                        <select id="small" class="block w-full p-1 py-2 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
-                            <option value="GB">Guru Besar</option>
-                            <option value="LK">Lektor Kepala</option>
-                            <option value="LT">Lektor</option>
-                            <option value="AH">Asistand Ahli</option>
-                            <option value="TP">Tenaga Pengajar</option>
+                        <label for="prodi" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Program Studi</label>
+                        <select id="prodi" name="prodi" class="block w-full p-2 py-2 mb-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @foreach ($prodi as $item)
+                                @if(old('prodi', $surat->prodi) == $item->id)
+                                    <option value="{{ $surat->prodi }}" selected>{{ $item->nama_prodi }}</option>
+                                @else
+                                    <option value="{{ $item->id }}">{{ $item->nama_prodi }}</option>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Alamat Surel (Email)</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nomer Handphone (HP)</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="HP" required>
-                    </div>
-                </div>
-            </form>
-            <hr>
-            <form action="" class="p-8">
-                <div class="grid gap-6 mb-6 md:grid-cols-2 ">
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 1</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 1</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 2</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 2</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 3</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 3</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Anggota 4</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIDN/NID Anggota 4</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" required>
-                    </div>
+                        <label for="jabatan_fungsional" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Jabatan Fungsional</label>
+                        <select id="jabatan_fungsional" name="jabatan_fungsional" class="block w-full p-2 py-2 mb-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @foreach ($listJabatan as $item)
+                                @if(old('jabatan_fungsional', $surat->jabatan_fungsional) == $item)
+                                    <option value="{{ $surat->jabatan_fungsional }}" selected>{{ $surat->jabatan_fungsional }}</option>
+                                @else
+                                    <option value="{{ $item }}">{{ $item }}</option>
+                                @endif
+                            @endforeach
 
-                </div>
-                <div class="grid gap-6 mb-6 md:grid-cols-4 ">
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs py-2 font-medium text-gray-900 dark:text-white">Jumlah Mahasiswa/Staf/Alumni</label>
-                        <select id="small" class="block w-full p-1 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
-                            <option value="GB">1</option>
-                            <option value="GB">2</option>
                         </select>
                     </div>
+                    <div>
+                        <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Alamat Surel (Email)</label>
+                        <input type="text" id="email" name="email" value="{{ old('email', $surat->email) }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required>
+                    </div>
+                    <div>
+                        <label for="telepon" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nomer Handphone (HP)</label>
+                        <input type="number" id="telepon" name="telepon" value="{{ old('telepon', $surat->telepon) }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="HP" required>
+                    </div>
                 </div>
+
+                <div class="shadow-lg mt-10 mb-4 bg-green-900 py-[8px] px-4 rounded">
+                    <h2 class="font-semibold text-base text-white">Anggota</h2>
+                </div>
+
                 <div class="grid gap-6 mb-6 md:grid-cols-2 ">
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Mahasiswa 1</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIM Mahasiswa 1</label>
-                        <input type="text" id="last_name" class="pl-3 py bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Nama Mahasiswa 2</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama" required>
-                    </div>
-                    <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">NIM Mahasiswa 2</label>
-                        <input type="text" id="last_name" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nim" required>
-                    </div>
+                    @foreach ($anggota as $item)
+                        <div>
+                            <label for="nama_anggota{{ $loop->iteration }}" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Anggota ({{ $loop->iteration }})</label>
+                            <input type="text" id="nama_anggota{{ $loop->iteration }}" name="nama_anggota{{ $loop->iteration }}" value="{{ $item->nama_anggota }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama">
+                            <input type="text" name="id{{ $loop->iteration }}" value="{{ $item->id }}" class="hidden">
+                        </div>
+                        <div>
+                            <label for="nomor_induk_anggota" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN</label>
+                            <input type="number" id="nomor_induk_anggota{{ $loop->iteration }}" name="nomor_induk_anggota{{ $loop->iteration }}" value="{{ $item->nomor_induk_anggota }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID">
+                        </div>
+                    @endforeach
+                    @if ($countAnggota <= 4)
+                        @for ($x = 1; $x <= $batasLoopAnggota; $x++)
+                            <div>
+                                <label for="nama_anggota_baru{{ $x + $nomorAnggota }}" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Anggota ({{ $x + $nomorAnggota }})</label>
+                                <input type="text" id="nama_anggota_baru{{ $x + $nomorAnggota }}" name="nama_anggota_baru{{ $x + $nomorAnggota }}" value="" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama">
+                            </div>
+                            <div>
+                                <label for="nomor_induk_anggota_baru{{ $x + $nomorAnggota }}" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN</label>
+                                <input type="number" id="nomor_induk_anggota_baru{{ $x + $nomorAnggota }}" name="nomor_induk_anggota_baru{{ $x + $nomorAnggota }}" value="" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                            </div>
+                        @endfor
+                    @endif
                 </div>
-            </form>
-            <hr>
-            <form action="" class="p-8">
+
+                <div class="shadow-lg mt-10 mb-4 bg-green-900 py-[8px] px-4 rounded">
+                    <h2 class="font-semibold text-base text-white">Mahasiswa</h2>
+                </div>
+
+                <div class="grid gap-6 mb-6 md:grid-cols-2 ">
+                    @foreach ($mahasiswa as $item)
+                        <div>
+                            <label for="nama_mahasiswa{{ $loop->iteration }}" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa ({{ $loop->iteration }})</label>
+                            <input type="text" id="nama_mahasiswa{{ $loop->iteration }}" name="nama_mahasiswa{{ $loop->iteration }}" value="{{ $item->nama_mahasiswa }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama">
+                            <input type="text" name="id_mahasiswa{{ $loop->iteration }}" value="{{ $item->id }}" class="hidden">
+                        </div>
+                        <div>
+                            <label for="nim" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIDN</label>
+                            <input type="number" id="nim{{ $loop->iteration }}" name="nim{{ $loop->iteration }}" value="{{ $item->nim }}" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID">
+                        </div>
+                    @endforeach
+                    @if ($countMahasiswa <= 4)
+                        @for ($x = 1; $x <= $batasLoopMahasiswa; $x++)
+                            <div>
+                                <label for="nama_mahasiswa_baru{{ $x + $nomorMahasiswa }}" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama Mahasiswa ({{ $x + $nomorMahasiswa }})</label>
+                                <input type="text" id="nama_mahasiswa_baru{{ $x + $nomorMahasiswa }}" name="nama_mahasiswa_baru{{ $x + $nomorMahasiswa }}" value="" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nama">
+                            </div>
+                            <div>
+                                <label for="nim_mahasiswa_baru{{ $x + $nomorMahasiswa }}" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">NIM</label>
+                                <input type="number" id="nim_mahasiswa_baru{{ $x + $nomorMahasiswa }}" name="nim_mahasiswa_baru{{ $x + $nomorMahasiswa }}" value="" class="pl-3 py-2 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="NIDN/NID" >
+                            </div>
+                        @endfor
+                    @endif
+                </div>
+
+                <div class="shadow-lg mt-10 mb-4 bg-green-900 py-[8px] px-4 rounded">
+                    <h2 class="font-semibold text-base text-white">Produk & Publikasi</h2>
+                </div>
+
                 <div class="grid gap-6 mb-6 md:grid-cols-1">
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Produk</label>
-                        <select id="small" class="block w-full p-1 py-2 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
-                            <option value="PD">Produk</option>
-                            <option value="PT">Prototype</option>
-                            <option value="DS">Desain</option>
-                            <option value="LY">Lainnya</option>
+                        <label for="produk" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Produk</label>
+                        <select id="produk" name="produk" class="block w-full p-2 py-2 mb-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                            @foreach ($listProduk as $itemProduk)
+                                @if(old('produk', $surat->produk) == $itemProduk)
+                                    <option value="{{ $surat->produk }}" selected>{{ $surat->produk }}</option>
+                                @else
+                                    <option value="{{ $itemProduk }}">{{ $itemProduk }}</option>
+                                @endif
+                            @endforeach
+
+
                         </select>
                     </div>
                 </div>
                 <div class="grid gap-6 mb-6 md:grid-cols-1">
                     <div>
-                        <label for="last_name" class="block mb-1 text-xs font-medium text-gray-900 dark:text-white">Publikasi Ilmiah</label>
-                        <select id="small" class="block w-full p-1 py-2 mb-1 text-xs text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>Choose a country</option>
-                            <option value="JI">Jurnal Nasional ISSN</option>
-                            <option value="JT">Jurnal Nasional Terakreditasi</option>
-                            <option value="JB">Jurnal Internasional Bereputasi</option>
-                            <option value="JA">Lainnya</option>
+                        <label for="publikasi_ilmiah" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Publikasi Ilmiah</label>
+                        <select id="publikasi_ilmiah" name="publikasi_ilmiah" class="block w-full p-2 py-2 mb-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                            @foreach ($listPublikasi as $itemPublikasi)
+                                @if(old('publikasi_ilmiah', $surat->publikasi_ilmiah) == $itemPublikasi)
+                                    <option value="{{ $surat->publikasi_ilmiah }}" selected>{{ $surat->publikasi_ilmiah }}</option>
+                                @else
+                                    <option value="{{ $itemPublikasi }}">{{ $itemPublikasi }}</option>
+                                @endif
+                            @endforeach
+
                         </select>
                     </div>
                 </div>
+                <div class=" flex justify-end mt-6">
+                    <button type="Reset" class="py-[5px] px-5 mr-2 mb-2 text-base font-medium text-white focus:outline-none bg-red-600 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                        Reset
+                    </button>
+                    <button type="submit" class="py-[5px] px-5 mb-2 text-base font-medium text-white focus:outline-none bg-green-900 rounded-lg border border-gray-200 hover:bg-green-700 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-green-400 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                        Save
+                    </button>
+                </div>
             </form>
+
         </div>
 
 

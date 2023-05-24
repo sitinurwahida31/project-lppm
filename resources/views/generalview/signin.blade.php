@@ -22,9 +22,10 @@
                     <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Password">
                 </div>
-                <input type="submit" value="Sign In" class="btn">              
+                <div class="message-error text-base">@error('loginError') {{ $message }} @enderror</div>
+                <input type="submit" value="Sign In" class="btn">
             </form>
-            
+
             <form action="/signupstore" method="post" class="sign-up-form">
                 @csrf
                 <h2 class="title">Sign Up</h2>
@@ -58,22 +59,22 @@
                 </div>
                 <div class="message-error">@error('confirm_password') {{ $message }} @enderror</div>
 
-                <input type="submit" value="Sign Up" class="btn">                
+                <input type="submit" value="Sign Up" class="btn">
             </form>
         </div>
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>Member of Brand</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur necessitatibus excepturi hic nam voluptatibus dolorem.</p>
+                    <h3>LPPM</h3>
+                    <p>Lembaga Penelitian Dan Pengabdian Kepada Masyarakat Universitas Cokroaminoto Palopo</p>
                     <button class="btn" style="cursor:pointer" id="sign-in-btn">Sign In</button>
                 </div>
                 <img src="/img/signin.svg" alt="" class="image">
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>New to Brand</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur necessitatibus excepturi hic nam voluptatibus dolorem.</p>
+                    <h3>LPPM</h3>
+                    <p>Lembaga Penelitian Dan Pengabdian Kepada Masyarakat Universitas Cokroaminoto Palopo</p>
                     <button class="btn" style="cursor:pointer" id="sign-up-btn">Sign Up</button>
                 </div>
                 <img src="/img/signup.svg" alt="" class="image">

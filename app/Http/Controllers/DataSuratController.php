@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Semester;
 use App\Models\Stakeholder;
 use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
@@ -36,9 +37,15 @@ class DataSuratController extends Controller
                     ->orWhere('ketua_prodi', 'LIKE', '%' . $s . '%');
             });
         }
+        $semester = DB::table('tb_semester')->select(
+            'id',
+            'tahun_semester',
+            'nomor_semester',
+        )->get();
         // dd($stakeholder);
         return view('datasurat.data_surat', [
             'stakeholder' => $stakeholder,
+            'semester' => $semester,
             'prodi' => $prodi->paginate(10)
         ]);
     }
@@ -54,8 +61,10 @@ class DataSuratController extends Controller
     }
     public function createProdi()
     {
+        $fakultas = DB::table('tb_fakultas')->select('id', 'nama_fakultas')->get();
         return view('datasurat.createprodi', [
-            'prodi' => ""
+            'prodi' => "",
+            'fakultas' => $fakultas,
         ]);
     }
 
@@ -74,7 +83,23 @@ class DataSuratController extends Controller
             'nomor_induk_kaprodi' => 'required',
         ]);
         // dd($request->all());
-        ProgramStudi::create($request->all());
+        $prodi = [
+            'nama_prodi' => $request->nama_prodi,
+            'fakultas' => $request->fakultas,
+            'ketua_prodi' => $request->ketua_prodi,
+            'nomor_induk_kaprodi' => $request->nomor_induk_kaprodi,
+        ];
+        ProgramStudi::create($prodi);
+        return redirect('/datasurat');
+    }
+    public function storeSemester(Request $request)
+    {
+        $request->validate([
+            'tahun_semester' => 'required',
+            'nomor_semester' => 'required',
+        ]);
+        // dd($request->all());
+        Semester::create($request->all());
         return redirect('/datasurat');
     }
 
@@ -87,8 +112,11 @@ class DataSuratController extends Controller
     public function showProdi($id)
     {
         $prodi = ProgramStudi::where('id', $id)->first();
+        $fakultas = DB::table('tb_fakultas')->select('id', 'nama_fakultas')->get();
+        // dd($prodi);
         return view('datasurat.createprodi', [
-            'prodi' => $prodi
+            'prodi' => $prodi,
+            'fakultas' => $fakultas,
         ]);
     }
 
@@ -132,6 +160,11 @@ class DataSuratController extends Controller
     public function destroyProdi($id)
     {
         ProgramStudi::where('id', $id)->delete();
+        return redirect('/datasurat');
+    }
+    public function destroySemester($id)
+    {
+        Semester::where('id', $id)->delete();
         return redirect('/datasurat');
     }
 }

@@ -54,7 +54,7 @@
 
     </style>
 <body>
-    <div class="responsive-top sticky top-0 z-30 bg-yellow-400 p-5 sm:hidden">
+    {{-- <div class="responsive-top sticky top-0 z-30 bg-yellow-400 p-5 sm:hidden">
         <div class="flex justify-center bg-white p-2 rounded-lg">
             Data tabel
         </div>
@@ -62,7 +62,7 @@
             <img class="w-[300px] Logo_uncp" src="img/uncp.png" alt="Logo Universitas Cokroaminoto Palopo">
             <img src="img/icons/toggle_icons.svg" alt="toggle_dashboard" class="w-8 cursor-pointer" id="btnToggle">
         </div>
-    </div>
+    </div> --}}
 
     @include('layout.sidebar')
     <!-- Header / Profile -->
@@ -71,14 +71,11 @@
          <!-- Header / Profile -->
          @include('layout.header_admin')
 
-        <div class="bg-white h-9 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
-            {{-- <span class="text-green-700 font-bold pl-5 text-sm sm:flex ">
-                PENELITIAN / DETAIL
-            </span> --}}
+        <div class="bg-white h-10 w-auto m-6 mt-8 rounded-lg shadow-lg flex-row flex items-center">
             <span class="text-green-700 font-bold pl-5 text-base sm:flex">DETAIL DATA PENELITIAN</span>
         </div>
 
-        <div class="m-6 bg-white w-auto h-auto pl-12 pr-9 pb-8 pt-7 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
+        <div class="m-6 bg-white w-auto h-auto pl-10 pr-7 pb-8 pt-7 ml-6 mr-6 mt-8 rounded-xl shadow-lg">
             {{-- Button --}}
             <div class="mt-2 mb-20 flex justify-end">
                 <a href="/editdetailpenelitian/{{  $surat->id }}" class=" flex item-center justify-center py-2 px-3 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-red-600 rounded-lg border border-gray-200 hover:bg-red-400 hover:text-gray-200 focus:z-10 focus:ring-4 focus:ring-red-300 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
@@ -100,7 +97,8 @@
                     <p class="ml-2">Cetak Surat Pengesahan</p>
                 </a>
             </div>
-            <div class="text-base font-medium text-gray-700 mb-5">
+            {{-- detail --}}
+            <div class="text-sm font-medium text-gray-700 mb-5">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mr-8 mb-2">
                     <div class="w-full">
                         <p>Nomor Surat</p>
@@ -179,7 +177,11 @@
                     </div>
                     <div></div>
                 </div>
-                Anggota Pelaksana
+
+                {{-- anggota Pelaksana --}}
+                <div>
+                    Anggota Pelaksana
+                </div>
                 <div class="grid grid-cols-6 md:grid-cols-3 gap-0 pr-8 mb-3">
                     {{-- a --}}
                     @foreach ($anggota as $item)
@@ -192,32 +194,40 @@
                     </div>
                     <div></div>
                     @endforeach
+                </div>
 
-                    <div class="w-full mt-3">
-                        <p >Jumlah Mahasiswa/Staf/Alumni</p>
+                {{-- Jumlah staf/mhs --}}
+                <div class="grid grid-cols-3 gap-0 pr-8 mb-3">
+                    <div class="w-full">
+                        <p>Mahasiswa</p>
                     </div>
-
-                    <div class="w-full h-auto flex">
+                    {{-- <div class="w-full h-auto flex">
                         <span class="mr-1">:</span>
                         <p><span>{{$mahasiswa}}</span> Mahasiswa *<span class="italic">(Maksimal 2 Mahasiswa)</span></p>
+                    </div> --}}
+                    <div class="col-span-2">
                     </div>
-                    <div></div>
                     @foreach ($data_mahasiswa as $item)
                     <div class="w-full">
                         <p ><span class="mr-2 pl-4">{{ chr(96+ $loop->iteration) }}.</span>Nama Mahasiswa ({{  $loop->iteration }}) / NIM</p>
                     </div>
-                    <div class="w-full h-auto flex">
+                    <div class="w-full h-auto col-span-2 flex">
                         <span class="mr-1">:</span>
                         <p><span>{{ $item->nama_mahasiswa }}</span><span> / </span><span>{{ $item->nim }}</span></p>
                     </div>
-
-                    <div></div>
                     @endforeach
-
+                    <div class="w-full mt-3">
+                        <p >Jumlah Mahasiswa/Staf/Alumni</p>
+                    </div>
+                    <div class="w-full mt-3 h-auto col-span-2 flex">
+                        <span class="mr-1">:</span>
+                        <p><span>{{$mahasiswa}}</span> Mahasiswa *<span class="italic">(Minimal 2 Mahasiswa)</span></p>
+                    </div>
                 </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-0 mr-8 mb-2">
                     <div class="w-full">
-                        <p>Mitra</p>
+                        <p>Mitraa</p>
                     </div>
                     <div class="w-full flex">
                         <span class="mr-1">:</span>
