@@ -21,10 +21,6 @@ class GeneralViewController extends Controller
     }
 
     // == FUNCTION UNTUK VIEW ADMIN ==
-    public function dashboard()
-    {
-        return view('generalview.dashboard');
-    }
     public function suratTugasPenelitian()
     {
         return view('penelitian.sr_tugas_penelitian');

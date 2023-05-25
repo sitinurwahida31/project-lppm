@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\UserController;
@@ -18,7 +19,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::group(['middleware' => ['auth', 'level:admin']], function () {
     // === ROUTE ADMIN ===
-    Route::get('/dashboard', [GeneralViewController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/datauser', [UserController::class, 'index'])->name('datauser');
     Route::get('/datauser/detail/{id}', [UserController::class, 'show']);
     Route::get('/surattugas/penelitian', [SuratPenelitianController::class, 'indexAdmin']); //route data surat tugas penelitian
@@ -40,11 +41,18 @@ Route::group(['middleware' => ['auth', 'level:admin']], function () {
     // == DATA SURAT
     Route::get('/datasurat', [DataSuratController::class, 'index']);
     Route::get('/createdatasurat', [DataSuratController::class, 'createStakeholder']);
+    Route::get('/createfakultas', [DataSuratController::class, 'createFakultas']);
     Route::get('/createprodi', [DataSuratController::class, 'createProdi']);
     Route::post('/updateprodi/{id}', [DataSuratController::class, 'updateProdi']);
+    Route::post('/updatelppm/{id}', [DataSuratController::class, 'updateLppm']);
+    Route::post('/updatefakultas/{id}', [DataSuratController::class, 'updateFakultas']);
+    Route::post('/storefakultas', [DataSuratController::class, 'storeFakultas']);
     Route::post('/storeprodi', [DataSuratController::class, 'storeProdi']);
     Route::post('/storesemester', [DataSuratController::class, 'storeSemester']);
     Route::get('/editprodi/{id}', [DataSuratController::class, 'showProdi']);
+    Route::get('/editfakultas/{id}', [DataSuratController::class, 'showFakultas']);
+    Route::get('/editketualppm/{id}', [DataSuratController::class, 'showKetuaLppm']);
+    Route::post('/destroyfakultas/{id}', [DataSuratController::class, 'destroyFakultas']);
     Route::delete('/destroyprodi/{id}', [DataSuratController::class, 'destroyProdi']);
     Route::delete('/destroysemester/{id}', [DataSuratController::class, 'destroySemester']);
 

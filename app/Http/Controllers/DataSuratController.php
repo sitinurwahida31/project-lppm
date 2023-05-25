@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fakultas;
 use App\Models\Semester;
 use App\Models\Stakeholder;
 use App\Models\ProgramStudi;
@@ -37,14 +38,16 @@ class DataSuratController extends Controller
                     ->orWhere('ketua_prodi', 'LIKE', '%' . $s . '%');
             });
         }
+        $fakultas = DB::table('tb_fakultas')->where('status', '!=', 'Delete')->orWhere('status', null)->get();
         $semester = DB::table('tb_semester')->select(
             'id',
             'tahun_semester',
             'nomor_semester',
         )->get();
-        // dd($stakeholder);
+        // dd($fakultas);
         return view('datasurat.data_surat', [
             'stakeholder' => $stakeholder,
+            'fakultas' => $fakultas,
             'semester' => $semester,
             'prodi' => $prodi->paginate(10)
         ]);
@@ -68,12 +71,30 @@ class DataSuratController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function createFakultas()
+    {
+        $fakultas = Fakultas::where('id', 1)->first();
+        return view('datasurat.createfakultas', compact('fakultas'));
+    }
+
+    public function storeFakultas(Request $request)
+    {
+        $request->validate([
+            'namafakultas' => 'required',
+            'nama_dekan' => 'required',
+            'nidn_dekan' => 'required|numeric',
+        ]);
+
+        $fakultas = [
+            'nama_fakultas' => request()->namafakultas,
+            'nama_dekan' => request()->nama_dekan,
+            'nomor_induk_dekan' => request()->nidn_dekan,
+        ];
+        // dd($fakultas);
+        Fakultas::create($fakultas);
+        return redirect('/datasurat');
+    }
+    
     public function storeProdi(Request $request)
     {
         $request->validate([
@@ -119,25 +140,60 @@ class DataSuratController extends Controller
             'fakultas' => $fakultas,
         ]);
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function showKetuaLppm($id)
     {
-        //
+        $ketualppm = Stakeholder::where('id', $id)->first();
+        // dd($ketualppm);
+        return view('datasurat.editketualppm', [
+            'ketualppm' => $ketualppm,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function showFakultas($id)
+    {
+        $fakultas = Fakultas::where('id', $id)->first();
+        // dd($fakultas);
+        return view('datasurat.editfakultas', [
+            'fakultas' => $fakultas,
+        ]);
+    }
+
+    public function updateFakultas(Request $request, $id)
+    {
+        $request->validate([
+            'namafakultas' => 'required',
+            'nama_dekan' => 'required',
+            'nidn_dekan' => 'required|numeric',
+        ]);
+
+        $fakultas = [
+            'nama_fakultas' => request()->namafakultas,
+            'nama_dekan' => request()->nama_dekan,
+            'nomor_induk_dekan' => request()->nidn_dekan,
+        ];
+        // dd($fakultas);
+        Fakultas::where('id', $id)->update($fakultas);
+        return redirect('/datasurat');
+    }
+
+    public function updateLppm(Request $request, $id)
+    {
+        $request->validate([
+            'namaketualppm' => 'required',
+            'jabatan' => 'required',
+            'nidn_ketua_lppm' => 'required|numeric',
+        ]);
+        
+        $ketualppm = [
+            'nama' => request()->namaketualppm,
+            'jabatan' => request()->jabatan,
+            'nomor_induk' => request()->nidn_ketua_lppm,
+        ];
+        // dd($ketualppm);
+        Stakeholder::where('id', $id)->update($ketualppm);
+        return redirect('/datasurat');
+    }
+
     public function updateProdi(Request $request, $id)
     {
         $data = $request->validate([
@@ -151,12 +207,13 @@ class DataSuratController extends Controller
         return redirect('/datasurat');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function destroyFakultas($id)    
+    {
+        Fakultas::where('id', $id)->update([
+            'status' => 'Delete'
+        ]);
+        return redirect('/datasurat');
+    }
     public function destroyProdi($id)
     {
         ProgramStudi::where('id', $id)->delete();
